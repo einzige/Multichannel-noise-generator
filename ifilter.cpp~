@@ -1,0 +1,7 @@
+#include "ifilter.h"
+
+QImage IFilter::Apply(QImage img) const
+{
+    QMessageBox::about(NULL, "", "IFilter called");
+    return img;
+}
