@@ -4,6 +4,18 @@
 NoisePresenter::NoisePresenter(QObject *parent) : QObject(parent), model(new NoiseModel)
 {}
 
+void NoisePresenter::setChannel(QString channelName)
+{
+    Channel::Identifier channel = Channel::getChannelByName(channelName);
+
+    model->setCurrentChannel(channel);
+
+    IView *view = dynamic_cast<IView*>(sender());
+    view->displayImage(model->getChannelImage(channel));
+
+    qDebug() << "channel changed";
+}
+
 void NoisePresenter::setRate(int rate) {
     model->setRate(rate);
 }
@@ -28,8 +40,14 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(restoreImage()),
                      this,       SLOT(restoreImage()));
 
+    QObject::connect(view_obj, SIGNAL(grayscale()),
+                     this,       SLOT(grayscale()));
+
     QObject::connect(view_obj, SIGNAL(imageLoaded(const QImage&)),
                      this,       SLOT(loadImage  (const QImage&)));
+
+    QObject::connect(view_obj, SIGNAL(channelChanged(QString)),
+                     this,       SLOT(setChannel(QString)));
 
     QObject::connect(view_obj, SIGNAL(rateChanged(int)),
                      this,       SLOT(setRate(int)));
@@ -38,9 +56,16 @@ void NoisePresenter::appendView(IView *v)
                      this,       SLOT(applyImpulseFilter(Channel::Identifier, int)));
 }
 
+void NoisePresenter::grayscale()
+{
+    model->applyGrayscaleFilter();
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
+}
+
 void NoisePresenter::loadImage(const QImage &img)
 {
-    model->setImage(img);
+    model->setImage(img, true);
     refreshView();
 }
 

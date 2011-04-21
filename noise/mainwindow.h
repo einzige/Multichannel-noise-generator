@@ -17,8 +17,10 @@ public:
     ~MainWindow();
 
 signals:
+    void grayscale();
     void restoreImage();
     void rateChanged(int);
+    void channelChanged(QString);
     void imageLoaded(const QImage &img);
     void applyImpulseNoise(Channel::Identifier channel, int blackRate);
 public slots:
@@ -34,6 +36,8 @@ private:
     QLabel*         imageLabel;
 
 private slots:
+    void on_channelsBox_currentIndexChanged(QString );
+    void on_channelsBox_textChanged(QString );
     void on_applyImpulseButton_clicked();
 };
 

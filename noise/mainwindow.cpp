@@ -25,12 +25,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->centralWidget->setLayout(ui->mainLayout);
     ui->scrollArea->setBackgroundRole(QPalette::Dark);
 
-    //ui->toolsFrame->setLayout(ui->toolsLayout);
     ui->toolsDock->setWidget(ui->toolsScrollArea);
     ui->toolsLayout->setMargin(10);
     ui->toolsScrollAreaContent->setLayout(ui->toolsLayout);
-    //ui->toolsScrollArea->setWidget(ui->toolsFrame);
-
 
     ui->multiTab->setLayout(ui->multiLayout);
     ui->multiLayout->setMargin(10);
@@ -46,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->showProcessedButton, SIGNAL(clicked()), this, SIGNAL(restoreImage()));
     connect(ui->noiseDial, SIGNAL(valueChanged(int)),   this, SIGNAL(rateChanged(int)));
+    connect(ui->actionGrayscale, SIGNAL(triggered()),   this, SIGNAL(grayscale()));
 }
 
 MainWindow::~MainWindow()
@@ -98,4 +96,14 @@ void MainWindow::displayImage(const QImage &img)
 void MainWindow::on_applyImpulseButton_clicked()
 {
     emit applyImpulseNoise(Channel::R, ui->impulseBlackWhiteSlider->value());
+}
+
+void MainWindow::on_channelsBox_currentIndexChanged(QString channelName )
+{
+    emit channelChanged(channelName);
+}
+
+void MainWindow::on_channelsBox_textChanged(QString )
+{
+
 }

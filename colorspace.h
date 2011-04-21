@@ -17,7 +17,8 @@ public:
             void   addChannel(const Channel&);
             bool   containsChannel(Channel::Identifier);
             QImage getChannelImage(Channel::Identifier);
-    virtual QImage restore();
+    //virtual
+            QImage restore();
 
             void   setInactual();
             void   setActual();

@@ -24,10 +24,12 @@ private:
     QList<IView*> viewList;
 
 public slots:
+    void grayscale();
     void setRate(int);
     void restoreImage();
     void applyImpulseFilter(Channel::Identifier, int);
     void loadImage(const QImage&);
+    void setChannel(QString channelName);
 };
 
 #endif // NOISEPRESENTER_H
