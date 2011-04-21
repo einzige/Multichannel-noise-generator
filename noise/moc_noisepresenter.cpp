@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'noisepresenter.h'
 **
-** Created: Thu Apr 21 18:45:57 2011
+** Created: Thu Apr 21 23:52:11 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NoisePresenter[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,16 +32,23 @@ static const uint qt_meta_data_NoisePresenter[] = {
 
  // slots: signature, parameters, type, tag, flags
       16,   15,   15,   15, 0x0a,
-      33,   31,   15,   15, 0x0a,
-      77,   15,   15,   15, 0x0a,
+      28,   15,   15,   15, 0x0a,
+      41,   15,   15,   15, 0x0a,
+      56,   15,   15,   15, 0x0a,
+      79,   15,   15,   15, 0x0a,
+     105,   15,   15,   15, 0x0a,
+     126,   15,   15,   15, 0x0a,
+     156,  144,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_NoisePresenter[] = {
-    "NoisePresenter\0\0restoreImage()\0,\0"
-    "applyImpulseFilter(Channel::Identifier,int)\0"
-    "loadImage(QImage)\0"
+    "NoisePresenter\0\0grayscale()\0setRate(int)\0"
+    "restoreImage()\0applyImpulseNoise(int)\0"
+    "applyAdditionalNoise(int)\0"
+    "applyMultiNoise(int)\0loadImage(QImage)\0"
+    "channelName\0setChannel(QString)\0"
 };
 
 const QMetaObject NoisePresenter::staticMetaObject = {
@@ -73,12 +80,17 @@ int NoisePresenter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: restoreImage(); break;
-        case 1: applyImpulseFilter((*reinterpret_cast< Channel::Identifier(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 2: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 0: grayscale(); break;
+        case 1: setRate((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: restoreImage(); break;
+        case 3: applyImpulseNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 4: applyAdditionalNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: applyMultiNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 6: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 7: setChannel((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 3;
+        _id -= 8;
     }
     return _id;
 }

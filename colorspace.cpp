@@ -1,40 +1,40 @@
 #include "colorspace.h"
 
-QImage ColorSpace::Restore() { return QImage(); } // as a pseudo-virtual
+QImage ColorSpace::restore() { return channels[Channel::R].getImage(); } // as a pseudo-virtual// FIXME!!!
 
 ColorSpace::ColorSpace(){}
 
 ColorSpace::ColorSpace(ColorSpace::Identifier id)
 {
-    _id = id;
+    this->id = id;
 }
 
-void ColorSpace::SetImage(const QImage& img)
+void ColorSpace::setImage(const QImage& img)
 {
     foreach(Channel::Identifier cid, channels.keys())
     {
-        channels[cid].FetchFrom(img);
+        channels[cid].fetchFrom(img);
     }
 }
 
-void ColorSpace::AddChannel(const Channel &c)
+void ColorSpace::addChannel(const Channel &c)
 {
-    channels[c.GetID()] = c;
+    channels[c.getID()] = c;
 }
 
-bool ColorSpace::ContainsChannel(Channel::Identifier cid)
+bool ColorSpace::containsChannel(Channel::Identifier cid)
 {
     return channels.contains(cid);
 }
 
-QImage ColorSpace::GetChannelImage(Channel::Identifier id)
+QImage ColorSpace::getChannelImage(Channel::Identifier id)
 {
-    return channels[id].GetImage();
+    return channels[id].getImage();
 }
 
-void ColorSpace::ApplyFilter(IFilter *f, Channel::Identifier id)
+void ColorSpace::applyFilter(IFilter *f, Channel::Identifier id)
 {
-    channels[id].ApplyFilter(f);
+    channels[id].applyFilter(f);
 }
 
-ColorSpace::Identifier ColorSpace::GetId(){ return _id; }
+ColorSpace::Identifier ColorSpace::getId(){ return id; }

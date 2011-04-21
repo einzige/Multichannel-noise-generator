@@ -10,68 +10,79 @@
 #include "filters/lightnessfilter.h"
 #include "filters/multinoise.h"
 
+#include "colorspaces/hlscs.h"
+#include "colorspaces/rgbcs.h"
+
 #include <assert.h>
 
 Model::Model(){}
 Model::Model(const QImage& img)
 {
-    SetImage(img);
+    setImage(img);
 }
 
-void Model::SetImage(const QImage& img)
+void Model::setImage(const QImage& img, bool replaceSource)
 {
-    if(mSourceImage.isNull())
-        mSourceImage = img;
+    if(sourceImage.isNull() || replaceSource)
+        sourceImage = img;
 
-    mImage = img;
+    this->image = img;
 
     // each colorspace needs to recalc channels
-    //
-    foreach (ColorSpace::Identifier csid, mColorSpaces.keys())
+    foreach (ColorSpace::Identifier csid, colorSpaces.keys())
     {
-        mColorSpaces[csid].SetImage(img);
+        colorSpaces[csid].setImage(img);
     }
 }
 
-void Model::AddColorSpace(ColorSpace cs)
+void Model::addColorSpace(ColorSpace cs)
 {
-    mColorSpaces[cs.GetId()] = cs;
-    mColorSpaces[cs.GetId()].SetImage(mImage);
+    colorSpaces[cs.getId()] = cs;
+    colorSpaces[cs.getId()].setImage(image);
 }
 
-QImage Model::GetSourceImage()      { return mSourceImage; }
-QImage Model::GetImage()            { return mImage;       }
+QImage Model::getSourceImage()      { return sourceImage; }
+QImage Model::getImage()            { return image;       }
 
-void Model::ResetImage()            { SetImage(mSourceImage);     }
-void Model::ApplyFilter(IFilter* f) { SetImage(f->Apply(mImage)); }
+void Model::resetImage()            { setImage(sourceImage);     }
+void Model::applyFilter(IFilter* f) { setImage(f->apply(image)); }
 
 
-void Model::ApplyFilter(IFilter* f, Channel::Identifier channel_id)
+
+void Model::applyFilter(IFilter* f, Channel::Identifier channel_id)
 {
     if(channel_id == Channel::UNDEFINED)
     {
-        ApplyFilter(f, channel_id);
+        applyFilter(f);
         return;
     }
 
-    ColorSpace* cs = GetCSByChannel(channel_id);
+    ColorSpace* cs = getCSByChannel(channel_id);
 
     // apply filter to the given channel
-    cs->ApplyFilter(f, channel_id);
+    cs->applyFilter(f, channel_id);
 
     // restore image by the new channel data
-    SetImage(cs->Restore());
+    if(cs->getId() == ColorSpace::HLS)
+        setImage(((HLSCS*)cs)->restore());
+    else
+        if(cs->getId() == ColorSpace::RGB)
+            setImage(((RGBCS*)cs)->restore());
 }
 
-QImage Model::GetChannelImage(Channel::Identifier id)
+QImage Model::getChannelImage(Channel::Identifier id)
 {
-    return GetCSByChannel(id)->GetChannelImage(id);
+    if(id == Channel::UNDEFINED) return getImage();
+
+    return getCSByChannel(id)->getChannelImage(id);
 }
 
-ColorSpace* Model::GetCSByChannel(Channel::Identifier id)
+ColorSpace* Model::getCSByChannel(Channel::Identifier id)
 {
-    foreach(ColorSpace::Identifier csid, mColorSpaces.keys())
-        if(mColorSpaces[csid].ContainsChannel(id)) return &mColorSpaces[csid];
+    foreach(ColorSpace::Identifier csid, colorSpaces.keys())
+    {
+        if(colorSpaces[csid].containsChannel(id)) return &colorSpaces[csid];
+    }
 
     return NULL;
 }

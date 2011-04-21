@@ -2,16 +2,16 @@
 
 HLSCS::HLSCS(ColorSpace::Identifier id) : ColorSpace(id)
 {
-    AddChannel(Channel(Channel::H, new HueFilter()));
-    AddChannel(Channel(Channel::L, new LightnessFilter()));
-    AddChannel(Channel(Channel::S, new SaturationFilter()));
+    addChannel(Channel(Channel::H, new HueFilter()));
+    addChannel(Channel(Channel::L, new LightnessFilter()));
+    addChannel(Channel(Channel::S, new SaturationFilter()));
 }
 
 QImage HLSCS::restore()
 {
-    QImage h(channels[Channel::H].GetImage());
-    QImage l(channels[Channel::L].GetImage());
-    QImage s(channels[Channel::S].GetImage());
+    QImage h(channels[Channel::H].getImage());
+    QImage l(channels[Channel::L].getImage());
+    QImage s(channels[Channel::S].getImage());
 
     int w    = h.width();
     int hh   = h.height();

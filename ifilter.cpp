@@ -1,6 +1,6 @@
 #include "ifilter.h"
 
-QImage IFilter::Apply(QImage img) const
+QImage IFilter::apply(QImage img) const
 {
     return img;
 }

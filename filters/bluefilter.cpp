@@ -1,6 +1,6 @@
 #include "bluefilter.h"
 
-QImage BlueFilter::Apply(QImage img) const
+QImage BlueFilter::apply(QImage img) const
 {
     for (int x = 0; x < img.width(); x++)
         for(int y = 0; y < img.height(); y++)

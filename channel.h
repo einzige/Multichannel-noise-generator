@@ -2,6 +2,7 @@
 #define CHANNEL_H
 
 #include "ifilter.h"
+#include <QString>
 
 class Channel
 {
@@ -14,16 +15,18 @@ public:
     Channel(Channel::Identifier, IFilter*);
     Channel(Channel::Identifier, IFilter*, const QImage&);
 
-    IFilter*   GetFilter();
-    Identifier GetID() const;
-    void       FetchFrom(const QImage&);
-    QImage     GetImage();
-    void       ApplyFilter(IFilter*);
+    IFilter*   getFilter();
+    Identifier getID() const;
+    void       fetchFrom(const QImage&);
+    QImage     getImage();
+    void       applyFilter(IFilter*);
+
+    static Channel::Identifier getChannelByName(const QString& name);
 
 private:
-    IFilter*   mFilter;
-    Identifier mIdentifier;
-    QImage     mImage;
+    IFilter*   filter;
+    Identifier identifier;
+    QImage     image;
 };
 
 #endif // CHANNEL_H

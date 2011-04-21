@@ -2,7 +2,7 @@
 #include <QDebug>
 #include "../helpers/color.h"
 
-QImage HueFilter::Apply(QImage img) const
+QImage HueFilter::apply(QImage img) const
 {
     for (int x = 0; x < img.width(); x++)
         for(int y = 0; y < img.height(); y++)
