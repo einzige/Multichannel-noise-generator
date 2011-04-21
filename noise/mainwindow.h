@@ -21,6 +21,7 @@ signals:
     void restoreImage();
     void rateChanged(int);
     void channelChanged(QString);
+    void showHist();
     void imageLoaded(const QImage &img);
     void applyImpulseNoise(int blackRate);
     void applyAdditionalNoise(int maxDiff);

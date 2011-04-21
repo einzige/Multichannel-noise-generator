@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Apr 21 23:53:13 2011
+** Created: Fri Apr 22 00:45:56 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -47,6 +47,7 @@ public:
     QAction *loadAction;
     QAction *exitAction;
     QAction *actionGrayscale;
+    QAction *histAction;
     QWidget *centralWidget;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *mainLayout;
@@ -130,6 +131,8 @@ public:
         exitAction->setObjectName(QString::fromUtf8("exitAction"));
         actionGrayscale = new QAction(MainWindow);
         actionGrayscale->setObjectName(QString::fromUtf8("actionGrayscale"));
+        histAction = new QAction(MainWindow);
+        histAction->setObjectName(QString::fromUtf8("histAction"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayoutWidget = new QWidget(centralWidget);
@@ -598,6 +601,7 @@ public:
         menu->addAction(loadAction);
         menu->addSeparator();
         menu->addAction(exitAction);
+        menu_2->addAction(histAction);
         menu_4->addAction(actionGrayscale);
 
         retranslateUi(MainWindow);
@@ -622,6 +626,7 @@ public:
         loadAction->setText(QApplication::translate("MainWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", 0, QApplication::UnicodeUTF8));
         exitAction->setText(QApplication::translate("MainWindow", "\320\222\321\213\321\205\320\276\320\264", 0, QApplication::UnicodeUTF8));
         actionGrayscale->setText(QApplication::translate("MainWindow", "Grayscale", 0, QApplication::UnicodeUTF8));
+        histAction->setText(QApplication::translate("MainWindow", "\320\223\320\270\321\201\321\202\320\276\320\263\321\200\320\260\320\274\320\274\320\260 \320\272\320\260\320\275\320\260\320\273\320\260", 0, QApplication::UnicodeUTF8));
         menu->setTitle(QApplication::translate("MainWindow", "\320\244\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
         menu_2->setTitle(QApplication::translate("MainWindow", "\320\236\321\202\321\207\320\265\321\202", 0, QApplication::UnicodeUTF8));
         menu_3->setTitle(QApplication::translate("MainWindow", "\320\237\320\276\320\274\320\276\321\211\321\214", 0, QApplication::UnicodeUTF8));

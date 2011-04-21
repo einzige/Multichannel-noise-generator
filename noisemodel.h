@@ -25,6 +25,8 @@ public:
     void applyMultiNoise(int coef);
     void applyGrayscaleFilter();
 
+    QImage hist();
+
     void setRate(int rate);
     void setCurrentChannel(Channel::Identifier channel);
 

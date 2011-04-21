@@ -3,6 +3,7 @@
 #include "filters/additivenoise.h"
 #include "filters/multinoise.h"
 #include "filters/grayscalefilter.h"
+#include "filters/hist.h"
 
 #include <QDebug>
 
@@ -68,4 +69,10 @@ void NoiseModel::applyGrayscaleFilter()
 {
     GrayscaleFilter *f = new GrayscaleFilter();
     applyFilter(f);
+}
+
+QImage NoiseModel::hist()
+{
+    HistFilter *f = new HistFilter();
+    return f->apply(getChannelImage(this->currentChannel));
 }

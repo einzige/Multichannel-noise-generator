@@ -32,6 +32,7 @@ public slots:
     void applyMultiNoise(int);
     void loadImage(const QImage&);
     void setChannel(QString channelName);
+    void showHist();
 };
 
 #endif // NOISEPRESENTER_H

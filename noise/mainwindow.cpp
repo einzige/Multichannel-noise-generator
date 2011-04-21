@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->showProcessedButton, SIGNAL(clicked()), this, SIGNAL(restoreImage()));
     connect(ui->noiseDial, SIGNAL(valueChanged(int)),   this, SIGNAL(rateChanged(int)));
     connect(ui->actionGrayscale, SIGNAL(triggered()),   this, SIGNAL(grayscale()));
+    connect(ui->histAction, SIGNAL(triggered()),        this, SIGNAL(showHist()));
 }
 
 MainWindow::~MainWindow()
