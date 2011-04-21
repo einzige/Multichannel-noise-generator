@@ -6,7 +6,7 @@
 class SaturationFilter : public IFilter
 {
 public:
-    QImage Apply(QImage) const; // FIXME: remove me
+    QImage apply(QImage) const; // FIXME: remove me
 };
 
 #endif // SATURATIONFILTER_H

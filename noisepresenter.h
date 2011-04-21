@@ -14,17 +14,17 @@ class NoisePresenter : public QObject
 
 public:
     explicit NoisePresenter(QObject *parent = 0);
-
     void appendView(IView *v);
 
 private:
     void refreshView() const;
     void refreshView(IView* v) const;
 
-    NoiseModel* mModel;
-    QList<IView*> mViewList;
+    NoiseModel* model;
+    QList<IView*> viewList;
 
 public slots:
+    void setRate(int);
     void restoreImage();
     void applyImpulseFilter(Channel::Identifier, int);
     void loadImage(const QImage&);

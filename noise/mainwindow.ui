@@ -294,6 +294,9 @@ font-size:12pt;
                <property name="numDigits">
                 <number>3</number>
                </property>
+               <property name="intValue" stdset="0">
+                <number>1</number>
+               </property>
               </widget>
              </item>
              <item>
@@ -319,8 +322,14 @@ font-size:12pt;
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
+               <property name="minimum">
+                <number>1</number>
+               </property>
                <property name="maximum">
                 <number>100</number>
+               </property>
+               <property name="sliderPosition">
+                <number>1</number>
                </property>
                <property name="tracking">
                 <bool>true</bool>

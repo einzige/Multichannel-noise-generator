@@ -6,7 +6,7 @@
 class BlueFilter : public IFilter
 {
 public:
-    QImage Apply(QImage) const;
+    QImage apply(QImage) const;
 };
 
 #endif // BLUEFILTER_H

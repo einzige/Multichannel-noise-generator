@@ -8,7 +8,7 @@
 class IFilter
 {
 public:
-    virtual QImage Apply(QImage) const;
+    virtual QImage apply(QImage) const;
 };
 
 #endif // IFILTER_H

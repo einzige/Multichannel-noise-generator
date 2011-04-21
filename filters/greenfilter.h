@@ -6,7 +6,7 @@
 class GreenFilter : public IFilter
 {
 public:
-    QImage Apply(QImage) const;
+    QImage apply(QImage) const;
 };
 
 #endif // GREENFILTER_H

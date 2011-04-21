@@ -76,7 +76,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-IjsBuDU4la,guid=fa4c1613d5c8bc7c4c576a4d4d5de241</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-KLhoZ5M8du,guid=738cfbb456f4840a5a997bca4dafa944</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -84,13 +84,14 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-Z9iIyg</value>
-    <value type="QString">GNOME_KEYRING_PID=1674</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-wmtord/S.gpg-agent:1734:1</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-G58fYt</value>
+    <value type="QString">GNOME_KEYRING_PID=1844</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-kYzzoJ/S.gpg-agent:1904:1</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/szinin</value>
-    <value type="QString">LANG=en_US.utf8</value>
-    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LANG=ru_RU.UTF-8</value>
+    <value type="QString">LANGUAGE=en_US:en</value>
+    <value type="QString">LC_MESSAGES=en_US.UTF-8</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
     <value type="QString">LIBGL_DRIVERS_PATH=/usr/lib/fglrx/dri</value>
     <value type="QString">LOGNAME=szinin</value>
@@ -99,17 +100,17 @@
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/szinin</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/szinin-laptop:@/tmp/.ICE-unix/1692,unix/szinin-laptop:/tmp/.ICE-unix/1692</value>
+    <value type="QString">SESSION_MANAGER=local/szinin-laptop:@/tmp/.ICE-unix/1862,unix/szinin-laptop:/tmp/.ICE-unix/1862</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1733</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-Z9iIyg/ssh</value>
+    <value type="QString">SSH_AGENT_PID=1903</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-G58fYt/ssh</value>
     <value type="QString">USER=szinin</value>
     <value type="QString">USERNAME=szinin</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-szinin-8qjs2f/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-szinin-70famR/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=1c6477dc67dac71d295059554c46debe-1297998401.145156-587824039</value>
+    <value type="QString">XDG_SESSION_COOKIE=1c6477dc67dac71d295059554c46debe-1303357764.382523-1816111203</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">/home/szinin/university/noise/noise/noise.pro</value>
@@ -128,7 +129,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-IjsBuDU4la,guid=fa4c1613d5c8bc7c4c576a4d4d5de241</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-KLhoZ5M8du,guid=738cfbb456f4840a5a997bca4dafa944</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -136,13 +137,14 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-Z9iIyg</value>
-    <value type="QString">GNOME_KEYRING_PID=1674</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-wmtord/S.gpg-agent:1734:1</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-G58fYt</value>
+    <value type="QString">GNOME_KEYRING_PID=1844</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-kYzzoJ/S.gpg-agent:1904:1</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/szinin</value>
-    <value type="QString">LANG=en_US.utf8</value>
-    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LANG=ru_RU.UTF-8</value>
+    <value type="QString">LANGUAGE=en_US:en</value>
+    <value type="QString">LC_MESSAGES=en_US.UTF-8</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
     <value type="QString">LIBGL_DRIVERS_PATH=/usr/lib/fglrx/dri</value>
     <value type="QString">LOGNAME=szinin</value>
@@ -151,17 +153,17 @@
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/szinin</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/szinin-laptop:@/tmp/.ICE-unix/1692,unix/szinin-laptop:/tmp/.ICE-unix/1692</value>
+    <value type="QString">SESSION_MANAGER=local/szinin-laptop:@/tmp/.ICE-unix/1862,unix/szinin-laptop:/tmp/.ICE-unix/1862</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1733</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-Z9iIyg/ssh</value>
+    <value type="QString">SSH_AGENT_PID=1903</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-G58fYt/ssh</value>
     <value type="QString">USER=szinin</value>
     <value type="QString">USERNAME=szinin</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-szinin-8qjs2f/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-szinin-70famR/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=1c6477dc67dac71d295059554c46debe-1297998401.145156-587824039</value>
+    <value type="QString">XDG_SESSION_COOKIE=1c6477dc67dac71d295059554c46debe-1303357764.382523-1816111203</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">

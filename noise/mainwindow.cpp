@@ -13,13 +13,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // canvas
-    mImageLabel = new QLabel("Загрузите изображение");
-    mImageLabel->setBackgroundRole(QPalette::Dark);
+    imageLabel = new QLabel("Загрузите изображение");
+    imageLabel->setBackgroundRole(QPalette::Dark);
 
-    ui->scrollArea->setWidget(mImageLabel);
+    ui->scrollArea->setWidget(imageLabel);
 
-    mImageLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-    mImageLabel->setBackgroundRole(QPalette::Base);
+    imageLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    imageLabel->setBackgroundRole(QPalette::Base);
 
     // layouts
     ui->centralWidget->setLayout(ui->mainLayout);
@@ -44,7 +44,8 @@ MainWindow::MainWindow(QWidget *parent) :
     // signals & slots
     connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadImage()));
 
-    connect(ui->showProcessedButton, SIGNAL(clicked()), this, SIGNAL(RestoreImage()));
+    connect(ui->showProcessedButton, SIGNAL(clicked()), this, SIGNAL(restoreImage()));
+    connect(ui->noiseDial, SIGNAL(valueChanged(int)),   this, SIGNAL(rateChanged(int)));
 }
 
 MainWindow::~MainWindow()
@@ -70,31 +71,31 @@ void MainWindow::loadImage()
 
     if ( ! file_name.isEmpty())
     {
-        mSourceImage = QImage(file_name);
-        if (mSourceImage.isNull())
+        sourceImage = QImage(file_name);
+        if (sourceImage.isNull())
         {
             QMessageBox::information(this, tr("Image Viewer"), tr("Cannot load %1.").arg(file_name));
             return;
         }
-        if (mSourceImage.width() > 800)
+        if (sourceImage.width() > 800)
         {
-            QPixmap mp = QPixmap::fromImage(mSourceImage);
+            QPixmap mp = QPixmap::fromImage(sourceImage);
             mp = mp.scaledToWidth(800, Qt::SmoothTransformation);
-            mSourceImage = mp.toImage();
+            sourceImage = mp.toImage();
         }
 
-        DisplayImage(mSourceImage);
-        emit ImageLoaded(mSourceImage);
+        displayImage(sourceImage);
+        emit imageLoaded(sourceImage);
     }
 }
 
-void MainWindow::DisplayImage(const QImage &img)
+void MainWindow::displayImage(const QImage &img)
 {
-    mImageLabel->setPixmap(QPixmap::fromImage(img));
-    mImageLabel->adjustSize();
+    imageLabel->setPixmap(QPixmap::fromImage(img));
+    imageLabel->adjustSize();
 }
 
 void MainWindow::on_applyImpulseButton_clicked()
 {
-    emit ApplyImpulseNoise(Channel::R, 50);
+    emit applyImpulseNoise(Channel::R, ui->impulseBlackWhiteSlider->value());
 }

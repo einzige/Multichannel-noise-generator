@@ -6,7 +6,7 @@
 class RedFilter : public IFilter
 {
 public:
-    QImage Apply(QImage) const;
+    QImage apply(QImage) const;
 };
 
 #endif // REDFILTER_H

@@ -4,8 +4,8 @@
 
 void NoiseModel::reset()
 {
-    mCurrentChannel = Channel::UNDEFINED;
-    mRate = 50;
+    currentChannel = Channel::UNDEFINED;
+    rate = 1;
 }
 
 NoiseModel::NoiseModel() : Model()
@@ -17,17 +17,21 @@ NoiseModel::NoiseModel(const QImage &img)
 {
     reset();
 
-    AddColorSpace(RGBCS());
-    AddColorSpace(HLSCS());
+    addColorSpace(RGBCS());
+    addColorSpace(HLSCS());
 
-    SetImage(img);
+    setImage(img);
 }
 
 void NoiseModel::applyImpulseNoise(int blackRate)
 {
-    ImpulseNoise *f = new ImpulseNoise(mRate, blackRate);
-    f->setRate(mRate);
-    ApplyFilter(f);
+    ImpulseNoise *f = new ImpulseNoise(rate, blackRate);
+    f->setRate(rate);
+    applyFilter(f);
 
     qDebug() << "NoiseFilter applied";
+}
+
+void NoiseModel::setRate(int rate) {
+    this->rate = rate;
 }

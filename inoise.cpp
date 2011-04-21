@@ -9,5 +9,5 @@ INoise::INoise(unsigned int rate = 10)
 void INoise::setRate(unsigned int rate)
 {
     assert(rate > 0 && rate < 101);
-    mRate = rate;
+    this->rate = rate;
 }

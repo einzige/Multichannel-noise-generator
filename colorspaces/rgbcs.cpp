@@ -2,16 +2,16 @@
 
 RGBCS::RGBCS(ColorSpace::Identifier id) : ColorSpace(id)
 {
-    AddChannel(Channel(Channel::R, new RedFilter()));
-    AddChannel(Channel(Channel::G, new GreenFilter()));
-    AddChannel(Channel(Channel::B, new BlueFilter()));
+    addChannel(Channel(Channel::R, new RedFilter()));
+    addChannel(Channel(Channel::G, new GreenFilter()));
+    addChannel(Channel(Channel::B, new BlueFilter()));
 }
 
 QImage RGBCS::restore()
 {
-    QImage r(channels[Channel::R].GetImage());
-    QImage g(channels[Channel::G].GetImage());
-    QImage b(channels[Channel::B].GetImage());
+    QImage r(channels[Channel::R].getImage());
+    QImage g(channels[Channel::G].getImage());
+    QImage b(channels[Channel::B].getImage());
 
     int w    = r.width();
     int h    = r.height();

@@ -1,43 +1,66 @@
 #include "noisepresenter.h"
 #include <QDebug>
 
-NoisePresenter::NoisePresenter(QObject *parent) : QObject(parent), mModel(new NoiseModel)
+NoisePresenter::NoisePresenter(QObject *parent) : QObject(parent), model(new NoiseModel)
 {}
+
+void NoisePresenter::setRate(int rate) {
+    model->setRate(rate);
+}
 
 void NoisePresenter::applyImpulseFilter(Channel::Identifier, int blackRate)
 {
-    mModel->applyImpulseNoise(blackRate);
+    qDebug() << blackRate;
+    model->applyImpulseNoise(blackRate);
+    IView *view = dynamic_cast<IView*>(sender());
+
+    refreshView(view);
 }
 
 void NoisePresenter::appendView(IView *v)
 {
-    if(mViewList.contains(v)) return;
+    if(viewList.contains(v)) return;
 
-    mViewList.append(v);
+    viewList.append(v);
 
     QObject *view_obj = dynamic_cast<QObject*>(v);
 
-    QObject::connect(view_obj, SIGNAL(RestoreImage()),
+    QObject::connect(view_obj, SIGNAL(restoreImage()),
                      this,       SLOT(restoreImage()));
 
-    QObject::connect(view_obj, SIGNAL(ImageLoaded(const QImage&)),
+    QObject::connect(view_obj, SIGNAL(imageLoaded(const QImage&)),
                      this,       SLOT(loadImage  (const QImage&)));
 
-    QObject::connect(view_obj, SIGNAL(ApplyImpulseNoise (Channel::Identifier, int)),
+    QObject::connect(view_obj, SIGNAL(rateChanged(int)),
+                     this,       SLOT(setRate(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyImpulseNoise (Channel::Identifier, int)),
                      this,       SLOT(applyImpulseFilter(Channel::Identifier, int)));
 }
 
 void NoisePresenter::loadImage(const QImage &img)
 {
-    mModel->SetImage(img);
+    model->setImage(img);
+    refreshView();
+}
+
+void NoisePresenter::refreshView(IView *v) const {
+    v->displayImage(model->getImage());
+}
+
+void NoisePresenter::refreshView() const
+{
+    for (QList<IView*>::const_iterator it = viewList.constBegin();
+    it != viewList.constEnd(); ++it) {
+        refreshView(*it);
+    }
 }
 
 void NoisePresenter::restoreImage()
 {
     qDebug() << "----RESTORING----";
+    model->resetImage();
 
     IView *view = dynamic_cast<IView*>(sender());
-    mModel->ResetImage();
-
-    view->DisplayImage(mModel->GetImage());
+    refreshView(view);
 }
