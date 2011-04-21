@@ -17,21 +17,21 @@ public:
     ~MainWindow();
 
 signals:
-    void RestoreImage();
-    void RateChanged(int);
-    void ImageLoaded(const QImage &img);
-    void ApplyImpulseNoise(Channel::Identifier channel, int blackRate);
+    void restoreImage();
+    void rateChanged(int);
+    void imageLoaded(const QImage &img);
+    void applyImpulseNoise(Channel::Identifier channel, int blackRate);
 public slots:
     void loadImage();
-    void DisplayImage(const QImage &img);
+    void displayImage(const QImage &img);
 
 protected:
     void changeEvent(QEvent *e);
 
 private:
     Ui::MainWindow *ui;
-    QImage          mSourceImage;
-    QLabel*         mImageLabel;
+    QImage          sourceImage;
+    QLabel*         imageLabel;
 
 private slots:
     void on_applyImpulseButton_clicked();

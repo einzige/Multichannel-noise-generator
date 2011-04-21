@@ -11,7 +11,7 @@ public:
     void setRate(unsigned int);
 
 protected:
-    unsigned int mRate;
+    unsigned int rate;
 };
 
 #endif // INOISE_H

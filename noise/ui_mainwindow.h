@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Apr 21 19:29:58 2011
+** Created: Thu Apr 21 20:02:42 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -254,6 +254,7 @@ public:
         lcdNumber->setFrameShape(QFrame::NoFrame);
         lcdNumber->setLineWidth(1);
         lcdNumber->setNumDigits(3);
+        lcdNumber->setProperty("intValue", QVariant(1));
 
         horizontalLayout->addWidget(lcdNumber);
 
@@ -265,7 +266,9 @@ public:
         noiseDial->setLayoutDirection(Qt::LeftToRight);
         noiseDial->setAutoFillBackground(false);
         noiseDial->setStyleSheet(QString::fromUtf8(""));
+        noiseDial->setMinimum(1);
         noiseDial->setMaximum(100);
+        noiseDial->setSliderPosition(1);
         noiseDial->setTracking(true);
         noiseDial->setInvertedAppearance(false);
         noiseDial->setInvertedControls(false);

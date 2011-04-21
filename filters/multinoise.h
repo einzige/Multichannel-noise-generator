@@ -9,10 +9,10 @@ class MultiNoise : public INoise
 {
 public:
     MultiNoise(unsigned int rate = 100, float multiplier = 0.9);
-    QImage Apply(QImage) const;
+    QImage apply(QImage) const;
 
 private:
-    float mMuiltiplier;
+    float multiplier;
 };
 
 #endif // MULTINOISE_H

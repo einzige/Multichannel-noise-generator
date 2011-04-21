@@ -20,8 +20,8 @@ private:
     void refreshView() const;
     void refreshView(IView* v) const;
 
-    NoiseModel* mModel;
-    QList<IView*> mViewList;
+    NoiseModel* model;
+    QList<IView*> viewList;
 
 public slots:
     void setRate(int);

@@ -26,8 +26,8 @@ public:
 protected:
     void reset();
 
-    int                 mRate;
-    Channel::Identifier mCurrentChannel;
+    int                 rate;
+    Channel::Identifier currentChannel;
 };
 
 #endif // NOISEMODEL_H

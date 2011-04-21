@@ -4,15 +4,15 @@
 
 MultiNoise::MultiNoise(unsigned int rate, float multiplier) : INoise(rate)
 {
-    mMuiltiplier = multiplier;
+    this->multiplier = multiplier;
 }
 
-QImage MultiNoise::Apply(QImage img) const
+QImage MultiNoise::apply(QImage img) const
 {
     float w = img.width();
     float h = img.height();
 
-    int r = floor(w * h * mRate/100);
+    int r = floor(w * h * rate/100);
 
     for (int i = 0; i < r; i++)
     {
@@ -20,9 +20,9 @@ QImage MultiNoise::Apply(QImage img) const
 
         QColor c(img.pixel(p));
 
-        int r = floor(c.red()   * mMuiltiplier);
-        int g = floor(c.green() * mMuiltiplier);
-        int b = floor(c.blue()  * mMuiltiplier);
+        int r = floor(c.red()   * multiplier);
+        int g = floor(c.green() * multiplier);
+        int b = floor(c.blue()  * multiplier);
 
         img.setPixel(p, assertRGBColor(r, g, b).rgba());
     }

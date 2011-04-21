@@ -1,6 +1,6 @@
 #include "saturationfilter.h"
 
-QImage SaturationFilter::Apply(QImage img) const
+QImage SaturationFilter::apply(QImage img) const
 {
     for (int x = 0; x < img.width(); x++)
         for(int y = 0; y < img.height(); y++)

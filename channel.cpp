@@ -6,38 +6,38 @@ Channel::Channel(){}
 
 Channel::Channel(Channel::Identifier id, IFilter* f)
 {
-    mFilter = f;
-    mIdentifier = id;
+    filter = f;
+    identifier = id;
 }
 
 Channel::Channel(Channel::Identifier id, IFilter *f, const QImage &img)
 {
-    mFilter = f;
-    mIdentifier = id;
-    mImage = mFilter->Apply(img); // FIXME: dry
+    filter = f;
+    identifier = id;
+    image = filter->apply(img); // FIXME: dry
 }
 
-IFilter* Channel::GetFilter()
+IFilter* Channel::getFilter()
 {
-    return mFilter;
+    return filter;
 }
 
-Channel::Identifier Channel::GetID() const
+Channel::Identifier Channel::getID() const
 {
-    return mIdentifier;
+    return identifier;
 }
 
-void Channel::FetchFrom(const QImage& img)
+void Channel::fetchFrom(const QImage& img)
 {
-    mImage = mFilter->Apply(img);
+    image = filter->apply(img);
 }
 
-QImage Channel::GetImage()
+QImage Channel::getImage()
 {
-    return mImage;
+    return image;
 }
 
-void Channel::ApplyFilter(IFilter *f)
+void Channel::applyFilter(IFilter *f)
 {
-    mImage = f->Apply(mImage);
+    image = f->apply(image);
 }

@@ -10,11 +10,11 @@ public:
                   unsigned int maxMinus = 20,
                   unsigned int maxPlus  = 20);
 
-    QImage Apply(QImage) const;
+    QImage apply(QImage) const;
 
 private:
-    unsigned int mMaxMinus;
-    unsigned int mMaxPlus;
+    unsigned int maxMinus;
+    unsigned int maxPlus;
 };
 
 #endif // ADDITIVENOISE_H
