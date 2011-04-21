@@ -36,6 +36,14 @@ void NoisePresenter::applyAdditionalNoise(int maxDiff)
     refreshView(view);
 }
 
+void NoisePresenter::applyMultiNoise(int coef)
+{
+    model->applyMultiNoise(coef);
+    IView *view = dynamic_cast<IView*>(sender());
+
+    refreshView(view);
+}
+
 void NoisePresenter::appendView(IView *v)
 {
     if(viewList.contains(v)) return;
@@ -64,6 +72,9 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyAdditionalNoise(int)),
                      this,       SLOT(applyAdditionalNoise(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyMultiNoise(int)),
+                     this,       SLOT(applyMultiNoise(int)));
 }
 
 void NoisePresenter::grayscale()
