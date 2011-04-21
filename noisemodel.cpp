@@ -9,14 +9,17 @@ void NoiseModel::reset()
 }
 
 NoiseModel::NoiseModel() : Model()
-{ reset(); }
+{
+    reset();
+    addColorSpace(RGBCS());
+    addColorSpace(HLSCS());
+}
 
 // FIXME to call parent class Model
 //
 NoiseModel::NoiseModel(const QImage &img)
 {
     reset();
-
     addColorSpace(RGBCS());
     addColorSpace(HLSCS());
 
@@ -34,4 +37,8 @@ void NoiseModel::applyImpulseNoise(int blackRate)
 
 void NoiseModel::setRate(int rate) {
     this->rate = rate;
+}
+
+void NoiseModel::setCurrentChannel(Channel::Identifier channel) {
+    this->currentChannel = channel;
 }

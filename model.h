@@ -20,7 +20,7 @@ public:
     void   applyFilter(IFilter*);
     void   applyFilter(IFilter*, Channel::Identifier);
 
-    void   setImage(const QImage&);
+    void   setImage(const QImage&, bool replaceSource = false);
     void   resetImage();
 
     void   addColorSpace(ColorSpace cs);

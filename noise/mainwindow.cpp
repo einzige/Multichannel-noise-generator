@@ -99,3 +99,13 @@ void MainWindow::on_applyImpulseButton_clicked()
 {
     emit applyImpulseNoise(Channel::R, ui->impulseBlackWhiteSlider->value());
 }
+
+void MainWindow::on_channelsBox_currentIndexChanged(QString channelName )
+{
+    emit channelChanged(channelName);
+}
+
+void MainWindow::on_channelsBox_textChanged(QString )
+{
+
+}

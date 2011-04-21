@@ -18,9 +18,9 @@ Model::Model(const QImage& img)
     setImage(img);
 }
 
-void Model::setImage(const QImage& img)
+void Model::setImage(const QImage& img, bool replaceSource)
 {
-    if(sourceImage.isNull())
+    if(sourceImage.isNull() || replaceSource)
         sourceImage = img;
 
     this->image = img;
@@ -65,13 +65,21 @@ void Model::applyFilter(IFilter* f, Channel::Identifier channel_id)
 
 QImage Model::getChannelImage(Channel::Identifier id)
 {
+    if(id == Channel::UNDEFINED) return getImage();
+
     return getCSByChannel(id)->getChannelImage(id);
 }
 
+#include <qdebug.h>
+
 ColorSpace* Model::getCSByChannel(Channel::Identifier id)
 {
+    qDebug() << colorSpaces.keys().count();
+
     foreach(ColorSpace::Identifier csid, colorSpaces.keys())
+    {
         if(colorSpaces[csid].containsChannel(id)) return &colorSpaces[csid];
+    }
 
     return NULL;
 }

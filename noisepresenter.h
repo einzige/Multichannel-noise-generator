@@ -28,6 +28,7 @@ public slots:
     void restoreImage();
     void applyImpulseFilter(Channel::Identifier, int);
     void loadImage(const QImage&);
+    void setChannel(QString channelName);
 };
 
 #endif // NOISEPRESENTER_H

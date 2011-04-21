@@ -41,3 +41,14 @@ void Channel::applyFilter(IFilter *f)
 {
     image = f->apply(image);
 }
+
+Channel::Identifier Channel::getChannelByName(const QString &name) {
+    if(name == "Красный")      return Channel::R;
+    if(name == "Зеленый")      return Channel::G;
+    if(name == "Синий")        return Channel::B;
+    if(name == "Оттенок")      return Channel::H;
+    if(name == "Насыщенность") return Channel::S;
+    if(name == "Светлость")    return Channel::L;
+
+    return Channel::UNDEFINED;
+}
