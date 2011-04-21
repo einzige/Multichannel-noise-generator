@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Apr 21 22:00:50 2011
+** Created: Thu Apr 21 23:34:55 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -225,7 +225,7 @@ public:
         toolsFrame->setFrameShadow(QFrame::Raised);
         layoutWidget = new QWidget(toolsFrame);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 0, 241, 558));
+        layoutWidget->setGeometry(QRect(0, 0, 241, 629));
         toolsLayout = new QVBoxLayout(layoutWidget);
         toolsLayout->setSpacing(6);
         toolsLayout->setContentsMargins(10, 10, 10, 10);
@@ -304,7 +304,7 @@ public:
         sizePolicy6.setVerticalStretch(0);
         sizePolicy6.setHeightForWidth(noiseTabs->sizePolicy().hasHeightForWidth());
         noiseTabs->setSizePolicy(sizePolicy6);
-        noiseTabs->setMinimumSize(QSize(0, 0));
+        noiseTabs->setMinimumSize(QSize(0, 200));
         noiseTabs->setMaximumSize(QSize(16777, 16777215));
         noiseTabs->setTabPosition(QTabWidget::North);
         noiseTabs->setTabShape(QTabWidget::Rounded);
@@ -607,8 +607,10 @@ public:
         QObject::connect(multiSlider, SIGNAL(valueChanged(int)), lcdNumber_2, SLOT(display(int)));
         QObject::connect(additMaxPlusSlider, SIGNAL(valueChanged(int)), lcdNumber_4, SLOT(display(int)));
         QObject::connect(additMaxMinusSlider, SIGNAL(valueChanged(int)), lcdNumber_3, SLOT(display(int)));
+        QObject::connect(additMaxMinusSlider, SIGNAL(valueChanged(int)), additMaxPlusSlider, SLOT(setValue(int)));
+        QObject::connect(additMaxPlusSlider, SIGNAL(valueChanged(int)), additMaxMinusSlider, SLOT(setValue(int)));
 
-        noiseTabs->setCurrentIndex(0);
+        noiseTabs->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

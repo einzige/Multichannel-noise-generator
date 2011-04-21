@@ -21,6 +21,7 @@ public:
     NoiseModel(const QImage&);
 
     void applyImpulseNoise(int blackRate);
+    void applyAdditionalNoise(int maxDiff);
     void applyGrayscaleFilter();
 
     void setRate(int rate);

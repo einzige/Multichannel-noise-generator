@@ -95,7 +95,7 @@ void MainWindow::displayImage(const QImage &img)
 
 void MainWindow::on_applyImpulseButton_clicked()
 {
-    emit applyImpulseNoise(Channel::R, ui->impulseBlackWhiteSlider->value());
+    emit applyImpulseNoise(ui->impulseBlackWhiteSlider->value());
 }
 
 void MainWindow::on_channelsBox_currentIndexChanged(QString channelName )
@@ -103,7 +103,7 @@ void MainWindow::on_channelsBox_currentIndexChanged(QString channelName )
     emit channelChanged(channelName);
 }
 
-void MainWindow::on_channelsBox_textChanged(QString )
+void MainWindow::on_applyAdditButton_clicked()
 {
-
+    emit applyAdditionalNoise(ui->additMaxPlusSlider->value());
 }

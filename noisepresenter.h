@@ -27,7 +27,8 @@ public slots:
     void grayscale();
     void setRate(int);
     void restoreImage();
-    void applyImpulseFilter(Channel::Identifier, int);
+    void applyImpulseNoise(int);
+    void applyAdditionalNoise(int);
     void loadImage(const QImage&);
     void setChannel(QString channelName);
 };

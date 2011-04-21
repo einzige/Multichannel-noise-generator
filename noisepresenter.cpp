@@ -20,10 +20,17 @@ void NoisePresenter::setRate(int rate) {
     model->setRate(rate);
 }
 
-void NoisePresenter::applyImpulseFilter(Channel::Identifier, int blackRate)
+void NoisePresenter::applyImpulseNoise(int blackRate)
 {
-    qDebug() << blackRate;
     model->applyImpulseNoise(blackRate);
+    IView *view = dynamic_cast<IView*>(sender());
+
+    refreshView(view);
+}
+
+void NoisePresenter::applyAdditionalNoise(int maxDiff)
+{
+    model->applyAdditionalNoise(maxDiff);
     IView *view = dynamic_cast<IView*>(sender());
 
     refreshView(view);
@@ -52,8 +59,11 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(rateChanged(int)),
                      this,       SLOT(setRate(int)));
 
-    QObject::connect(view_obj, SIGNAL(applyImpulseNoise (Channel::Identifier, int)),
-                     this,       SLOT(applyImpulseFilter(Channel::Identifier, int)));
+    QObject::connect(view_obj, SIGNAL(applyImpulseNoise(int)),
+                     this,       SLOT(applyImpulseNoise(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyAdditionalNoise(int)),
+                     this,       SLOT(applyAdditionalNoise(int)));
 }
 
 void NoisePresenter::grayscale()
