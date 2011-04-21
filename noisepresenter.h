@@ -14,7 +14,6 @@ class NoisePresenter : public QObject
 
 public:
     explicit NoisePresenter(QObject *parent = 0);
-
     void appendView(IView *v);
 
 private:
@@ -25,6 +24,7 @@ private:
     QList<IView*> mViewList;
 
 public slots:
+    void setRate(int);
     void restoreImage();
     void applyImpulseFilter(Channel::Identifier, int);
     void loadImage(const QImage&);

@@ -45,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadImage()));
 
     connect(ui->showProcessedButton, SIGNAL(clicked()), this, SIGNAL(RestoreImage()));
+    connect(ui->noiseDial, SIGNAL(valueChanged(int)),   this, SIGNAL(RateChanged(int)));
 }
 
 MainWindow::~MainWindow()
@@ -96,5 +97,5 @@ void MainWindow::DisplayImage(const QImage &img)
 
 void MainWindow::on_applyImpulseButton_clicked()
 {
-    emit ApplyImpulseNoise(Channel::R, 50);
+    emit ApplyImpulseNoise(Channel::R, ui->impulseBlackWhiteSlider->value());
 }

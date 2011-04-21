@@ -5,7 +5,7 @@
 void NoiseModel::reset()
 {
     mCurrentChannel = Channel::UNDEFINED;
-    mRate = 50;
+    mRate = 0;
 }
 
 NoiseModel::NoiseModel() : Model()
@@ -30,4 +30,8 @@ void NoiseModel::applyImpulseNoise(int blackRate)
     ApplyFilter(f);
 
     qDebug() << "NoiseFilter applied";
+}
+
+void NoiseModel::setRate(int rate) {
+    mRate = rate;
 }

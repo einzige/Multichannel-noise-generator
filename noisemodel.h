@@ -21,6 +21,7 @@ public:
     NoiseModel(const QImage&);
 
     void applyImpulseNoise(int blackRate);
+    void setRate(int rate);
 
 protected:
     void reset();

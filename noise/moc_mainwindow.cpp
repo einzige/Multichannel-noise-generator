@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri Feb 18 11:11:37 2011
+** Created: Thu Apr 21 19:39:01 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,29 +23,30 @@ static const uint qt_meta_data_MainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x05,
-      31,   27,   11,   11, 0x05,
-      69,   51,   11,   11, 0x05,
+      27,   11,   11,   11, 0x05,
+      48,   44,   11,   11, 0x05,
+      86,   68,   11,   11, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-     112,   11,   11,   11, 0x0a,
-     124,   27,   11,   11, 0x0a,
-     145,   11,   11,   11, 0x08,
+     129,   11,   11,   11, 0x0a,
+     141,   44,   11,   11, 0x0a,
+     162,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0RestoreImage()\0img\0"
-    "ImageLoaded(QImage)\0channel,blackRate\0"
+    "MainWindow\0\0RestoreImage()\0RateChanged(int)\0"
+    "img\0ImageLoaded(QImage)\0channel,blackRate\0"
     "ApplyImpulseNoise(Channel::Identifier,int)\0"
     "loadImage()\0DisplayImage(QImage)\0"
     "on_applyImpulseButton_clicked()\0"
@@ -83,14 +84,15 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: RestoreImage(); break;
-        case 1: ImageLoaded((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
-        case 2: ApplyImpulseNoise((*reinterpret_cast< Channel::Identifier(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 3: loadImage(); break;
-        case 4: DisplayImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
-        case 5: on_applyImpulseButton_clicked(); break;
+        case 1: RateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: ImageLoaded((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 3: ApplyImpulseNoise((*reinterpret_cast< Channel::Identifier(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 4: loadImage(); break;
+        case 5: DisplayImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 6: on_applyImpulseButton_clicked(); break;
         default: ;
         }
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
@@ -102,16 +104,23 @@ void MainWindow::RestoreImage()
 }
 
 // SIGNAL 1
-void MainWindow::ImageLoaded(const QImage & _t1)
+void MainWindow::RateChanged(int _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 
 // SIGNAL 2
+void MainWindow::ImageLoaded(const QImage & _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
 void MainWindow::ApplyImpulseNoise(Channel::Identifier _t1, int _t2)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
-    QMetaObject::activate(this, &staticMetaObject, 2, _a);
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_END_MOC_NAMESPACE

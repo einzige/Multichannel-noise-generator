@@ -4,9 +4,17 @@
 NoisePresenter::NoisePresenter(QObject *parent) : QObject(parent), mModel(new NoiseModel)
 {}
 
+void NoisePresenter::setRate(int rate) {
+    mModel->setRate(rate);
+}
+
 void NoisePresenter::applyImpulseFilter(Channel::Identifier, int blackRate)
 {
+    qDebug() << blackRate;
     mModel->applyImpulseNoise(blackRate);
+    IView *view = dynamic_cast<IView*>(sender());
+
+    refreshView(view);
 }
 
 void NoisePresenter::appendView(IView *v)
@@ -23,6 +31,9 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(ImageLoaded(const QImage&)),
                      this,       SLOT(loadImage  (const QImage&)));
 
+    QObject::connect(view_obj, SIGNAL(RateChanged(int)),
+                     this,       SLOT(setRate(int)));
+
     QObject::connect(view_obj, SIGNAL(ApplyImpulseNoise (Channel::Identifier, int)),
                      this,       SLOT(applyImpulseFilter(Channel::Identifier, int)));
 }
@@ -30,14 +41,26 @@ void NoisePresenter::appendView(IView *v)
 void NoisePresenter::loadImage(const QImage &img)
 {
     mModel->SetImage(img);
+    refreshView();
+}
+
+void NoisePresenter::refreshView(IView *v) const {
+    v->DisplayImage(mModel->GetImage());
+}
+
+void NoisePresenter::refreshView() const
+{
+    for (QList<IView*>::const_iterator it = mViewList.constBegin();
+    it != mViewList.constEnd(); ++it) {
+        refreshView(*it);
+    }
 }
 
 void NoisePresenter::restoreImage()
 {
     qDebug() << "----RESTORING----";
-
-    IView *view = dynamic_cast<IView*>(sender());
     mModel->ResetImage();
 
-    view->DisplayImage(mModel->GetImage());
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
 }

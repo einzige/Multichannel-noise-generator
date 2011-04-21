@@ -18,6 +18,7 @@ public:
 
 signals:
     void RestoreImage();
+    void RateChanged(int);
     void ImageLoaded(const QImage &img);
     void ApplyImpulseNoise(Channel::Identifier channel, int blackRate);
 public slots:

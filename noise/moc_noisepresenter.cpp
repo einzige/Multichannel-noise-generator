@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'noisepresenter.h'
 **
-** Created: Thu Apr 21 18:45:57 2011
+** Created: Thu Apr 21 19:39:02 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NoisePresenter[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,14 +32,16 @@ static const uint qt_meta_data_NoisePresenter[] = {
 
  // slots: signature, parameters, type, tag, flags
       16,   15,   15,   15, 0x0a,
-      33,   31,   15,   15, 0x0a,
-      77,   15,   15,   15, 0x0a,
+      29,   15,   15,   15, 0x0a,
+      46,   44,   15,   15, 0x0a,
+      90,   15,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_NoisePresenter[] = {
-    "NoisePresenter\0\0restoreImage()\0,\0"
+    "NoisePresenter\0\0setRate(int)\0"
+    "restoreImage()\0,\0"
     "applyImpulseFilter(Channel::Identifier,int)\0"
     "loadImage(QImage)\0"
 };
@@ -73,12 +75,13 @@ int NoisePresenter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: restoreImage(); break;
-        case 1: applyImpulseFilter((*reinterpret_cast< Channel::Identifier(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 2: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 0: setRate((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: restoreImage(); break;
+        case 2: applyImpulseFilter((*reinterpret_cast< Channel::Identifier(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 3: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
