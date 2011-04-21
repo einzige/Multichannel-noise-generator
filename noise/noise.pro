@@ -25,7 +25,8 @@ SOURCES += main.cpp \
     ../colorspaces/rgbcs.cpp \
     ../colorspaces/hlscs.cpp \
     ../noisepresenter.cpp \
-    ../filters/grayscalefilter.cpp
+    ../filters/grayscalefilter.cpp \
+    ../filters/hist.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -48,5 +49,6 @@ HEADERS += mainwindow.h \
     ../colorspaces/rgbcs.h \
     ../colorspaces/hlscs.h \
     ../noisepresenter.h \
-    ../filters/grayscalefilter.h
+    ../filters/grayscalefilter.h \
+    ../filters/hist.h
 FORMS += mainwindow.ui

@@ -87,6 +87,7 @@
     <property name="title">
      <string>Отчет</string>
     </property>
+    <addaction name="histAction"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
@@ -887,6 +888,11 @@ font-size:12pt;
   <action name="actionGrayscale">
    <property name="text">
     <string>Grayscale</string>
+   </property>
+  </action>
+  <action name="histAction">
+   <property name="text">
+    <string>Гистограмма канала</string>
    </property>
   </action>
  </widget>

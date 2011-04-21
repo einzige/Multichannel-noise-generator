@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'noisepresenter.h'
 **
-** Created: Thu Apr 21 23:52:11 2011
+** Created: Fri Apr 22 01:28:06 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NoisePresenter[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -39,6 +39,7 @@ static const uint qt_meta_data_NoisePresenter[] = {
      105,   15,   15,   15, 0x0a,
      126,   15,   15,   15, 0x0a,
      156,  144,   15,   15, 0x0a,
+     176,   15,   15,   15, 0x0a,
 
        0        // eod
 };
@@ -49,6 +50,7 @@ static const char qt_meta_stringdata_NoisePresenter[] = {
     "applyAdditionalNoise(int)\0"
     "applyMultiNoise(int)\0loadImage(QImage)\0"
     "channelName\0setChannel(QString)\0"
+    "showHist()\0"
 };
 
 const QMetaObject NoisePresenter::staticMetaObject = {
@@ -88,9 +90,10 @@ int NoisePresenter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 5: applyMultiNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
         case 7: setChannel((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 8: showHist(); break;
         default: ;
         }
-        _id -= 8;
+        _id -= 9;
     }
     return _id;
 }

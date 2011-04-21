@@ -55,6 +55,9 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(restoreImage()),
                      this,       SLOT(restoreImage()));
 
+    QObject::connect(view_obj, SIGNAL(showHist()),
+                     this,       SLOT(showHist()));
+
     QObject::connect(view_obj, SIGNAL(grayscale()),
                      this,       SLOT(grayscale()));
 
@@ -75,6 +78,12 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyMultiNoise(int)),
                      this,       SLOT(applyMultiNoise(int)));
+}
+
+void NoisePresenter::showHist()
+{
+    IView *view = dynamic_cast<IView*>(sender());
+    view->displayImage(model->hist());
 }
 
 void NoisePresenter::grayscale()
