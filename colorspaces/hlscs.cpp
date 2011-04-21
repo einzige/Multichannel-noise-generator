@@ -9,9 +9,9 @@ HLSCS::HLSCS(ColorSpace::Identifier id) : ColorSpace(id)
 
 QImage HLSCS::restore()
 {
-    QImage h(mChannels[Channel::H].GetImage());
-    QImage l(mChannels[Channel::L].GetImage());
-    QImage s(mChannels[Channel::S].GetImage());
+    QImage h(channels[Channel::H].GetImage());
+    QImage l(channels[Channel::L].GetImage());
+    QImage s(channels[Channel::S].GetImage());
 
     int w    = h.width();
     int hh   = h.height();

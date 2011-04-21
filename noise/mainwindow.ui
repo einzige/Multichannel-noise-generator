@@ -48,8 +48,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>678</width>
-            <height>550</height>
+            <width>682</width>
+            <height>554</height>
            </rect>
           </property>
           <property name="sizePolicy">
@@ -111,6 +111,15 @@
      <height>41</height>
     </size>
    </property>
+   <property name="toolTip">
+    <string>Панель инструментов</string>
+   </property>
+   <property name="statusTip">
+    <string>Панель инструментов</string>
+   </property>
+   <property name="whatsThis">
+    <string>Панель инструментов</string>
+   </property>
    <property name="floating">
     <bool>false</bool>
    </property>
@@ -119,6 +128,9 @@
    </property>
    <property name="allowedAreas">
     <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Панель инструментов</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>

@@ -9,9 +9,9 @@ RGBCS::RGBCS(ColorSpace::Identifier id) : ColorSpace(id)
 
 QImage RGBCS::restore()
 {
-    QImage r(mChannels[Channel::R].GetImage());
-    QImage g(mChannels[Channel::G].GetImage());
-    QImage b(mChannels[Channel::B].GetImage());
+    QImage r(channels[Channel::R].GetImage());
+    QImage g(channels[Channel::G].GetImage());
+    QImage b(channels[Channel::B].GetImage());
 
     int w    = r.width();
     int h    = r.height();

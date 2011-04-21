@@ -14,18 +14,18 @@ public:
     ColorSpace(ColorSpace::Identifier);
     ColorSpace(ColorSpace::Identifier, QList<Channel>);
 
-            void   addChannel(const Channel&);
-            bool   containsChannel(Channel::Identifier);
-            QImage channelImage(Channel::Identifier);
-    virtual QImage restore();
+            void   AddChannel(const Channel&);
+            bool   ContainsChannel(Channel::Identifier);
+            QImage GetChannelImage(Channel::Identifier);
+    virtual QImage Restore();
 
-            void   setInactual();
-            void   setActual();
-            void   applyFilter(IFilter*, Channel::Identifier);
+            void   SetInactual();
+            void   SetActual();
+            void   ApplyFilter(IFilter*, Channel::Identifier);
 
-            void   setImage(const QImage& img);
+            void   SetImage(const QImage& img);
 
-            ColorSpace::Identifier id();
+            ColorSpace::Identifier GetId();
 
 protected:
     QHash<Channel::Identifier, Channel> channels;

@@ -6,35 +6,35 @@ ColorSpace::ColorSpace(){}
 
 ColorSpace::ColorSpace(ColorSpace::Identifier id)
 {
-    mId = id;
+    _id = id;
 }
 
 void ColorSpace::SetImage(const QImage& img)
 {
-    foreach(Channel::Identifier cid, mChannels.keys())
+    foreach(Channel::Identifier cid, channels.keys())
     {
-        mChannels[cid].FetchFrom(img);
+        channels[cid].FetchFrom(img);
     }
 }
 
 void ColorSpace::AddChannel(const Channel &c)
 {
-    mChannels[c.GetID()] = c;
+    channels[c.GetID()] = c;
 }
 
 bool ColorSpace::ContainsChannel(Channel::Identifier cid)
 {
-    return mChannels.contains(cid);
+    return channels.contains(cid);
 }
 
 QImage ColorSpace::GetChannelImage(Channel::Identifier id)
 {
-    return mChannels[id].GetImage();
+    return channels[id].GetImage();
 }
 
 void ColorSpace::ApplyFilter(IFilter *f, Channel::Identifier id)
 {
-    mChannels[id].ApplyFilter(f);
+    channels[id].ApplyFilter(f);
 }
 
-ColorSpace::Identifier ColorSpace::GetId(){ return mId; }
+ColorSpace::Identifier ColorSpace::GetId(){ return _id; }
