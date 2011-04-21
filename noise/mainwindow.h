@@ -17,6 +17,7 @@ public:
     ~MainWindow();
 
 signals:
+    void grayscale();
     void restoreImage();
     void rateChanged(int);
     void channelChanged(QString);

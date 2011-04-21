@@ -40,6 +40,9 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(restoreImage()),
                      this,       SLOT(restoreImage()));
 
+    QObject::connect(view_obj, SIGNAL(grayscale()),
+                     this,       SLOT(grayscale()));
+
     QObject::connect(view_obj, SIGNAL(imageLoaded(const QImage&)),
                      this,       SLOT(loadImage  (const QImage&)));
 
@@ -51,6 +54,13 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyImpulseNoise (Channel::Identifier, int)),
                      this,       SLOT(applyImpulseFilter(Channel::Identifier, int)));
+}
+
+void NoisePresenter::grayscale()
+{
+    model->applyGrayscaleFilter();
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
 }
 
 void NoisePresenter::loadImage(const QImage &img)

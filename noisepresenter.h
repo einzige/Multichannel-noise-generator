@@ -24,6 +24,7 @@ private:
     QList<IView*> viewList;
 
 public slots:
+    void grayscale();
     void setRate(int);
     void restoreImage();
     void applyImpulseFilter(Channel::Identifier, int);

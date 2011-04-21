@@ -1,6 +1,6 @@
 #include "colorspace.h"
 
-QImage ColorSpace::restore() { return QImage(); } // as a pseudo-virtual
+QImage ColorSpace::restore() { return channels[Channel::R].getImage(); } // as a pseudo-virtual// FIXME!!!
 
 ColorSpace::ColorSpace(){}
 

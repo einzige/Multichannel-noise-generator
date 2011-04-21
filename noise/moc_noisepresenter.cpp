@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'noisepresenter.h'
 **
-** Created: Thu Apr 21 21:04:22 2011
+** Created: Thu Apr 21 23:21:57 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NoisePresenter[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,16 +32,17 @@ static const uint qt_meta_data_NoisePresenter[] = {
 
  // slots: signature, parameters, type, tag, flags
       16,   15,   15,   15, 0x0a,
-      29,   15,   15,   15, 0x0a,
-      46,   44,   15,   15, 0x0a,
-      90,   15,   15,   15, 0x0a,
-     120,  108,   15,   15, 0x0a,
+      28,   15,   15,   15, 0x0a,
+      41,   15,   15,   15, 0x0a,
+      58,   56,   15,   15, 0x0a,
+     102,   15,   15,   15, 0x0a,
+     132,  120,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_NoisePresenter[] = {
-    "NoisePresenter\0\0setRate(int)\0"
+    "NoisePresenter\0\0grayscale()\0setRate(int)\0"
     "restoreImage()\0,\0"
     "applyImpulseFilter(Channel::Identifier,int)\0"
     "loadImage(QImage)\0channelName\0"
@@ -77,14 +78,15 @@ int NoisePresenter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: setRate((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: restoreImage(); break;
-        case 2: applyImpulseFilter((*reinterpret_cast< Channel::Identifier(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 3: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
-        case 4: setChannel((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 0: grayscale(); break;
+        case 1: setRate((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: restoreImage(); break;
+        case 3: applyImpulseFilter((*reinterpret_cast< Channel::Identifier(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 4: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 5: setChannel((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

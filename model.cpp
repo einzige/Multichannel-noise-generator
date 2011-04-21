@@ -10,6 +10,9 @@
 #include "filters/lightnessfilter.h"
 #include "filters/multinoise.h"
 
+#include "colorspaces/hlscs.h"
+#include "colorspaces/rgbcs.h"
+
 #include <assert.h>
 
 Model::Model(){}
@@ -26,7 +29,6 @@ void Model::setImage(const QImage& img, bool replaceSource)
     this->image = img;
 
     // each colorspace needs to recalc channels
-    //
     foreach (ColorSpace::Identifier csid, colorSpaces.keys())
     {
         colorSpaces[csid].setImage(img);
@@ -46,11 +48,12 @@ void Model::resetImage()            { setImage(sourceImage);     }
 void Model::applyFilter(IFilter* f) { setImage(f->apply(image)); }
 
 
+
 void Model::applyFilter(IFilter* f, Channel::Identifier channel_id)
 {
     if(channel_id == Channel::UNDEFINED)
     {
-        applyFilter(f, channel_id);
+        applyFilter(f);
         return;
     }
 
@@ -60,7 +63,11 @@ void Model::applyFilter(IFilter* f, Channel::Identifier channel_id)
     cs->applyFilter(f, channel_id);
 
     // restore image by the new channel data
-    setImage(cs->restore());
+    if(cs->getId() == ColorSpace::HLS)
+        setImage(((HLSCS*)cs)->restore());
+    else
+        if(cs->getId() == ColorSpace::RGB)
+            setImage(((RGBCS*)cs)->restore());
 }
 
 QImage Model::getChannelImage(Channel::Identifier id)
@@ -70,12 +77,8 @@ QImage Model::getChannelImage(Channel::Identifier id)
     return getCSByChannel(id)->getChannelImage(id);
 }
 
-#include <qdebug.h>
-
 ColorSpace* Model::getCSByChannel(Channel::Identifier id)
 {
-    qDebug() << colorSpaces.keys().count();
-
     foreach(ColorSpace::Identifier csid, colorSpaces.keys())
     {
         if(colorSpaces[csid].containsChannel(id)) return &colorSpaces[csid];

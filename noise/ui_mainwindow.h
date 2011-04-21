@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Apr 21 20:22:19 2011
+** Created: Thu Apr 21 22:00:50 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -46,6 +46,7 @@ class Ui_MainWindow
 public:
     QAction *loadAction;
     QAction *exitAction;
+    QAction *actionGrayscale;
     QWidget *centralWidget;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *mainLayout;
@@ -56,6 +57,7 @@ public:
     QMenu *menu;
     QMenu *menu_2;
     QMenu *menu_3;
+    QMenu *menu_4;
     QStatusBar *statusBar;
     QDockWidget *toolsDock;
     QWidget *dockWidgetContents;
@@ -126,6 +128,8 @@ public:
         loadAction->setObjectName(QString::fromUtf8("loadAction"));
         exitAction = new QAction(MainWindow);
         exitAction->setObjectName(QString::fromUtf8("exitAction"));
+        actionGrayscale = new QAction(MainWindow);
+        actionGrayscale->setObjectName(QString::fromUtf8("actionGrayscale"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayoutWidget = new QWidget(centralWidget);
@@ -167,6 +171,8 @@ public:
         menu_2->setObjectName(QString::fromUtf8("menu_2"));
         menu_3 = new QMenu(menuBar);
         menu_3->setObjectName(QString::fromUtf8("menu_3"));
+        menu_4 = new QMenu(menuBar);
+        menu_4->setObjectName(QString::fromUtf8("menu_4"));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
@@ -586,11 +592,13 @@ public:
 #endif // QT_NO_SHORTCUT
 
         menuBar->addAction(menu->menuAction());
+        menuBar->addAction(menu_4->menuAction());
         menuBar->addAction(menu_2->menuAction());
         menuBar->addAction(menu_3->menuAction());
         menu->addAction(loadAction);
         menu->addSeparator();
         menu->addAction(exitAction);
+        menu_4->addAction(actionGrayscale);
 
         retranslateUi(MainWindow);
         QObject::connect(noiseDial, SIGNAL(valueChanged(int)), lcdNumber, SLOT(display(int)));
@@ -611,9 +619,11 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "\320\233\320\260\320\261\320\276\321\200\320\260\321\202\320\276\321\200\320\275\320\260\321\217 #1", 0, QApplication::UnicodeUTF8));
         loadAction->setText(QApplication::translate("MainWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", 0, QApplication::UnicodeUTF8));
         exitAction->setText(QApplication::translate("MainWindow", "\320\222\321\213\321\205\320\276\320\264", 0, QApplication::UnicodeUTF8));
+        actionGrayscale->setText(QApplication::translate("MainWindow", "Grayscale", 0, QApplication::UnicodeUTF8));
         menu->setTitle(QApplication::translate("MainWindow", "\320\244\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
         menu_2->setTitle(QApplication::translate("MainWindow", "\320\236\321\202\321\207\320\265\321\202", 0, QApplication::UnicodeUTF8));
         menu_3->setTitle(QApplication::translate("MainWindow", "\320\237\320\276\320\274\320\276\321\211\321\214", 0, QApplication::UnicodeUTF8));
+        menu_4->setTitle(QApplication::translate("MainWindow", "\320\224\320\276\320\277. \321\204\320\270\320\273\321\214\321\202\321\200\321\213", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         toolsDock->setToolTip(QApplication::translate("MainWindow", "\320\237\320\260\320\275\320\265\320\273\321\214 \320\270\320\275\321\201\321\202\321\200\321\203\320\274\320\265\320\275\321\202\320\276\320\262", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP

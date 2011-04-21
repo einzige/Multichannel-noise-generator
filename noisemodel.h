@@ -21,6 +21,7 @@ public:
     NoiseModel(const QImage&);
 
     void applyImpulseNoise(int blackRate);
+    void applyGrayscaleFilter();
 
     void setRate(int rate);
     void setCurrentChannel(Channel::Identifier channel);
