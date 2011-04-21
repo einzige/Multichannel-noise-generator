@@ -230,7 +230,7 @@
           <x>0</x>
           <y>0</y>
           <width>241</width>
-          <height>558</height>
+          <height>629</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="toolsLayout">
@@ -389,7 +389,7 @@ font-size:12pt;
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>0</height>
+             <height>200</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -405,7 +405,7 @@ font-size:12pt;
             <enum>QTabWidget::Rounded</enum>
            </property>
            <property name="currentIndex">
-            <number>0</number>
+            <number>1</number>
            </property>
            <widget class="QWidget" name="impulseTab">
             <attribute name="title">
@@ -900,12 +900,12 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>286</x>
-     <y>126</y>
+     <x>199</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
-     <x>180</x>
-     <y>121</y>
+     <x>93</x>
+     <y>150</y>
     </hint>
    </hints>
   </connection>
@@ -920,8 +920,8 @@ font-size:12pt;
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>359</x>
-     <y>324</y>
+     <x>230</x>
+     <y>458</y>
     </hint>
    </hints>
   </connection>
@@ -948,12 +948,12 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>265</y>
+     <x>117</x>
+     <y>308</y>
     </hint>
     <hint type="destinationlabel">
-     <x>292</x>
-     <y>233</y>
+     <x>247</x>
+     <y>278</y>
     </hint>
    </hints>
   </connection>
@@ -964,12 +964,12 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>211</x>
-     <y>328</y>
+     <x>223</x>
+     <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>301</x>
-     <y>286</y>
+     <x>231</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -980,12 +980,44 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>252</y>
+     <x>166</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>223</y>
+     <x>231</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>additMaxMinusSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>additMaxPlusSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>74</x>
+     <y>297</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>74</x>
+     <y>378</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>additMaxPlusSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>additMaxMinusSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>303</y>
     </hint>
    </hints>
   </connection>

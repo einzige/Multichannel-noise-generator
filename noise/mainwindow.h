@@ -22,7 +22,8 @@ signals:
     void rateChanged(int);
     void channelChanged(QString);
     void imageLoaded(const QImage &img);
-    void applyImpulseNoise(Channel::Identifier channel, int blackRate);
+    void applyImpulseNoise(int blackRate);
+    void applyAdditionalNoise(int maxDiff);
 public slots:
     void loadImage();
     void displayImage(const QImage &img);
@@ -36,8 +37,8 @@ private:
     QLabel*         imageLabel;
 
 private slots:
+    void on_applyAdditButton_clicked();
     void on_channelsBox_currentIndexChanged(QString );
-    void on_channelsBox_textChanged(QString );
     void on_applyImpulseButton_clicked();
 };
 

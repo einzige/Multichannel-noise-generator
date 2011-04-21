@@ -6,7 +6,8 @@
 class IView
 {
 public: // signals
-    virtual void applyImpulseNoise(Channel::Identifier channel, int blackRate) = 0;
+    virtual void applyImpulseNoise(int blackRate) = 0;
+    virtual void applyAdditionalNoise(int maxDiff) = 0;
     //virtual void ApplyAdditionalNoise(Channel::Identifier, int rate, int maxMinus, int maxPlus) = 0;
     //virtual void ApplyMultiNoise(Channel::Identifier, int rate, int multiplier) = 0;
     virtual void restoreImage() = 0;
