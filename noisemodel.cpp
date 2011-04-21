@@ -1,6 +1,7 @@
 #include "noisemodel.h"
 #include "filters/impulsenoise.h"
 #include "filters/additivenoise.h"
+#include "filters/multinoise.h"
 #include "filters/grayscalefilter.h"
 
 #include <QDebug>
@@ -44,6 +45,14 @@ void NoiseModel::applyAdditionalNoise(int maxDiff)
     applyFilter(f, this->currentChannel);
 
     qDebug() << "AdditiveFilter applied";
+}
+
+void NoiseModel::applyMultiNoise(int coef)
+{
+    MultiNoise *f = new MultiNoise(rate, coef);
+    applyFilter(f, this->currentChannel);
+
+    qDebug() << "MultiFilter applied";
 }
 
 void NoiseModel::setRate(int rate) {

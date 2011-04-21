@@ -107,3 +107,8 @@ void MainWindow::on_applyAdditButton_clicked()
 {
     emit applyAdditionalNoise(ui->additMaxPlusSlider->value());
 }
+
+void MainWindow::on_applyMultiButton_clicked()
+{
+    emit applyMultiNoise(ui->multiSlider->value());
+}

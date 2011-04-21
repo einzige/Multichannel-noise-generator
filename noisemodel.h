@@ -22,6 +22,7 @@ public:
 
     void applyImpulseNoise(int blackRate);
     void applyAdditionalNoise(int maxDiff);
+    void applyMultiNoise(int coef);
     void applyGrayscaleFilter();
 
     void setRate(int rate);

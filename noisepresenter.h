@@ -29,6 +29,7 @@ public slots:
     void restoreImage();
     void applyImpulseNoise(int);
     void applyAdditionalNoise(int);
+    void applyMultiNoise(int);
     void loadImage(const QImage&);
     void setChannel(QString channelName);
 };
