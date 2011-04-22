@@ -4,6 +4,9 @@
 #include "filters/multinoise.h"
 #include "filters/grayscalefilter.h"
 #include "filters/hist.h"
+#include "filters/brightnessfilter.h"
+#include "filters/contrastfilter.h"
+#include "filters/invertfilter.h"
 
 #include <QDebug>
 
@@ -69,6 +72,24 @@ void NoiseModel::applyGrayscaleFilter()
 {
     GrayscaleFilter *f = new GrayscaleFilter();
     applyFilter(f);
+}
+
+void NoiseModel::applyInverseFilter()
+{
+    InvertFilter *f = new InvertFilter();
+    applyFilter(f, this->currentChannel);
+}
+
+void NoiseModel::applyBrightnessFilter(int diff)
+{
+    BrightnessFilter *f = new BrightnessFilter(diff);
+    applyFilter(f, this->currentChannel);
+}
+
+void NoiseModel::applyContrastFilter(int diff)
+{
+    ContrastFilter *f = new ContrastFilter(diff);
+    applyFilter(f, this->currentChannel);
 }
 
 QImage NoiseModel::hist()

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'noisepresenter.h'
 **
-** Created: Fri Apr 22 01:28:06 2011
+** Created: Sat Apr 23 02:27:55 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NoisePresenter[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,24 +33,28 @@ static const uint qt_meta_data_NoisePresenter[] = {
  // slots: signature, parameters, type, tag, flags
       16,   15,   15,   15, 0x0a,
       28,   15,   15,   15, 0x0a,
-      41,   15,   15,   15, 0x0a,
-      56,   15,   15,   15, 0x0a,
-      79,   15,   15,   15, 0x0a,
-     105,   15,   15,   15, 0x0a,
-     126,   15,   15,   15, 0x0a,
-     156,  144,   15,   15, 0x0a,
-     176,   15,   15,   15, 0x0a,
+      38,   15,   15,   15, 0x0a,
+      51,   15,   15,   15, 0x0a,
+      66,   15,   15,   15, 0x0a,
+      89,   15,   15,   15, 0x0a,
+     115,   15,   15,   15, 0x0a,
+     142,   15,   15,   15, 0x0a,
+     167,   15,   15,   15, 0x0a,
+     188,   15,   15,   15, 0x0a,
+     218,  206,   15,   15, 0x0a,
+     238,   15,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_NoisePresenter[] = {
-    "NoisePresenter\0\0grayscale()\0setRate(int)\0"
-    "restoreImage()\0applyImpulseNoise(int)\0"
-    "applyAdditionalNoise(int)\0"
-    "applyMultiNoise(int)\0loadImage(QImage)\0"
-    "channelName\0setChannel(QString)\0"
-    "showHist()\0"
+    "NoisePresenter\0\0grayscale()\0inverse()\0"
+    "setRate(int)\0restoreImage()\0"
+    "applyImpulseNoise(int)\0applyAdditionalNoise(int)\0"
+    "applyBrightnessFilter(int)\0"
+    "applyContrastFilter(int)\0applyMultiNoise(int)\0"
+    "loadImage(QImage)\0channelName\0"
+    "setChannel(QString)\0showHist()\0"
 };
 
 const QMetaObject NoisePresenter::staticMetaObject = {
@@ -83,17 +87,20 @@ int NoisePresenter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: grayscale(); break;
-        case 1: setRate((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: restoreImage(); break;
-        case 3: applyImpulseNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: applyAdditionalNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 5: applyMultiNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 6: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
-        case 7: setChannel((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 8: showHist(); break;
+        case 1: inverse(); break;
+        case 2: setRate((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: restoreImage(); break;
+        case 4: applyImpulseNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: applyAdditionalNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 6: applyBrightnessFilter((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: applyContrastFilter((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 8: applyMultiNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: loadImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 10: setChannel((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 11: showHist(); break;
         default: ;
         }
-        _id -= 9;
+        _id -= 12;
     }
     return _id;
 }
