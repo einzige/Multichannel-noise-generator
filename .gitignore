@@ -1,3 +1,5 @@
 *.o
 moc_*.cpp
 noise/noise
+ui_*.h
+*~$
