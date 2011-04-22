@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri Apr 22 01:28:06 2011
+** Created: Sat Apr 23 02:27:54 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,12 +23,12 @@ static const uint qt_meta_data_MainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       9,       // signalCount
+      12,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x05,
@@ -40,14 +40,18 @@ static const uint qt_meta_data_MainWindow[] = {
      125,  115,   11,   11, 0x05,
      156,  148,   11,   11, 0x05,
      187,  182,   11,   11, 0x05,
+     213,  208,   11,   11, 0x05,
+     234,  208,   11,   11, 0x05,
+     253,   11,   11,   11, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-     208,   11,   11,   11, 0x0a,
-     220,   91,   11,   11, 0x0a,
-     241,   11,   11,   11, 0x08,
-     271,   11,   11,   11, 0x08,
-     301,   11,   11,   11, 0x08,
-     345,   11,   11,   11, 0x08,
+     263,   11,   11,   11, 0x0a,
+     275,   91,   11,   11, 0x0a,
+     296,   11,   11,   11, 0x08,
+     331,   11,   11,   11, 0x08,
+     361,   11,   11,   11, 0x08,
+     391,   11,   11,   11, 0x08,
+     435,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -58,8 +62,11 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "showHist()\0img\0imageLoaded(QImage)\0"
     "blackRate\0applyImpulseNoise(int)\0"
     "maxDiff\0applyAdditionalNoise(int)\0"
-    "coef\0applyMultiNoise(int)\0loadImage()\0"
-    "displayImage(QImage)\0on_applyMultiButton_clicked()\0"
+    "coef\0applyMultiNoise(int)\0diff\0"
+    "applyBrightness(int)\0applyContrast(int)\0"
+    "inverse()\0loadImage()\0displayImage(QImage)\0"
+    "on_applyBrightnessButton_clicked()\0"
+    "on_applyMultiButton_clicked()\0"
     "on_applyAdditButton_clicked()\0"
     "on_channelsBox_currentIndexChanged(QString)\0"
     "on_applyImpulseButton_clicked()\0"
@@ -105,15 +112,19 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 6: applyImpulseNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 7: applyAdditionalNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 8: applyMultiNoise((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 9: loadImage(); break;
-        case 10: displayImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
-        case 11: on_applyMultiButton_clicked(); break;
-        case 12: on_applyAdditButton_clicked(); break;
-        case 13: on_channelsBox_currentIndexChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 14: on_applyImpulseButton_clicked(); break;
+        case 9: applyBrightness((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 10: applyContrast((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: inverse(); break;
+        case 12: loadImage(); break;
+        case 13: displayImage((*reinterpret_cast< const QImage(*)>(_a[1]))); break;
+        case 14: on_applyBrightnessButton_clicked(); break;
+        case 15: on_applyMultiButton_clicked(); break;
+        case 16: on_applyAdditButton_clicked(); break;
+        case 17: on_channelsBox_currentIndexChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 18: on_applyImpulseButton_clicked(); break;
         default: ;
         }
-        _id -= 15;
+        _id -= 19;
     }
     return _id;
 }
@@ -176,5 +187,25 @@ void MainWindow::applyMultiNoise(int _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 8, _a);
+}
+
+// SIGNAL 9
+void MainWindow::applyBrightness(int _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 9, _a);
+}
+
+// SIGNAL 10
+void MainWindow::applyContrast(int _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 10, _a);
+}
+
+// SIGNAL 11
+void MainWindow::inverse()
+{
+    QMetaObject::activate(this, &staticMetaObject, 11, 0);
 }
 QT_END_MOC_NAMESPACE

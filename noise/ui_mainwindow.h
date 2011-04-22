@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri Apr 22 00:45:56 2011
+** Created: Sat Apr 23 02:26:54 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -48,6 +48,9 @@ public:
     QAction *exitAction;
     QAction *actionGrayscale;
     QAction *histAction;
+    QAction *showToolsAction;
+    QAction *showBrightnessAction;
+    QAction *invertseAction;
     QWidget *centralWidget;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *mainLayout;
@@ -59,6 +62,7 @@ public:
     QMenu *menu_2;
     QMenu *menu_3;
     QMenu *menu_4;
+    QMenu *menu_5;
     QStatusBar *statusBar;
     QDockWidget *toolsDock;
     QWidget *dockWidgetContents;
@@ -119,12 +123,29 @@ public:
     QFormLayout *ticksLayout;
     QLabel *label;
     QLCDNumber *ticks;
+    QDockWidget *brightnessDock;
+    QWidget *dockWidgetContents_2;
+    QScrollArea *brightnessScrollArea;
+    QWidget *brightnessScrollAreaContents;
+    QFrame *brightnessFrame;
+    QWidget *verticalLayoutWidget_3;
+    QVBoxLayout *brightnessLayout;
+    QFormLayout *formLayout_3;
+    QLabel *label_2;
+    QLCDNumber *lcdNumber_5;
+    QSlider *brightnessSlider;
+    QFormLayout *formLayout_6;
+    QLabel *label_8;
+    QLCDNumber *lcdNumber_6;
+    QSlider *contrastSlider;
+    QPushButton *applyBrightnessButton;
+    QSpacerItem *verticalSpacer_4;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(711, 533);
+        MainWindow->resize(957, 739);
         loadAction = new QAction(MainWindow);
         loadAction->setObjectName(QString::fromUtf8("loadAction"));
         exitAction = new QAction(MainWindow);
@@ -133,6 +154,15 @@ public:
         actionGrayscale->setObjectName(QString::fromUtf8("actionGrayscale"));
         histAction = new QAction(MainWindow);
         histAction->setObjectName(QString::fromUtf8("histAction"));
+        showToolsAction = new QAction(MainWindow);
+        showToolsAction->setObjectName(QString::fromUtf8("showToolsAction"));
+        showToolsAction->setCheckable(true);
+        showToolsAction->setChecked(true);
+        showBrightnessAction = new QAction(MainWindow);
+        showBrightnessAction->setObjectName(QString::fromUtf8("showBrightnessAction"));
+        showBrightnessAction->setCheckable(true);
+        invertseAction = new QAction(MainWindow);
+        invertseAction->setObjectName(QString::fromUtf8("invertseAction"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayoutWidget = new QWidget(centralWidget);
@@ -151,7 +181,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 682, 554));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 678, 550));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -167,7 +197,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 711, 27));
+        menuBar->setGeometry(QRect(0, 0, 957, 27));
         menu = new QMenu(menuBar);
         menu->setObjectName(QString::fromUtf8("menu"));
         menu_2 = new QMenu(menuBar);
@@ -176,12 +206,15 @@ public:
         menu_3->setObjectName(QString::fromUtf8("menu_3"));
         menu_4 = new QMenu(menuBar);
         menu_4->setObjectName(QString::fromUtf8("menu_4"));
+        menu_5 = new QMenu(menuBar);
+        menu_5->setObjectName(QString::fromUtf8("menu_5"));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
         toolsDock = new QDockWidget(MainWindow);
         toolsDock->setObjectName(QString::fromUtf8("toolsDock"));
+        toolsDock->setEnabled(true);
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -228,7 +261,7 @@ public:
         toolsFrame->setFrameShadow(QFrame::Raised);
         layoutWidget = new QWidget(toolsFrame);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 0, 241, 629));
+        layoutWidget->setGeometry(QRect(0, 0, 241, 633));
         toolsLayout = new QVBoxLayout(layoutWidget);
         toolsLayout->setSpacing(6);
         toolsLayout->setContentsMargins(10, 10, 10, 10);
@@ -590,6 +623,116 @@ public:
         toolsScrollArea->setWidget(toolsScrollAreaContent);
         toolsDock->setWidget(dockWidgetContents);
         MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), toolsDock);
+        brightnessDock = new QDockWidget(MainWindow);
+        brightnessDock->setObjectName(QString::fromUtf8("brightnessDock"));
+        QSizePolicy sizePolicy8(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+        sizePolicy8.setHorizontalStretch(0);
+        sizePolicy8.setVerticalStretch(0);
+        sizePolicy8.setHeightForWidth(brightnessDock->sizePolicy().hasHeightForWidth());
+        brightnessDock->setSizePolicy(sizePolicy8);
+        brightnessDock->setMinimumSize(QSize(200, 41));
+        brightnessDock->setMaximumSize(QSize(524287, 220));
+        brightnessDock->setStyleSheet(QString::fromUtf8(""));
+        brightnessDock->setFloating(false);
+        brightnessDock->setFeatures(QDockWidget::AllDockWidgetFeatures);
+        brightnessDock->setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
+        dockWidgetContents_2 = new QWidget();
+        dockWidgetContents_2->setObjectName(QString::fromUtf8("dockWidgetContents_2"));
+        brightnessScrollArea = new QScrollArea(dockWidgetContents_2);
+        brightnessScrollArea->setObjectName(QString::fromUtf8("brightnessScrollArea"));
+        brightnessScrollArea->setGeometry(QRect(9, 10, 231, 181));
+        brightnessScrollArea->setFrameShape(QFrame::NoFrame);
+        brightnessScrollArea->setFrameShadow(QFrame::Plain);
+        brightnessScrollArea->setWidgetResizable(true);
+        brightnessScrollAreaContents = new QWidget();
+        brightnessScrollAreaContents->setObjectName(QString::fromUtf8("brightnessScrollAreaContents"));
+        brightnessScrollAreaContents->setGeometry(QRect(0, 0, 231, 181));
+        brightnessFrame = new QFrame(brightnessScrollAreaContents);
+        brightnessFrame->setObjectName(QString::fromUtf8("brightnessFrame"));
+        brightnessFrame->setGeometry(QRect(0, 10, 221, 171));
+        brightnessFrame->setFrameShape(QFrame::NoFrame);
+        brightnessFrame->setFrameShadow(QFrame::Raised);
+        verticalLayoutWidget_3 = new QWidget(brightnessFrame);
+        verticalLayoutWidget_3->setObjectName(QString::fromUtf8("verticalLayoutWidget_3"));
+        verticalLayoutWidget_3->setGeometry(QRect(9, 10, 201, 174));
+        brightnessLayout = new QVBoxLayout(verticalLayoutWidget_3);
+        brightnessLayout->setSpacing(6);
+        brightnessLayout->setContentsMargins(11, 11, 11, 11);
+        brightnessLayout->setObjectName(QString::fromUtf8("brightnessLayout"));
+        brightnessLayout->setContentsMargins(0, 0, 0, 0);
+        formLayout_3 = new QFormLayout();
+        formLayout_3->setSpacing(6);
+        formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
+        label_2 = new QLabel(verticalLayoutWidget_3);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        formLayout_3->setWidget(0, QFormLayout::LabelRole, label_2);
+
+        lcdNumber_5 = new QLCDNumber(verticalLayoutWidget_3);
+        lcdNumber_5->setObjectName(QString::fromUtf8("lcdNumber_5"));
+        lcdNumber_5->setFrameShape(QFrame::NoFrame);
+        lcdNumber_5->setSmallDecimalPoint(true);
+        lcdNumber_5->setNumDigits(4);
+        lcdNumber_5->setSegmentStyle(QLCDNumber::Flat);
+
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, lcdNumber_5);
+
+
+        brightnessLayout->addLayout(formLayout_3);
+
+        brightnessSlider = new QSlider(verticalLayoutWidget_3);
+        brightnessSlider->setObjectName(QString::fromUtf8("brightnessSlider"));
+        brightnessSlider->setMinimum(-127);
+        brightnessSlider->setMaximum(127);
+        brightnessSlider->setOrientation(Qt::Horizontal);
+        brightnessSlider->setTickPosition(QSlider::TicksAbove);
+        brightnessSlider->setTickInterval(10);
+
+        brightnessLayout->addWidget(brightnessSlider);
+
+        formLayout_6 = new QFormLayout();
+        formLayout_6->setSpacing(6);
+        formLayout_6->setObjectName(QString::fromUtf8("formLayout_6"));
+        label_8 = new QLabel(verticalLayoutWidget_3);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+
+        formLayout_6->setWidget(0, QFormLayout::LabelRole, label_8);
+
+        lcdNumber_6 = new QLCDNumber(verticalLayoutWidget_3);
+        lcdNumber_6->setObjectName(QString::fromUtf8("lcdNumber_6"));
+        lcdNumber_6->setFrameShape(QFrame::NoFrame);
+        lcdNumber_6->setNumDigits(4);
+        lcdNumber_6->setSegmentStyle(QLCDNumber::Flat);
+        lcdNumber_6->setProperty("intValue", QVariant(100));
+
+        formLayout_6->setWidget(0, QFormLayout::FieldRole, lcdNumber_6);
+
+
+        brightnessLayout->addLayout(formLayout_6);
+
+        contrastSlider = new QSlider(verticalLayoutWidget_3);
+        contrastSlider->setObjectName(QString::fromUtf8("contrastSlider"));
+        contrastSlider->setMinimum(0);
+        contrastSlider->setMaximum(200);
+        contrastSlider->setSliderPosition(100);
+        contrastSlider->setOrientation(Qt::Horizontal);
+        contrastSlider->setInvertedControls(false);
+        contrastSlider->setTickPosition(QSlider::TicksAbove);
+
+        brightnessLayout->addWidget(contrastSlider);
+
+        applyBrightnessButton = new QPushButton(verticalLayoutWidget_3);
+        applyBrightnessButton->setObjectName(QString::fromUtf8("applyBrightnessButton"));
+
+        brightnessLayout->addWidget(applyBrightnessButton);
+
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        brightnessLayout->addItem(verticalSpacer_4);
+
+        brightnessScrollArea->setWidget(brightnessScrollAreaContents);
+        brightnessDock->setWidget(dockWidgetContents_2);
+        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(2), brightnessDock);
 #ifndef QT_NO_SHORTCUT
         label_3->setBuddy(multiSlider);
 #endif // QT_NO_SHORTCUT
@@ -597,12 +740,16 @@ public:
         menuBar->addAction(menu->menuAction());
         menuBar->addAction(menu_4->menuAction());
         menuBar->addAction(menu_2->menuAction());
+        menuBar->addAction(menu_5->menuAction());
         menuBar->addAction(menu_3->menuAction());
         menu->addAction(loadAction);
         menu->addSeparator();
         menu->addAction(exitAction);
         menu_2->addAction(histAction);
         menu_4->addAction(actionGrayscale);
+        menu_4->addAction(invertseAction);
+        menu_5->addAction(showToolsAction);
+        menu_5->addAction(showBrightnessAction);
 
         retranslateUi(MainWindow);
         QObject::connect(noiseDial, SIGNAL(valueChanged(int)), lcdNumber, SLOT(display(int)));
@@ -613,6 +760,8 @@ public:
         QObject::connect(additMaxMinusSlider, SIGNAL(valueChanged(int)), lcdNumber_3, SLOT(display(int)));
         QObject::connect(additMaxMinusSlider, SIGNAL(valueChanged(int)), additMaxPlusSlider, SLOT(setValue(int)));
         QObject::connect(additMaxPlusSlider, SIGNAL(valueChanged(int)), additMaxMinusSlider, SLOT(setValue(int)));
+        QObject::connect(brightnessSlider, SIGNAL(valueChanged(int)), lcdNumber_5, SLOT(display(int)));
+        QObject::connect(contrastSlider, SIGNAL(valueChanged(int)), lcdNumber_6, SLOT(display(int)));
 
         noiseTabs->setCurrentIndex(1);
 
@@ -627,10 +776,14 @@ public:
         exitAction->setText(QApplication::translate("MainWindow", "\320\222\321\213\321\205\320\276\320\264", 0, QApplication::UnicodeUTF8));
         actionGrayscale->setText(QApplication::translate("MainWindow", "Grayscale", 0, QApplication::UnicodeUTF8));
         histAction->setText(QApplication::translate("MainWindow", "\320\223\320\270\321\201\321\202\320\276\320\263\321\200\320\260\320\274\320\274\320\260 \320\272\320\260\320\275\320\260\320\273\320\260", 0, QApplication::UnicodeUTF8));
+        showToolsAction->setText(QApplication::translate("MainWindow", "\320\237\320\260\320\275\320\265\320\273\321\214 \320\270\320\275\321\201\321\202\321\200\321\203\320\274\320\265\320\275\321\202\320\276\320\262", 0, QApplication::UnicodeUTF8));
+        showBrightnessAction->setText(QApplication::translate("MainWindow", "\320\257\321\200\320\272\320\276\321\201\321\202\321\214/\320\272\320\276\320\275\321\202\321\200\320\260\321\201\321\202", 0, QApplication::UnicodeUTF8));
+        invertseAction->setText(QApplication::translate("MainWindow", "\320\230\320\275\320\262\320\265\321\200\321\201\320\270\321\217 \321\206\320\262\320\265\321\202\320\260", 0, QApplication::UnicodeUTF8));
         menu->setTitle(QApplication::translate("MainWindow", "\320\244\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
         menu_2->setTitle(QApplication::translate("MainWindow", "\320\236\321\202\321\207\320\265\321\202", 0, QApplication::UnicodeUTF8));
         menu_3->setTitle(QApplication::translate("MainWindow", "\320\237\320\276\320\274\320\276\321\211\321\214", 0, QApplication::UnicodeUTF8));
         menu_4->setTitle(QApplication::translate("MainWindow", "\320\224\320\276\320\277. \321\204\320\270\320\273\321\214\321\202\321\200\321\213", 0, QApplication::UnicodeUTF8));
+        menu_5->setTitle(QApplication::translate("MainWindow", "\320\236\320\272\320\275\320\260", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         toolsDock->setToolTip(QApplication::translate("MainWindow", "\320\237\320\260\320\275\320\265\320\273\321\214 \320\270\320\275\321\201\321\202\321\200\321\203\320\274\320\265\320\275\321\202\320\276\320\262", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
@@ -670,6 +823,10 @@ public:
         );
         progressBar->setFormat(QApplication::translate("MainWindow", "%p %", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "\320\242\320\260\320\272\321\202\321\213 \320\275\320\260 \320\276\320\277\320\265\321\200\320\260\321\206\320\270\321\216", 0, QApplication::UnicodeUTF8));
+        brightnessDock->setWindowTitle(QApplication::translate("MainWindow", "\320\257\321\200\320\272\320\276\321\201\321\202\321\214 / \320\272\320\276\320\275\321\202\321\200\320\260\321\201\321\202", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("MainWindow", "\320\257\321\200\320\272\320\276\321\201\321\202\321\214:", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("MainWindow", "\320\232\320\276\320\275\321\202\321\200\320\260\321\201\321\202:", 0, QApplication::UnicodeUTF8));
+        applyBrightnessButton->setText(QApplication::translate("MainWindow", "\320\237\321\200\320\270\320\274\320\265\320\275\320\270\321\202\321\214", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

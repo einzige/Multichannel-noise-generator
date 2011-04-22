@@ -24,6 +24,9 @@ public:
     void applyAdditionalNoise(int maxDiff);
     void applyMultiNoise(int coef);
     void applyGrayscaleFilter();
+    void applyBrightnessFilter(int diff);
+    void applyContrastFilter(int diff);
+    void applyInverseFilter();
 
     QImage hist();
 

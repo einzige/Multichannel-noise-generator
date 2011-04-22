@@ -25,10 +25,13 @@ private:
 
 public slots:
     void grayscale();
+    void inverse();
     void setRate(int);
     void restoreImage();
     void applyImpulseNoise(int);
     void applyAdditionalNoise(int);
+    void applyBrightnessFilter(int);
+    void applyContrastFilter(int);
     void applyMultiNoise(int);
     void loadImage(const QImage&);
     void setChannel(QString channelName);

@@ -11,4 +11,7 @@ public:
     virtual QImage apply(QImage) const;
 };
 
+QImage changeContrast( const QImage& image, int contrast );
+QImage changeBrightness( const QImage& image, int brightness );
+
 #endif // IFILTER_H

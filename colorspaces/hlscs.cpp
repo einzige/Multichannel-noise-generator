@@ -22,8 +22,8 @@ QImage HLSCS::restore()
     for(int x = 0; x < w; x++)
         for(int y = 0; y < hh; y++)
             res.setPixel(x, y, QColor::fromHsl(
-                                        QColor(h.pixel(x,y)).hue(),
-                                        QColor(s.pixel(x,y)).saturation(),
+                                        QColor(h.pixel(x,y)).lightness(),
+                                        QColor(s.pixel(x,y)).lightness(),
                                         QColor(l.pixel(x,y)).lightness()
                                       ).rgba());
     return res;

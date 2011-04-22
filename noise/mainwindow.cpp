@@ -29,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->toolsLayout->setMargin(10);
     ui->toolsScrollAreaContent->setLayout(ui->toolsLayout);
 
+    ui->brightnessDock->setWidget(ui->brightnessScrollArea);
+    ui->brightnessLayout->setMargin(10);
+    ui->brightnessScrollAreaContents->setLayout(ui->brightnessLayout);
+
     ui->multiTab->setLayout(ui->multiLayout);
     ui->multiLayout->setMargin(10);
 
@@ -38,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->impulseTab->setLayout(ui->impulseLayout);
     ui->impulseLayout->setMargin(10);
 
+    ui->brightnessDock->hide();
     // signals & slots
     connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadImage()));
 
@@ -45,6 +50,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->noiseDial, SIGNAL(valueChanged(int)),   this, SIGNAL(rateChanged(int)));
     connect(ui->actionGrayscale, SIGNAL(triggered()),   this, SIGNAL(grayscale()));
     connect(ui->histAction, SIGNAL(triggered()),        this, SIGNAL(showHist()));
+    connect(ui->showToolsAction, SIGNAL(toggled(bool)), ui->toolsDock, SLOT(setShown(bool)));
+    connect(ui->showBrightnessAction, SIGNAL(toggled(bool)), ui->brightnessDock, SLOT(setShown(bool)));
+    connect(ui->invertseAction, SIGNAL(triggered()), this, SIGNAL(inverse()));
 }
 
 MainWindow::~MainWindow()
@@ -112,4 +120,10 @@ void MainWindow::on_applyAdditButton_clicked()
 void MainWindow::on_applyMultiButton_clicked()
 {
     emit applyMultiNoise(ui->multiSlider->value());
+}
+
+void MainWindow::on_applyBrightnessButton_clicked()
+{
+    emit applyBrightness(ui->brightnessSlider->value());
+    emit applyContrast(ui->contrastSlider->value());
 }
