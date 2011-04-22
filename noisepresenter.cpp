@@ -64,6 +64,9 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(inverse()),
                      this,       SLOT(inverse()));
 
+    QObject::connect(view_obj, SIGNAL(equalize()),
+                     this,       SLOT(equalize()));
+
     QObject::connect(view_obj, SIGNAL(imageLoaded(const QImage&)),
                      this,       SLOT(loadImage  (const QImage&)));
 
@@ -119,6 +122,13 @@ void NoisePresenter::grayscale()
 void NoisePresenter::inverse()
 {
     model->applyInverseFilter();
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
+}
+
+void NoisePresenter::equalize()
+{
+    model->applyEqualizeFilter();
     IView *view = dynamic_cast<IView*>(sender());
     refreshView(view);
 }

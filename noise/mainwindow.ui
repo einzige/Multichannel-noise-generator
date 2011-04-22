@@ -100,6 +100,7 @@
     </property>
     <addaction name="actionGrayscale"/>
     <addaction name="invertseAction"/>
+    <addaction name="equalizeAction"/>
    </widget>
    <widget class="QMenu" name="menu_5">
     <property name="title">
@@ -1141,6 +1142,11 @@ font-size:12pt;
   <action name="invertseAction">
    <property name="text">
     <string>Инверсия цвета</string>
+   </property>
+  </action>
+  <action name="equalizeAction">
+   <property name="text">
+    <string>Эквилизация</string>
    </property>
   </action>
  </widget>

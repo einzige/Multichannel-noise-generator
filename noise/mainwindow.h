@@ -29,6 +29,7 @@ signals:
     void applyBrightness(int diff);
     void applyContrast(int diff);
     void inverse();
+    void equalize();
 public slots:
     void loadImage();
     void displayImage(const QImage &img);

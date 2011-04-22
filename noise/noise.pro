@@ -29,7 +29,8 @@ SOURCES += main.cpp \
     ../filters/hist.cpp \
     ../filters/brightnessfilter.cpp \
     ../filters/contrastfilter.cpp \
-    ../filters/invertfilter.cpp
+    ../filters/invertfilter.cpp \
+    ../filters/equalize.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -56,5 +57,6 @@ HEADERS += mainwindow.h \
     ../filters/hist.h \
     ../filters/brightnessfilter.h \
     ../filters/contrastfilter.h \
-    ../filters/invertfilter.h
+    ../filters/invertfilter.h \
+    ../filters/equalize.h
 FORMS += mainwindow.ui
