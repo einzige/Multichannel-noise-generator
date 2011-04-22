@@ -46,13 +46,15 @@ MainWindow::MainWindow(QWidget *parent) :
     // signals & slots
     connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadImage()));
 
-    connect(ui->showProcessedButton, SIGNAL(clicked()), this, SIGNAL(restoreImage()));
-    connect(ui->noiseDial, SIGNAL(valueChanged(int)),   this, SIGNAL(rateChanged(int)));
-    connect(ui->actionGrayscale, SIGNAL(triggered()),   this, SIGNAL(grayscale()));
-    connect(ui->histAction, SIGNAL(triggered()),        this, SIGNAL(showHist()));
-    connect(ui->showToolsAction, SIGNAL(toggled(bool)), ui->toolsDock, SLOT(setShown(bool)));
-    connect(ui->showBrightnessAction, SIGNAL(toggled(bool)), ui->brightnessDock, SLOT(setShown(bool)));
-    connect(ui->invertseAction, SIGNAL(triggered()), this, SIGNAL(inverse()));
+    connect(ui->showToolsAction,      SIGNAL(toggled(bool)),     ui->toolsDock,      SLOT(setShown(bool)));
+    connect(ui->showBrightnessAction, SIGNAL(toggled(bool)),     ui->brightnessDock, SLOT(setShown(bool)));
+
+    connect(ui->showProcessedButton,  SIGNAL(clicked()),         this, SIGNAL(restoreImage()));
+    connect(ui->noiseDial,            SIGNAL(valueChanged(int)), this, SIGNAL(rateChanged(int)));
+    connect(ui->actionGrayscale,      SIGNAL(triggered()),       this, SIGNAL(grayscale()));
+    connect(ui->histAction,           SIGNAL(triggered()),       this, SIGNAL(showHist()));
+    connect(ui->invertseAction,       SIGNAL(triggered()),       this, SIGNAL(inverse()));
+    connect(ui->equalizeAction,       SIGNAL(triggered()),       this, SIGNAL(equalize()));
 }
 
 MainWindow::~MainWindow()

@@ -26,6 +26,7 @@ private:
 public slots:
     void grayscale();
     void inverse();
+    void equalize();
     void setRate(int);
     void restoreImage();
     void applyImpulseNoise(int);

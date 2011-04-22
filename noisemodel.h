@@ -27,6 +27,7 @@ public:
     void applyBrightnessFilter(int diff);
     void applyContrastFilter(int diff);
     void applyInverseFilter();
+    void applyEqualizeFilter();
 
     QImage hist();
 

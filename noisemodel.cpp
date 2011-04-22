@@ -7,6 +7,7 @@
 #include "filters/brightnessfilter.h"
 #include "filters/contrastfilter.h"
 #include "filters/invertfilter.h"
+#include "filters/equalize.h"
 
 #include <QDebug>
 
@@ -77,6 +78,12 @@ void NoiseModel::applyGrayscaleFilter()
 void NoiseModel::applyInverseFilter()
 {
     InvertFilter *f = new InvertFilter();
+    applyFilter(f, this->currentChannel);
+}
+
+void NoiseModel::applyEqualizeFilter()
+{
+    EqualizeFilter *f = new EqualizeFilter();
     applyFilter(f, this->currentChannel);
 }
 
