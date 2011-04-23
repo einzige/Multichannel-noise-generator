@@ -29,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->toolsLayout->setMargin(10);
     ui->toolsScrollAreaContent->setLayout(ui->toolsLayout);
 
+    ui->brightnessDock->setWidget(ui->brightnessScrollArea);
+    ui->brightnessLayout->setMargin(10);
+    ui->brightnessScrollAreaContents->setLayout(ui->brightnessLayout);
+
     ui->multiTab->setLayout(ui->multiLayout);
     ui->multiLayout->setMargin(10);
 
@@ -38,12 +42,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->impulseTab->setLayout(ui->impulseLayout);
     ui->impulseLayout->setMargin(10);
 
+    ui->autolevelsGroupBox->setLayout(ui->autolevelsLayout);
+    ui->linContrastGroupBox->setLayout(ui->linContrastLayout);
+    //ui->autolevelsLayout->setMargin(5);
+
+    ui->brightnessDock->hide();
     // signals & slots
     connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadImage()));
 
-    connect(ui->showProcessedButton, SIGNAL(clicked()), this, SIGNAL(restoreImage()));
-    connect(ui->noiseDial, SIGNAL(valueChanged(int)),   this, SIGNAL(rateChanged(int)));
-    connect(ui->actionGrayscale, SIGNAL(triggered()),   this, SIGNAL(grayscale()));
+    connect(ui->showToolsAction,      SIGNAL(toggled(bool)),     ui->toolsDock,      SLOT(setShown(bool)));
+    connect(ui->showBrightnessAction, SIGNAL(toggled(bool)),     ui->brightnessDock, SLOT(setShown(bool)));
+
+    connect(ui->showProcessedButton,  SIGNAL(clicked()),         this, SIGNAL(restoreImage()));
+    connect(ui->noiseDial,            SIGNAL(valueChanged(int)), this, SIGNAL(rateChanged(int)));
+    connect(ui->actionGrayscale,      SIGNAL(triggered()),       this, SIGNAL(grayscale()));
+    connect(ui->histAction,           SIGNAL(triggered()),       this, SIGNAL(showHist()));
+    connect(ui->invertseAction,       SIGNAL(triggered()),       this, SIGNAL(inverse()));
+    connect(ui->equalizeAction,       SIGNAL(triggered()),       this, SIGNAL(equalize()));
 }
 
 MainWindow::~MainWindow()
@@ -111,4 +126,25 @@ void MainWindow::on_applyAdditButton_clicked()
 void MainWindow::on_applyMultiButton_clicked()
 {
     emit applyMultiNoise(ui->multiSlider->value());
+}
+
+void MainWindow::on_applyBrightnessButton_clicked()
+{
+    emit applyBrightness(ui->brightnessSlider->value());
+    emit applyContrast(ui->contrastSlider->value());
+    emit applyGamma(ui->expSlider->value());
+}
+
+void MainWindow::on_autolevelsApplyButton_clicked()
+{
+    emit applyAutoLevels(ui->autolevelsMinimumSlider->value(), ui->autolevelsMaximumSlider->value());
+}
+
+void MainWindow::setTicks(int ticks) {
+    ui->ticks->display(ticks);
+}
+
+void MainWindow::on_linContrastApplyButton_clicked()
+{
+    emit applyAutoContrast(ui->linContrastMinSlider->value(), ui->linContrastMaxSlider->value());
 }

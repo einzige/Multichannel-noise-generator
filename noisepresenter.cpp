@@ -12,8 +12,6 @@ void NoisePresenter::setChannel(QString channelName)
 
     IView *view = dynamic_cast<IView*>(sender());
     view->displayImage(model->getChannelImage(channel));
-
-    qDebug() << "channel changed";
 }
 
 void NoisePresenter::setRate(int rate) {
@@ -55,8 +53,17 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(restoreImage()),
                      this,       SLOT(restoreImage()));
 
+    QObject::connect(view_obj, SIGNAL(showHist()),
+                     this,       SLOT(showHist()));
+
     QObject::connect(view_obj, SIGNAL(grayscale()),
                      this,       SLOT(grayscale()));
+
+    QObject::connect(view_obj, SIGNAL(inverse()),
+                     this,       SLOT(inverse()));
+
+    QObject::connect(view_obj, SIGNAL(equalize()),
+                     this,       SLOT(equalize()));
 
     QObject::connect(view_obj, SIGNAL(imageLoaded(const QImage&)),
                      this,       SLOT(loadImage  (const QImage&)));
@@ -75,11 +82,77 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyMultiNoise(int)),
                      this,       SLOT(applyMultiNoise(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyBrightness(int)),
+                     this,       SLOT(applyBrightnessFilter(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyContrast(int)),
+                     this,       SLOT(applyContrastFilter(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyGamma(int)),
+                     this,       SLOT(applyGamma(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyAutoLevels(int, int)),
+                     this,       SLOT(applyAutoLevels(int, int)));
+
+    QObject::connect(view_obj, SIGNAL(applyAutoContrast(int, int)),
+                     this,       SLOT(applyAutoContrast(int, int)));
+}
+
+void NoisePresenter::applyAutoLevels(int min, int max) {
+    model->applyAutoLevelsFilter(min, max);
+    refreshView();
+}
+
+void NoisePresenter::applyAutoContrast(int min, int max) {
+    model->applyAutoContrastFilter(min, max);
+    refreshView();
+}
+
+void NoisePresenter::applyGamma(int diff) {
+    model->applyGammaFilter(diff);
+
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
+}
+
+void NoisePresenter::applyBrightnessFilter(int diff) {
+    model->applyBrightnessFilter(diff);
+
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
+}
+
+void NoisePresenter::applyContrastFilter(int diff) {
+    model->applyContrastFilter(diff);
+
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
+}
+
+void NoisePresenter::showHist()
+{
+    IView *view = dynamic_cast<IView*>(sender());
+    view->displayImage(model->hist());
 }
 
 void NoisePresenter::grayscale()
 {
     model->applyGrayscaleFilter();
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
+}
+
+void NoisePresenter::inverse()
+{
+    model->applyInverseFilter();
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
+}
+
+void NoisePresenter::equalize()
+{
+    model->applyEqualizeFilter();
     IView *view = dynamic_cast<IView*>(sender());
     refreshView(view);
 }
@@ -92,6 +165,7 @@ void NoisePresenter::loadImage(const QImage &img)
 
 void NoisePresenter::refreshView(IView *v) const {
     v->displayImage(model->getImage());
+    v->setTicks(model->getTicks());
 }
 
 void NoisePresenter::refreshView() const
@@ -104,7 +178,6 @@ void NoisePresenter::refreshView() const
 
 void NoisePresenter::restoreImage()
 {
-    qDebug() << "----RESTORING----";
     model->resetImage();
 
     IView *view = dynamic_cast<IView*>(sender());

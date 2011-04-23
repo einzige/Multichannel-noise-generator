@@ -25,7 +25,15 @@ SOURCES += main.cpp \
     ../colorspaces/rgbcs.cpp \
     ../colorspaces/hlscs.cpp \
     ../noisepresenter.cpp \
-    ../filters/grayscalefilter.cpp
+    ../filters/grayscalefilter.cpp \
+    ../filters/hist.cpp \
+    ../filters/brightnessfilter.cpp \
+    ../filters/contrastfilter.cpp \
+    ../filters/invertfilter.cpp \
+    ../filters/equalize.cpp \
+    ../filters/exp.cpp \
+    ../filters/autolevels.cpp \
+    ../filters/autocontrast.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -48,5 +56,13 @@ HEADERS += mainwindow.h \
     ../colorspaces/rgbcs.h \
     ../colorspaces/hlscs.h \
     ../noisepresenter.h \
-    ../filters/grayscalefilter.h
+    ../filters/grayscalefilter.h \
+    ../filters/hist.h \
+    ../filters/brightnessfilter.h \
+    ../filters/contrastfilter.h \
+    ../filters/invertfilter.h \
+    ../filters/equalize.h \
+    ../filters/exp.h \
+    ../filters/autolevels.h \
+    ../filters/autocontrast.h
 FORMS += mainwindow.ui

@@ -24,6 +24,15 @@ public:
     void applyAdditionalNoise(int maxDiff);
     void applyMultiNoise(int coef);
     void applyGrayscaleFilter();
+    void applyBrightnessFilter(int diff);
+    void applyContrastFilter(int diff);
+    void applyGammaFilter(int diff);
+    void applyInverseFilter();
+    void applyEqualizeFilter();
+    void applyAutoLevelsFilter(int min, int max);
+    void applyAutoContrastFilter(int min, int max);
+
+    QImage hist();
 
     void setRate(int rate);
     void setCurrentChannel(Channel::Identifier channel);
@@ -31,7 +40,7 @@ public:
 protected:
     void reset();
 
-    int                 rate;
+    int rate;
     Channel::Identifier currentChannel;
 };
 

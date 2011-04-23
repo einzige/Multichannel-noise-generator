@@ -3,6 +3,7 @@
 
 #include <QImage>
 #include <QList>
+#include <QTime>
 
 #include "ifilter.h"
 #include "colorspace.h"
@@ -25,6 +26,8 @@ public:
 
     void   addColorSpace(ColorSpace cs);
 
+    int getTicks();
+
 protected:
     ColorSpace*  getCSByChannel(Channel::Identifier);
 
@@ -32,6 +35,8 @@ protected:
 
     QImage sourceImage;
     QImage image;
+
+    int ticks;
 };
 
 #endif // MODEL_H
