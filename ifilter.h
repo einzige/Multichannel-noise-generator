@@ -13,5 +13,6 @@ public:
 
 QImage changeContrast( const QImage& image, int contrast );
 QImage changeBrightness( const QImage& image, int brightness );
+QImage changeGamma(const QImage& image, int gamma);
 
 #endif // IFILTER_H

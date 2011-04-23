@@ -28,6 +28,7 @@ signals:
     void applyMultiNoise(int coef);
     void applyBrightness(int diff);
     void applyContrast(int diff);
+    void applyGamma(int diff);
     void inverse();
     void equalize();
 public slots:

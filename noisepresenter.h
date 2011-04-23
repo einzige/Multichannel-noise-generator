@@ -33,6 +33,8 @@ public slots:
     void applyAdditionalNoise(int);
     void applyBrightnessFilter(int);
     void applyContrastFilter(int);
+    void applyGamma(int);
+
     void applyMultiNoise(int);
     void loadImage(const QImage&);
     void setChannel(QString channelName);

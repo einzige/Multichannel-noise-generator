@@ -901,13 +901,13 @@ font-size:12pt;
    <property name="minimumSize">
     <size>
      <width>200</width>
-     <height>41</height>
+     <height>100</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>524287</width>
-     <height>220</height>
+     <height>290</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -923,7 +923,7 @@ font-size:12pt;
     <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
    </property>
    <property name="windowTitle">
-    <string>Яркость / контраст</string>
+    <string>Коррекция цвета</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
@@ -935,7 +935,7 @@ font-size:12pt;
        <x>9</x>
        <y>10</y>
        <width>231</width>
-       <height>181</height>
+       <height>251</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -953,7 +953,7 @@ font-size:12pt;
         <x>0</x>
         <y>0</y>
         <width>231</width>
-        <height>181</height>
+        <height>251</height>
        </rect>
       </property>
       <widget class="QFrame" name="brightnessFrame">
@@ -962,7 +962,7 @@ font-size:12pt;
          <x>0</x>
          <y>10</y>
          <width>221</width>
-         <height>171</height>
+         <height>241</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -977,7 +977,7 @@ font-size:12pt;
           <x>9</x>
           <y>10</y>
           <width>201</width>
-          <height>174</height>
+          <height>230</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="brightnessLayout">
@@ -1077,6 +1077,49 @@ font-size:12pt;
           </widget>
          </item>
          <item>
+          <layout class="QFormLayout" name="formLayout_5">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Степен. корр.:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLCDNumber" name="lcdNumber_7">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="numDigits">
+              <number>3</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QSlider" name="expSlider">
+           <property name="maximum">
+            <number>200</number>
+           </property>
+           <property name="value">
+            <number>100</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksAbove</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="applyBrightnessButton">
            <property name="text">
             <string>Применить</string>
@@ -1139,7 +1182,7 @@ font-size:12pt;
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Яркость/контраст</string>
+    <string>Коррекция цвета</string>
    </property>
   </action>
   <action name="invertseAction">
@@ -1291,12 +1334,12 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>569</y>
+     <x>688</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
-     <x>157</x>
-     <y>538</y>
+     <x>787</x>
+     <y>106</y>
     </hint>
    </hints>
   </connection>
@@ -1307,12 +1350,28 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>102</x>
-     <y>626</y>
+     <x>671</x>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
-     <x>115</x>
-     <y>598</y>
+     <x>761</x>
+     <y>171</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>expSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_7</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>689</x>
+     <y>253</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>757</x>
+     <y>232</y>
     </hint>
    </hints>
   </connection>

@@ -26,6 +26,7 @@ public:
     void applyGrayscaleFilter();
     void applyBrightnessFilter(int diff);
     void applyContrastFilter(int diff);
+    void applyGammaFilter(int diff);
     void applyInverseFilter();
     void applyEqualizeFilter();
 

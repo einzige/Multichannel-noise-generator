@@ -90,6 +90,16 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyContrast(int)),
                      this,       SLOT(applyContrastFilter(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyGamma(int)),
+                     this,       SLOT(applyGamma(int)));
+}
+
+void NoisePresenter::applyGamma(int diff) {
+    model->applyGammaFilter(diff);
+
+    IView *view = dynamic_cast<IView*>(sender());
+    refreshView(view);
 }
 
 void NoisePresenter::applyBrightnessFilter(int diff) {
