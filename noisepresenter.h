@@ -35,6 +35,7 @@ public slots:
     void applyContrastFilter(int);
     void applyGamma(int);
     void applyAutoLevels(int, int);
+    void applyAutoContrast(int, int);
 
     void applyMultiNoise(int);
     void loadImage(const QImage&);

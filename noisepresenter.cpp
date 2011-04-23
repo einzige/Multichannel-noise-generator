@@ -12,8 +12,6 @@ void NoisePresenter::setChannel(QString channelName)
 
     IView *view = dynamic_cast<IView*>(sender());
     view->displayImage(model->getChannelImage(channel));
-
-    qDebug() << "channel changed";
 }
 
 void NoisePresenter::setRate(int rate) {
@@ -96,10 +94,18 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyAutoLevels(int, int)),
                      this,       SLOT(applyAutoLevels(int, int)));
+
+    QObject::connect(view_obj, SIGNAL(applyAutoContrast(int, int)),
+                     this,       SLOT(applyAutoContrast(int, int)));
 }
 
 void NoisePresenter::applyAutoLevels(int min, int max) {
     model->applyAutoLevelsFilter(min, max);
+    refreshView();
+}
+
+void NoisePresenter::applyAutoContrast(int min, int max) {
+    model->applyAutoContrastFilter(min, max);
     refreshView();
 }
 
@@ -172,7 +178,6 @@ void NoisePresenter::refreshView() const
 
 void NoisePresenter::restoreImage()
 {
-    qDebug() << "----RESTORING----";
     model->resetImage();
 
     IView *view = dynamic_cast<IView*>(sender());

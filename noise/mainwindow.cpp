@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->impulseLayout->setMargin(10);
 
     ui->autolevelsGroupBox->setLayout(ui->autolevelsLayout);
+    ui->linContrastGroupBox->setLayout(ui->linContrastLayout);
     //ui->autolevelsLayout->setMargin(5);
 
     ui->brightnessDock->hide();
@@ -141,4 +142,9 @@ void MainWindow::on_autolevelsApplyButton_clicked()
 
 void MainWindow::setTicks(int ticks) {
     ui->ticks->display(ticks);
+}
+
+void MainWindow::on_linContrastApplyButton_clicked()
+{
+    emit applyAutoContrast(ui->linContrastMinSlider->value(), ui->linContrastMaxSlider->value());
 }

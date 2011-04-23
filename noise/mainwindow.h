@@ -32,6 +32,7 @@ signals:
     void inverse();
     void equalize();
     void applyAutoLevels(int min, int max);
+    void applyAutoContrast(int min, int max);
 
 public slots:
     void loadImage();
@@ -53,6 +54,7 @@ private slots:
     void on_channelsBox_currentIndexChanged(QString );
     void on_applyImpulseButton_clicked();
     void on_autolevelsApplyButton_clicked();
+    void on_linContrastApplyButton_clicked();
 };
 
 #endif // MAINWINDOW_H

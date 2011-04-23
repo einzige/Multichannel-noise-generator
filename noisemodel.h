@@ -30,6 +30,7 @@ public:
     void applyInverseFilter();
     void applyEqualizeFilter();
     void applyAutoLevelsFilter(int min, int max);
+    void applyAutoContrastFilter(int min, int max);
 
     QImage hist();
 

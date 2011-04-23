@@ -10,6 +10,7 @@
 #include "filters/equalize.h"
 #include "filters/exp.h"
 #include "filters/autolevels.h"
+#include "filters/autocontrast.h"
 
 #include <QDebug>
 
@@ -104,6 +105,12 @@ void NoiseModel::applyGammaFilter(int diff)
 void NoiseModel::applyAutoLevelsFilter(int min, int max)
 {
     Autolevels *f = new Autolevels(min, max);
+    applyFilter(f, this->currentChannel);
+}
+
+void NoiseModel::applyAutoContrastFilter(int min, int max)
+{
+    AutoContrast *f = new AutoContrast(min, max);
     applyFilter(f, this->currentChannel);
 }
 
