@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>771</width>
-    <height>728</height>
+    <height>544</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -893,8 +893,7 @@ font-size:12pt;
              <property name="styleSheet">
               <string notr="true">color: white;
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(71, 0, 0, 255), stop:1 rgba(180, 0, 0, 255));
-border-radius: 5px;
-border-size: 2px;</string>
+border-radius: 5px;</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -941,7 +940,7 @@ border-size: 2px;</string>
    <property name="maximumSize">
     <size>
      <width>524287</width>
-     <height>500</height>
+     <height>800</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -966,10 +965,10 @@ border-size: 2px;</string>
     <widget class="QScrollArea" name="brightnessScrollArea">
      <property name="geometry">
       <rect>
-       <x>9</x>
-       <y>10</y>
+       <x>10</x>
+       <y>0</y>
        <width>231</width>
-       <height>451</height>
+       <height>631</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -987,7 +986,7 @@ border-size: 2px;</string>
         <x>0</x>
         <y>0</y>
         <width>231</width>
-        <height>451</height>
+        <height>631</height>
        </rect>
       </property>
       <widget class="QFrame" name="brightnessFrame">
@@ -996,7 +995,7 @@ border-size: 2px;</string>
          <x>0</x>
          <y>10</y>
          <width>221</width>
-         <height>441</height>
+         <height>631</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -1010,11 +1009,14 @@ border-size: 2px;</string>
          <rect>
           <x>9</x>
           <y>10</y>
-          <width>201</width>
-          <height>445</height>
+          <width>232</width>
+          <height>660</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="brightnessLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
          <item>
           <layout class="QFormLayout" name="formLayout_3">
            <item row="0" column="0">
@@ -1162,6 +1164,147 @@ border-size: 2px;</string>
          </item>
          <item>
           <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="linContrastGroupBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>200</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="title">
+            <string>Линейное контрастирование</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <widget class="QWidget" name="verticalLayoutWidget_6">
+            <property name="geometry">
+             <rect>
+              <x>-1</x>
+              <y>30</y>
+              <width>181</width>
+              <height>165</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="linContrastLayout">
+             <item>
+              <layout class="QFormLayout" name="formLayout_10">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>Минимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdnumber_2">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="linContrastMinSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_11">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_13">
+                 <property name="text">
+                  <string>Максимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdNumber_10">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                 <property name="intValue" stdset="0">
+                  <number>255</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="linContrastMaxSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="value">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="linContrastApplyButton">
+               <property name="text">
+                <string>Применить</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_2">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -1509,12 +1652,12 @@ border-size: 2px;</string>
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>688</x>
-     <y>141</y>
+     <x>820</x>
+     <y>131</y>
     </hint>
     <hint type="destinationlabel">
-     <x>787</x>
-     <y>106</y>
+     <x>819</x>
+     <y>96</y>
     </hint>
    </hints>
   </connection>
@@ -1525,12 +1668,12 @@ border-size: 2px;</string>
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>671</x>
-     <y>206</y>
+     <x>820</x>
+     <y>196</y>
     </hint>
     <hint type="destinationlabel">
-     <x>761</x>
-     <y>171</y>
+     <x>819</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
@@ -1545,8 +1688,8 @@ border-size: 2px;</string>
      <y>253</y>
     </hint>
     <hint type="destinationlabel">
-     <x>757</x>
-     <y>232</y>
+     <x>819</x>
+     <y>226</y>
     </hint>
    </hints>
   </connection>
@@ -1557,12 +1700,12 @@ border-size: 2px;</string>
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>659</x>
-     <y>382</y>
+     <x>769</x>
+     <y>614</y>
     </hint>
     <hint type="destinationlabel">
-     <x>739</x>
-     <y>352</y>
+     <x>768</x>
+     <y>579</y>
     </hint>
    </hints>
   </connection>
@@ -1573,12 +1716,12 @@ border-size: 2px;</string>
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>676</x>
-     <y>440</y>
+     <x>769</x>
+     <y>679</y>
     </hint>
     <hint type="destinationlabel">
-     <x>693</x>
-     <y>421</y>
+     <x>768</x>
+     <y>644</y>
     </hint>
    </hints>
   </connection>
@@ -1595,6 +1738,38 @@ border-size: 2px;</string>
     <hint type="destinationlabel">
      <x>114</x>
      <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linContrastMinSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdnumber_2</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>639</x>
+     <y>389</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>737</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linContrastMaxSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_10</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>671</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>723</x>
+     <y>427</y>
     </hint>
    </hints>
   </connection>
