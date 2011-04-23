@@ -9,13 +9,14 @@
 #include "filters/invertfilter.h"
 #include "filters/equalize.h"
 #include "filters/exp.h"
+#include "filters/autolevels.h"
 
 #include <QDebug>
 
 void NoiseModel::reset()
 {
     currentChannel = Channel::UNDEFINED;
-    rate = 1;
+    rate  = 1;
 }
 
 NoiseModel::NoiseModel() : Model()
@@ -41,24 +42,18 @@ void NoiseModel::applyImpulseNoise(int blackRate)
     ImpulseNoise *f = new ImpulseNoise(rate, blackRate);
     f->setRate(rate);
     applyFilter(f, this->currentChannel);
-
-    qDebug() << "NoiseFilter applied";
 }
 
 void NoiseModel::applyAdditionalNoise(int maxDiff)
 {
     AdditiveNoise *f = new AdditiveNoise(rate, maxDiff, maxDiff);
     applyFilter(f, this->currentChannel);
-
-    qDebug() << "AdditiveFilter applied";
 }
 
 void NoiseModel::applyMultiNoise(int coef)
 {
     MultiNoise *f = new MultiNoise(rate, coef);
     applyFilter(f, this->currentChannel);
-
-    qDebug() << "MultiFilter applied";
 }
 
 void NoiseModel::setRate(int rate) {
@@ -103,6 +98,12 @@ void NoiseModel::applyContrastFilter(int diff)
 void NoiseModel::applyGammaFilter(int diff)
 {
     ExpFilter *f = new ExpFilter(diff);
+    applyFilter(f, this->currentChannel);
+}
+
+void NoiseModel::applyAutoLevelsFilter(int min, int max)
+{
+    Autolevels *f = new Autolevels(min, max);
     applyFilter(f, this->currentChannel);
 }
 

@@ -29,6 +29,7 @@ public:
     void applyGammaFilter(int diff);
     void applyInverseFilter();
     void applyEqualizeFilter();
+    void applyAutoLevelsFilter(int min, int max);
 
     QImage hist();
 
@@ -38,7 +39,7 @@ public:
 protected:
     void reset();
 
-    int                 rate;
+    int rate;
     Channel::Identifier currentChannel;
 };
 

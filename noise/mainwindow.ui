@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>771</width>
-    <height>538</height>
+    <height>728</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -178,7 +178,7 @@
        <x>0</x>
        <y>0</y>
        <width>251</width>
-       <height>411</height>
+       <height>641</height>
       </rect>
      </property>
      <property name="sizePolicy">
@@ -211,7 +211,7 @@
         <x>0</x>
         <y>0</y>
         <width>251</width>
-        <height>411</height>
+        <height>641</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -232,7 +232,7 @@
          <x>0</x>
          <y>0</y>
          <width>231</width>
-         <height>401</height>
+         <height>641</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -246,8 +246,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>241</width>
-          <height>633</height>
+          <width>275</width>
+          <height>658</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="toolsLayout">
@@ -422,7 +422,7 @@ font-size:12pt;
             <enum>QTabWidget::Rounded</enum>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="impulseTab">
             <attribute name="title">
@@ -443,14 +443,14 @@ font-size:12pt;
                 <property name="sizeConstraint">
                  <enum>QLayout::SetMaximumSize</enum>
                 </property>
-                <item row="0" column="0">
+                <item row="1" column="0">
                  <widget class="QLabel" name="label_6">
                   <property name="text">
                    <string>Белый</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="1">
                  <widget class="QSlider" name="impulseBlackWhiteSlider">
                   <property name="maximum">
                    <number>100</number>
@@ -469,10 +469,29 @@ font-size:12pt;
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="2">
+                <item row="1" column="2">
                  <widget class="QLabel" name="label_7">
                   <property name="text">
                    <string>Черный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLCDNumber" name="lcdNumber_8">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(218, 218, 218);</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                  <property name="numDigits">
+                   <number>3</number>
+                  </property>
+                  <property name="intValue" stdset="0">
+                   <number>50</number>
                   </property>
                  </widget>
                 </item>
@@ -861,24 +880,39 @@ font-size:12pt;
           </spacer>
          </item>
          <item>
-          <layout class="QFormLayout" name="ticksLayout">
-           <property name="fieldGrowthPolicy">
-            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-           </property>
-           <item row="3" column="0">
+          <layout class="QFormLayout" name="formLayout_9">
+           <item row="0" column="0">
             <widget class="QLabel" name="label">
              <property name="text">
-              <string>Такты на операцию</string>
+              <string>Такты на фильтры:</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
+           <item row="0" column="1">
             <widget class="QLCDNumber" name="ticks">
+             <property name="styleSheet">
+              <string notr="true">color: white;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(71, 0, 0, 255), stop:1 rgba(180, 0, 0, 255));
+border-radius: 5px;
+border-size: 2px;</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
              <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="lineWidth">
+              <number>4</number>
+             </property>
+             <property name="smallDecimalPoint">
+              <bool>false</bool>
+             </property>
+             <property name="numDigits">
+              <number>10</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
              </property>
             </widget>
            </item>
@@ -907,7 +941,7 @@ font-size:12pt;
    <property name="maximumSize">
     <size>
      <width>524287</width>
-     <height>290</height>
+     <height>500</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -935,7 +969,7 @@ font-size:12pt;
        <x>9</x>
        <y>10</y>
        <width>231</width>
-       <height>251</height>
+       <height>451</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -953,7 +987,7 @@ font-size:12pt;
         <x>0</x>
         <y>0</y>
         <width>231</width>
-        <height>251</height>
+        <height>451</height>
        </rect>
       </property>
       <widget class="QFrame" name="brightnessFrame">
@@ -962,7 +996,7 @@ font-size:12pt;
          <x>0</x>
          <y>10</y>
          <width>221</width>
-         <height>241</height>
+         <height>441</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -977,7 +1011,7 @@ font-size:12pt;
           <x>9</x>
           <y>10</y>
           <width>201</width>
-          <height>230</height>
+          <height>445</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="brightnessLayout">
@@ -1124,6 +1158,147 @@ font-size:12pt;
            <property name="text">
             <string>Применить</string>
            </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="autolevelsGroupBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>200</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="title">
+            <string>Autolevels</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <widget class="QWidget" name="verticalLayoutWidget_5">
+            <property name="geometry">
+             <rect>
+              <x>-1</x>
+              <y>30</y>
+              <width>181</width>
+              <height>165</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="autolevelsLayout">
+             <item>
+              <layout class="QFormLayout" name="formLayout_7">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_10">
+                 <property name="text">
+                  <string>Минимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdnumber">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="autolevelsMinimumSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_8">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>Максимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdNumber_9">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                 <property name="intValue" stdset="0">
+                  <number>255</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="autolevelsMaximumSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="value">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="autolevelsApplyButton">
+               <property name="text">
+                <string>Применить</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </item>
          <item>
@@ -1372,6 +1547,54 @@ font-size:12pt;
     <hint type="destinationlabel">
      <x>757</x>
      <y>232</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>autolevelsMinimumSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdnumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>659</x>
+     <y>382</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>739</x>
+     <y>352</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>autolevelsMaximumSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_9</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>676</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>693</x>
+     <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>impulseBlackWhiteSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_8</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>299</y>
     </hint>
    </hints>
   </connection>

@@ -93,6 +93,14 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyGamma(int)),
                      this,       SLOT(applyGamma(int)));
+
+    QObject::connect(view_obj, SIGNAL(applyAutoLevels(int, int)),
+                     this,       SLOT(applyAutoLevels(int, int)));
+}
+
+void NoisePresenter::applyAutoLevels(int min, int max) {
+    model->applyAutoLevelsFilter(min, max);
+    refreshView();
 }
 
 void NoisePresenter::applyGamma(int diff) {
@@ -151,6 +159,7 @@ void NoisePresenter::loadImage(const QImage &img)
 
 void NoisePresenter::refreshView(IView *v) const {
     v->displayImage(model->getImage());
+    v->setTicks(model->getTicks());
 }
 
 void NoisePresenter::refreshView() const

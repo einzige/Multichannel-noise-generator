@@ -15,10 +15,15 @@
 
 #include <assert.h>
 
-Model::Model(){}
+Model::Model(){ ticks = 0; }
 Model::Model(const QImage& img)
 {
+    ticks = 0;
     setImage(img);
+}
+
+int Model::getTicks() {
+    return ticks;
 }
 
 void Model::setImage(const QImage& img, bool replaceSource)
@@ -51,23 +56,25 @@ void Model::applyFilter(IFilter* f) { setImage(f->apply(image)); }
 
 void Model::applyFilter(IFilter* f, Channel::Identifier channel_id)
 {
-    if(channel_id == Channel::UNDEFINED)
-    {
+    QTime t;
+    t.start();
+
+    if(channel_id == Channel::UNDEFINED) {
         applyFilter(f);
-        return;
+    } else {
+        ColorSpace* cs = getCSByChannel(channel_id);
+
+        // apply filter to the given channel
+        cs->applyFilter(f, channel_id);
+
+        // restore image by the new channel data
+        if(cs->getId() == ColorSpace::HLS)
+            setImage(((HLSCS*)cs)->restore());
+        else
+            if(cs->getId() == ColorSpace::RGB)
+                setImage(((RGBCS*)cs)->restore());
     }
-
-    ColorSpace* cs = getCSByChannel(channel_id);
-
-    // apply filter to the given channel
-    cs->applyFilter(f, channel_id);
-
-    // restore image by the new channel data
-    if(cs->getId() == ColorSpace::HLS)
-        setImage(((HLSCS*)cs)->restore());
-    else
-        if(cs->getId() == ColorSpace::RGB)
-            setImage(((RGBCS*)cs)->restore());
+    ticks = t.elapsed();
 }
 
 QImage Model::getChannelImage(Channel::Identifier id)
