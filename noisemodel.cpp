@@ -8,6 +8,7 @@
 #include "filters/contrastfilter.h"
 #include "filters/invertfilter.h"
 #include "filters/equalize.h"
+#include "filters/exp.h"
 
 #include <QDebug>
 
@@ -96,6 +97,12 @@ void NoiseModel::applyBrightnessFilter(int diff)
 void NoiseModel::applyContrastFilter(int diff)
 {
     ContrastFilter *f = new ContrastFilter(diff);
+    applyFilter(f, this->currentChannel);
+}
+
+void NoiseModel::applyGammaFilter(int diff)
+{
+    ExpFilter *f = new ExpFilter(diff);
     applyFilter(f, this->currentChannel);
 }
 

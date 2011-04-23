@@ -128,4 +128,5 @@ void MainWindow::on_applyBrightnessButton_clicked()
 {
     emit applyBrightness(ui->brightnessSlider->value());
     emit applyContrast(ui->contrastSlider->value());
+    emit applyGamma(ui->expSlider->value());
 }
