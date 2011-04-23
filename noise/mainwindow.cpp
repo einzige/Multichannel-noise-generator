@@ -42,6 +42,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->impulseTab->setLayout(ui->impulseLayout);
     ui->impulseLayout->setMargin(10);
 
+    ui->autolevelsGroupBox->setLayout(ui->autolevelsLayout);
+    //ui->autolevelsLayout->setMargin(5);
+
     ui->brightnessDock->hide();
     // signals & slots
     connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadImage()));
@@ -129,4 +132,13 @@ void MainWindow::on_applyBrightnessButton_clicked()
     emit applyBrightness(ui->brightnessSlider->value());
     emit applyContrast(ui->contrastSlider->value());
     emit applyGamma(ui->expSlider->value());
+}
+
+void MainWindow::on_autolevelsApplyButton_clicked()
+{
+    emit applyAutoLevels(ui->autolevelsMinimumSlider->value(), ui->autolevelsMaximumSlider->value());
+}
+
+void MainWindow::setTicks(int ticks) {
+    ui->ticks->display(ticks);
 }

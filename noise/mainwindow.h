@@ -31,9 +31,12 @@ signals:
     void applyGamma(int diff);
     void inverse();
     void equalize();
+    void applyAutoLevels(int min, int max);
+
 public slots:
     void loadImage();
     void displayImage(const QImage &img);
+    void setTicks(int ticks);
 
 protected:
     void changeEvent(QEvent *e);
@@ -49,6 +52,7 @@ private slots:
     void on_applyAdditButton_clicked();
     void on_channelsBox_currentIndexChanged(QString );
     void on_applyImpulseButton_clicked();
+    void on_autolevelsApplyButton_clicked();
 };
 
 #endif // MAINWINDOW_H

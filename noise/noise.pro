@@ -31,7 +31,8 @@ SOURCES += main.cpp \
     ../filters/contrastfilter.cpp \
     ../filters/invertfilter.cpp \
     ../filters/equalize.cpp \
-    ../filters/exp.cpp
+    ../filters/exp.cpp \
+    ../filters/autolevels.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -60,5 +61,6 @@ HEADERS += mainwindow.h \
     ../filters/contrastfilter.h \
     ../filters/invertfilter.h \
     ../filters/equalize.h \
-    ../filters/exp.h
+    ../filters/exp.h \
+    ../filters/autolevels.h
 FORMS += mainwindow.ui
