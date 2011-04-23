@@ -39,8 +39,8 @@ protected:
 
 private:
     Ui::MainWindow *ui;
-    QImage          sourceImage;
-    QLabel*         imageLabel;
+    QImage         sourceImage;
+    QLabel*        imageLabel;
 
 private slots:
     void on_applyBrightnessButton_clicked();
