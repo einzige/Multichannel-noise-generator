@@ -6,7 +6,67 @@ QImage IFilter::apply(QImage img) const
 }
 
 
+// =============================
+//
+// IMaskFilter
+//
+// =============================
+
+#include <QRegExp>
+#include <QStringList>
+#include <QDebug>
+
+#define WEIGHTS_DELIMETER " "
+
+IMaskFilter::IMaskFilter(QHash< int, QList<float> > mask) {
+    setMask(mask);
+}
+
+void IMaskFilter::setMask(const QHash<int, QList<float> >& mask) {
+    this->mask = mask;
+}
+
+QHash< int, QList<float> > IMaskFilter::getMask() {
+    return mask;
+}
+
+// static
+IMaskFilter IMaskFilter::fromStr(const QString &s)
+{
+    return IMaskFilter(IMaskFilter::parseMask(s));
+}
+// static
+QHash< int, QList<float> > IMaskFilter::parseMask(QString s)
+{
+    s = s.replace(QRegExp("\s+"),  WEIGHTS_DELIMETER) // makes {1.0   2.1} -> {1.0 2.1}
+         .replace(QRegExp("\r" ),  "")                // makes \r\n -> \n
+         .replace(QRegExp("^\s+"), "")
+         .replace(QRegExp("\s+$"), "");
+
+    QHash< int, QList<float> > mask;
+    QStringList lines = s.split("\n");
+
+    qDebug() << "lines: " << lines;
+
+    for(int i = 0; i < lines.count(); i++)
+    {
+        QStringList weights = lines[i].split(WEIGHTS_DELIMETER);
+
+        QList<float> line;
+        foreach(QString ws, weights)
+            line.push_back(ws.toFloat());
+        mask[i] = line;
+    }
+    qDebug() << "mask" << mask;
+
+    return mask;
+}
+
+// ========================================
+//
 // ADDITIONAL FUNCTIONS: FIXME: cleanup all
+//
+// ========================================
 
 #include <QImage>
 #include "math.h"

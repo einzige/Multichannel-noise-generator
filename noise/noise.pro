@@ -33,7 +33,8 @@ SOURCES += main.cpp \
     ../filters/equalize.cpp \
     ../filters/exp.cpp \
     ../filters/autolevels.cpp \
-    ../filters/autocontrast.cpp
+    ../filters/autocontrast.cpp \
+    ../filters/averageconvolution.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -64,5 +65,6 @@ HEADERS += mainwindow.h \
     ../filters/equalize.h \
     ../filters/exp.h \
     ../filters/autolevels.h \
-    ../filters/autocontrast.h
+    ../filters/autocontrast.h \
+    ../filters/averageconvolution.h
 FORMS += mainwindow.ui

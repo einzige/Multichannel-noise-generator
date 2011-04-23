@@ -37,6 +37,8 @@ public slots:
     void applyAutoLevels(int, int);
     void applyAutoContrast(int, int);
 
+    void applyAverageConvolution(QString);
+
     void applyMultiNoise(int);
     void loadImage(const QImage&);
     void setChannel(QString channelName);

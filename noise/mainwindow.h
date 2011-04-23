@@ -33,11 +33,13 @@ signals:
     void equalize();
     void applyAutoLevels(int min, int max);
     void applyAutoContrast(int min, int max);
+    void applyAverageConvolution(QString mask);
 
 public slots:
     void loadImage();
     void displayImage(const QImage &img);
     void setTicks(int ticks);
+    void test();
 
 protected:
     void changeEvent(QEvent *e);

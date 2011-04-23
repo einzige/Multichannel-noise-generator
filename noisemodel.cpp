@@ -11,6 +11,7 @@
 #include "filters/exp.h"
 #include "filters/autolevels.h"
 #include "filters/autocontrast.h"
+#include "filters/averageconvolution.h"
 
 #include <QDebug>
 
@@ -114,8 +115,15 @@ void NoiseModel::applyAutoContrastFilter(int min, int max)
     applyFilter(f, this->currentChannel);
 }
 
+void NoiseModel::applyAverageConvolution(const QString &s)
+{
+    AverageConvolution f = AverageConvolution::fromStr(s);
+    applyFilter(&f, this->currentChannel);
+}
+
 QImage NoiseModel::hist()
 {
     HistFilter *f = new HistFilter();
     return f->apply(getChannelImage(this->currentChannel));
 }
+

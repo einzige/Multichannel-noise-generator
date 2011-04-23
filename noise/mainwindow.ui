@@ -111,6 +111,7 @@
     </property>
     <addaction name="showToolsAction"/>
     <addaction name="showBrightnessAction"/>
+    <addaction name="showConvolutionAction"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_4"/>
@@ -1511,6 +1512,14 @@ border-radius: 5px;</string>
   <action name="equalizeAction">
    <property name="text">
     <string>Эквилизация</string>
+   </property>
+  </action>
+  <action name="showConvolutionAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Фильтрация</string>
    </property>
   </action>
  </widget>

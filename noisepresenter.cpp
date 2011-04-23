@@ -97,6 +97,18 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyAutoContrast(int, int)),
                      this,       SLOT(applyAutoContrast(int, int)));
+
+    // lab #3
+    QObject::connect(view_obj, SIGNAL(applyAverageConvolution(QString)),
+                     this,       SLOT(applyAverageConvolution(QString)));
+}
+
+void NoisePresenter::applyAverageConvolution(QString s)
+{
+    qDebug() << "Average convolution started";
+
+    model->applyAverageConvolution(s);
+    refreshView();
 }
 
 void NoisePresenter::applyAutoLevels(int min, int max) {

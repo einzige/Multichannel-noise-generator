@@ -31,6 +31,7 @@ public:
     void applyEqualizeFilter();
     void applyAutoLevelsFilter(int min, int max);
     void applyAutoContrastFilter(int min, int max);
+    void applyAverageConvolution(const QString &);
 
     QImage hist();
 

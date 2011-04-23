@@ -40,13 +40,9 @@ QImage AutoContrast::apply(QImage img) const {
     for (int xi = 0; xi < nslices; xi++)
         for (int yi = 0; yi < nslices; yi++) {
 
-            float a =    ((float)(max - min))
-                / //______________________________
-                    (fmax[xi][yi] - fmin[xi][yi]);
-
-            float b = ((float)(min*fmax[xi][yi] - max*fmin[xi][yi]))
-                  / //______________________________________________
-                              (fmax[xi][yi] - fmin[xi][yi]);
+            float z = fmax[xi][yi] - fmin[xi][yi];
+            float a = (max - min) / z;
+            float b = (min*fmax[xi][yi] - max*fmin[xi][yi]) / z;
 
             for (int x = xi*xstep; x < xstep + xi*xstep; x++)
                 for (int y = yi*ystep; y < ystep + yi*ystep; y++) {

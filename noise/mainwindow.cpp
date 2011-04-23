@@ -59,6 +59,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->histAction,           SIGNAL(triggered()),       this, SIGNAL(showHist()));
     connect(ui->invertseAction,       SIGNAL(triggered()),       this, SIGNAL(inverse()));
     connect(ui->equalizeAction,       SIGNAL(triggered()),       this, SIGNAL(equalize()));
+
+    // test
+    connect(ui->showConvolutionAction, SIGNAL(changed()), this, SLOT(test()));
+}
+
+void MainWindow::test(){
+    emit applyAverageConvolution("-2 -1 0\n-1 1 1\n0 1 2");
 }
 
 MainWindow::~MainWindow()
