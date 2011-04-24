@@ -43,23 +43,33 @@ int IMaskFilter::getOffset(){
 // static
 QImage IMaskFilter::convolve(QImage img, QHash< int, QList<float> > mask, int filter_offset, float filter_div)
 {
+    QImage res(img);
     int xfilter_size = mask[0].count();
     int yfilter_size = mask.count();
+
+    int xradius = xfilter_size / 2;
+    int yradius = yfilter_size / 2;
 
     for (int y = 0; y < img.height(); ++y)
     {
         for (int x = 0; x < img.width(); ++x)
         {
+            int c_pixel_x = x + xradius;
+            int c_pixel_y = y + yradius;
+
+            if (c_pixel_x >= img.width() || c_pixel_y >= img.height())
+                continue;
+
             float new_r, new_g, new_b;
             new_r = new_g = new_b = 0;
 
             for (int j = 0; j < yfilter_size; j++)
             {
-                int yv = min(max(y - 1 + j, 0), img.height() - 1);
+                int yv = min(max(y - yradius + j, 0), img.height() - yradius);
 
                 for (int i = 0; i < xfilter_size; i++)
                 {
-                    int xv = min(max(x-1 + i, 0), img.width() - 1);
+                    int xv = min(max(x-xradius + i, 0), img.width() - xradius);
 
                     QColor c(img.pixel(xv, yv));
 
@@ -79,12 +89,12 @@ QImage IMaskFilter::convolve(QImage img, QHash< int, QList<float> > mask, int fi
 
 
 
-            img.setPixel(x, y, QColor((int)new_r,
+            res.setPixel(c_pixel_x, c_pixel_y, QColor((int)new_r,
                                       (int)new_g,
                                       (int)new_b, 255).rgb());
         }
     }
-    return img;
+    return res;
 }
 
 // static
@@ -99,7 +109,8 @@ QHash< int, QList<float> > IMaskFilter::parseMask(QString s)
          .replace("\r", "")
          .replace(QRegExp("\\s*\n\\s*"), "\n")
          .replace(QRegExp("^\\s*"), "")
-         .replace(QRegExp("\\s*$"), "");
+         .replace(QRegExp("\\s*$"), "")
+         .replace(QRegExp("^$"), "");
 
     QHash< int, QList<float> > mask;
     QStringList lines = s.split("\n");
