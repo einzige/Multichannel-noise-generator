@@ -1,10 +1,7 @@
 #include "ifilter.h"
 
 QImage IFilter::apply(QImage img) const
-{
-    return img;
-}
-
+{ return img; }
 
 // =============================
 //
@@ -15,19 +12,72 @@ QImage IFilter::apply(QImage img) const
 #include <QRegExp>
 #include <QStringList>
 #include <QDebug>
+#include "math.h"
+
+using namespace std;
 
 #define WEIGHTS_DELIMETER " "
 
-IMaskFilter::IMaskFilter(QHash< int, QList<float> > mask) {
+IMaskFilter::IMaskFilter(QHash< int, QList<float> > mask, int offset) {
     setMask(mask);
+    setOffset(offset);
 }
 
 void IMaskFilter::setMask(const QHash<int, QList<float> >& mask) {
     this->mask = mask;
 }
 
+void IMaskFilter::setOffset(int offset){
+    this->offset = offset;
+}
+
 QHash< int, QList<float> > IMaskFilter::getMask() {
     return mask;
+}
+
+// static
+QImage IMaskFilter::convolve(QImage img, QHash< int, QList<float> > mask, int filter_offset, float filter_div)
+{
+    int xfilter_size = mask[0].count();
+    int yfilter_size = mask.count();
+
+    for (int y = 0; y < img.height(); ++y)
+    {
+        for (int x = 0; x < img.width(); ++x)
+        {
+            float new_r, new_g, new_b;
+            new_r = new_g = new_b = 0;
+
+            for (int j = 0; j < yfilter_size; j++)
+            {
+                int yv = min(max(y - 1 + j, 0), img.height() - 1);
+
+                for (int i = 0; i < xfilter_size; i++)
+                {
+                    int xv = min(max(x-1 + i, 0), img.width() - 1);
+
+                    QColor c(img.pixel(xv, yv));
+
+                    new_r += c.red()   * mask[j][i];
+                    new_g += c.green() * mask[j][i];
+                    new_b += c.blue()  * mask[j][i];
+                }
+            }
+
+            new_r = (new_r/filter_div) + filter_offset;
+            new_g = (new_g/filter_div) + filter_offset;
+            new_b = (new_b/filter_div) + filter_offset;
+
+            new_r = (new_r > 255) ? 255 : ((new_r < 0) ? 0:new_r);
+            new_g = (new_g > 255) ? 255 : ((new_g < 0) ? 0:new_g);
+            new_b = (new_b > 255) ? 255 : ((new_b < 0) ? 0:new_b);
+
+            img.setPixel(x, y, QColor((int)new_r,
+                                      (int)new_g,
+                                      (int)new_b, 255).rgb());
+        }
+    }
+    return img;
 }
 
 // static
@@ -38,10 +88,11 @@ IMaskFilter IMaskFilter::fromStr(const QString &s)
 // static
 QHash< int, QList<float> > IMaskFilter::parseMask(QString s)
 {
-    s = s.replace(QRegExp("\s+"),  WEIGHTS_DELIMETER) // makes {1.0   2.1} -> {1.0 2.1}
-         .replace(QRegExp("\r" ),  "")                // makes \r\n -> \n
-         .replace(QRegExp("^\s+"), "")
-         .replace(QRegExp("\s+$"), "");
+    s = s.replace(QRegExp("[ \t]+"), WEIGHTS_DELIMETER)
+         .replace("\r", "")
+         .replace(QRegExp("\\s*\n\\s*"), "\n")
+         .replace(QRegExp("^\\s*"), "")
+         .replace(QRegExp("\\s*$"), "");
 
     QHash< int, QList<float> > mask;
     QStringList lines = s.split("\n");

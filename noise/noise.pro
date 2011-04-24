@@ -34,7 +34,10 @@ SOURCES += main.cpp \
     ../filters/exp.cpp \
     ../filters/autolevels.cpp \
     ../filters/autocontrast.cpp \
-    ../filters/averageconvolution.cpp
+    ../filters/averageconvolution.cpp \
+    ../filters/geometricconvolution.cpp \
+    ../filters/medianconvolution.cpp \
+    ../filters/twodclean.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -66,5 +69,8 @@ HEADERS += mainwindow.h \
     ../filters/exp.h \
     ../filters/autolevels.h \
     ../filters/autocontrast.h \
-    ../filters/averageconvolution.h
+    ../filters/averageconvolution.h \
+    ../filters/geometricconvolution.h \
+    ../filters/medianconvolution.h \
+    ../filters/twodclean.h
 FORMS += mainwindow.ui

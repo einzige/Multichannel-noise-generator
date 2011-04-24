@@ -12,6 +12,8 @@
 #include "filters/autolevels.h"
 #include "filters/autocontrast.h"
 #include "filters/averageconvolution.h"
+#include "filters/geometricconvolution.h"
+#include "filters/medianconvolution.h"
 
 #include <QDebug>
 
@@ -60,6 +62,10 @@ void NoiseModel::applyMultiNoise(int coef)
 
 void NoiseModel::setRate(int rate) {
     this->rate = rate;
+}
+
+void NoiseModel::setFilterOffset(int offset){
+    this->filter_offset = offset;
 }
 
 void NoiseModel::setCurrentChannel(Channel::Identifier channel) {
@@ -118,6 +124,23 @@ void NoiseModel::applyAutoContrastFilter(int min, int max)
 void NoiseModel::applyAverageConvolution(const QString &s)
 {
     AverageConvolution f = AverageConvolution::fromStr(s);
+    f.setOffset(this->filter_offset);
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::applyGeometricConvolution(const QString &s)
+{
+    qDebug() << "NoiseMode::applying geo convolution";
+    GeometricConvolution f = GeometricConvolution::fromStr(s);
+    f.setOffset(this->filter_offset);
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::applyMedianConvolution(const QString &s)
+{
+    qDebug() << "NoiseMode::applying median convolution";
+    MedianConvolution f = MedianConvolution ::fromStr(s);
+    f.setOffset(this->filter_offset);
     applyFilter(&f, this->currentChannel);
 }
 
@@ -126,4 +149,3 @@ QImage NoiseModel::hist()
     HistFilter *f = new HistFilter();
     return f->apply(getChannelImage(this->currentChannel));
 }
-

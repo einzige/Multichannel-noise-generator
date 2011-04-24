@@ -32,16 +32,20 @@ public:
     void applyAutoLevelsFilter(int min, int max);
     void applyAutoContrastFilter(int min, int max);
     void applyAverageConvolution(const QString &);
+    void applyGeometricConvolution(const QString &);
+    void applyMedianConvolution(const QString &);
 
     QImage hist();
 
     void setRate(int rate);
+    void setFilterOffset(int offset);
     void setCurrentChannel(Channel::Identifier channel);
 
 protected:
     void reset();
 
     int rate;
+    int filter_offset;
     Channel::Identifier currentChannel;
 };
 

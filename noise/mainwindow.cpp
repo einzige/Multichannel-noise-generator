@@ -33,6 +33,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->brightnessLayout->setMargin(10);
     ui->brightnessScrollAreaContents->setLayout(ui->brightnessLayout);
 
+    ui->filtersDock->setWidget(ui->filtersScrollArea);
+    ui->filtersLayout->setMargin(5);
+    ui->filtersScrollArea->setLayout(ui->filtersLayout);
+
     ui->multiTab->setLayout(ui->multiLayout);
     ui->multiLayout->setMargin(10);
 
@@ -55,17 +59,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->showProcessedButton,  SIGNAL(clicked()),         this, SIGNAL(restoreImage()));
     connect(ui->noiseDial,            SIGNAL(valueChanged(int)), this, SIGNAL(rateChanged(int)));
+    connect(ui->filterOffsetBox,      SIGNAL(valueChanged(int)), this, SIGNAL(offsetChanged(int)));
     connect(ui->actionGrayscale,      SIGNAL(triggered()),       this, SIGNAL(grayscale()));
     connect(ui->histAction,           SIGNAL(triggered()),       this, SIGNAL(showHist()));
     connect(ui->invertseAction,       SIGNAL(triggered()),       this, SIGNAL(inverse()));
     connect(ui->equalizeAction,       SIGNAL(triggered()),       this, SIGNAL(equalize()));
 
     // test
-    connect(ui->showConvolutionAction, SIGNAL(changed()), this, SLOT(test()));
-}
+    connect(ui->showConvolutionAction, SIGNAL(toggled(bool)), ui->filtersDock, SLOT(setShown(bool)));
 
-void MainWindow::test(){
-    emit applyAverageConvolution("-2 -1 0\n-1 1 1\n0 1 2");
+    ui->collectionsTab->setLayout(ui->collectionsLayout);
+    ui->collectionsLayout->setMargin(5);
 }
 
 MainWindow::~MainWindow()
@@ -87,7 +91,7 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::loadImage()
 {
-    QString file_name = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath());
+    QString file_name = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath(), "Images(*.png *.jpg *.bmp)");
 
     if ( ! file_name.isEmpty())
     {
@@ -155,3 +159,39 @@ void MainWindow::on_linContrastApplyButton_clicked()
 {
     emit applyAutoContrast(ui->linContrastMinSlider->value(), ui->linContrastMaxSlider->value());
 }
+
+void MainWindow::on_applyFilterButton_clicked()
+{
+    if(ui->filterTypeCombo->currentText() == "Среднее арифметическое")
+        emit applyAverageConvolution(ui->filterTextEdit->toPlainText());
+    else if(ui->filterTypeCombo->currentText() == "Среднее геометрическое")
+        emit applyGeometricConvolution(ui->filterTextEdit->toPlainText());
+    else
+        emit applyMedianConvolution(ui->filterTextEdit->toPlainText());
+}
+
+void MainWindow::on_collectionsList_currentTextChanged(QString currentText)
+{
+    if(currentText == "Лапласиан")
+    {
+        // http://www.rsdn.ru/forum/alg/4213930.flat.aspx
+        // Фильтрация лапласианом и сложение с исходным эквивалентно фильтрации фильтром:
+
+        /*emit applyAverageConvolution("0.1111 -0.8889 0.1111\n \
+                                     -0.8889 4.1111 -0.8889\n \
+                                      0.1111 -0.8889 0.1111");*/
+
+        ui->filterTextEdit->setPlainText(".1\t-.9\t.1\n-.9\t4.1\t-.9\n.1\t-.9\t.1");
+        ui->filterTypeCombo->setCurrentIndex(0);
+    }
+    else if (currentText == "Гаус")
+    {
+        ui->filterTextEdit->setPlainText(QString("1\t2\t3\t2\t1\n") +
+                                         QString("2\t3\t4\t3\t2\n") +
+                                         QString("3\t4\t5\t4\t3\n") +
+                                         QString("2\t3\t4\t3\t2\n") +
+                                         QString("1\t2\t3\t2\t1\n"));
+        ui->filterTypeCombo->setCurrentIndex(0);
+    }
+}
+
