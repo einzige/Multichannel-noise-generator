@@ -4,7 +4,7 @@
 
 using namespace std;
 
-TwoDClean::TwoDClean(IMaskFilter f) : IMaskFilter(mask = f.getMask())
+TwoDClean::TwoDClean(IMaskFilter f) : IMaskFilter(f.getMask(), f.getOffset())
 { threshold = 20; }
 
 void TwoDClean::setThreshold(int threshold){
@@ -17,6 +17,7 @@ int TwoDClean::getThreshold(){
 
 QImage TwoDClean::apply(QImage img) const
 {
+    QImage res(img);
     qDebug() << "At 2dClean::apply";
 
     int xfilter_size = mask[0].count();
@@ -45,11 +46,11 @@ QImage TwoDClean::apply(QImage img) const
 
             for (int j = 0; j < yfilter_size; j++)
             {
-                int yv = min(max(y - 1 + j, 0), img.height() - 1);
+                int yv = min(max(y-yradius + j, 0), img.height() - yradius);
 
                 for (int i = 0; i < xfilter_size; i++)
                 {
-                    int xv = min(max(x-1 + i, 0), img.width() - 1);
+                    int xv = min(max(x-xradius + i, 0), img.width() - xradius);
 
                     if(xv == c_pixel_x && yv == c_pixel_y) // ?
                         continue;
@@ -88,10 +89,10 @@ QImage TwoDClean::apply(QImage img) const
             new_g = (new_g > 255) ? 255 : ((new_g < 0) ? 0:new_g);
             new_b = (new_b > 255) ? 255 : ((new_b < 0) ? 0:new_b);
 
-            img.setPixel(c_pixel_x, c_pixel_y, QColor((int)new_r,
+            res.setPixel(c_pixel_x, c_pixel_y, QColor((int)new_r,
                                                       (int)new_g,
                                                       (int)new_b, 255).rgb());
         }
     }
-    return img;
+    return res;
 }

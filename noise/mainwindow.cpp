@@ -194,7 +194,7 @@ void MainWindow::on_collectionsList_currentTextChanged(QString currentText)
                                          QString("2\t3\t4\t3\t2\n") +
                                          QString("3\t4\t5\t4\t3\n") +
                                          QString("2\t3\t4\t3\t2\n") +
-                                         QString("1\t2\t3\t2\t1\n"));
+                                         QString("1\t2\t3\t2\t1"));
         ui->filterTypeCombo->setCurrentIndex(0);
     }
 }
