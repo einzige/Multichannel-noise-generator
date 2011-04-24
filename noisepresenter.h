@@ -42,6 +42,8 @@ public slots:
     void applyGeometricConvolution(QString);
     void applyMedianConvolution(QString);
 
+    void apply2DCleaner(QString, int);
+
     void applyMultiNoise(int);
     void loadImage(const QImage&);
     void setChannel(QString channelName);

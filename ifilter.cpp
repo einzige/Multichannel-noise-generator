@@ -19,8 +19,9 @@ using namespace std;
 #define WEIGHTS_DELIMETER " "
 
 IMaskFilter::IMaskFilter(QHash< int, QList<float> > mask, int offset) {
-    setMask(mask);
-    setOffset(offset);
+    this->mask   = mask;
+    this->offset = offset;
+    qDebug() << "here";
 }
 
 void IMaskFilter::setMask(const QHash<int, QList<float> >& mask) {
@@ -28,11 +29,15 @@ void IMaskFilter::setMask(const QHash<int, QList<float> >& mask) {
 }
 
 void IMaskFilter::setOffset(int offset){
+    qDebug() << "SET OFFSET: " << offset;
     this->offset = offset;
 }
 
 QHash< int, QList<float> > IMaskFilter::getMask() {
     return mask;
+}
+int IMaskFilter::getOffset(){
+    return offset;
 }
 
 // static
@@ -71,6 +76,8 @@ QImage IMaskFilter::convolve(QImage img, QHash< int, QList<float> > mask, int fi
             new_r = (new_r > 255) ? 255 : ((new_r < 0) ? 0:new_r);
             new_g = (new_g > 255) ? 255 : ((new_g < 0) ? 0:new_g);
             new_b = (new_b > 255) ? 255 : ((new_b < 0) ? 0:new_b);
+
+
 
             img.setPixel(x, y, QColor((int)new_r,
                                       (int)new_g,

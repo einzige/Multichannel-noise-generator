@@ -37,6 +37,7 @@ signals:
     void applyAverageConvolution(QString mask);
     void applyGeometricConvolution(QString mask);
     void applyMedianConvolution(QString mask);
+    void apply2DCleaner(QString mask, int threshold);
 
 public slots:
     void loadImage();
@@ -61,6 +62,7 @@ private slots:
     void on_linContrastApplyButton_clicked();
     void on_applyFilterButton_clicked();
     void on_collectionsList_currentTextChanged(QString currentText);
+    void on_twoDCleanerButton_clicked();
 };
 
 #endif // MAINWINDOW_H

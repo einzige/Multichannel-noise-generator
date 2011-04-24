@@ -261,12 +261,101 @@ color: gray;</string>
                     </property>
                     <layout class="QHBoxLayout" name="collectionsLayout">
                      <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_3">
+                       <item>
+                        <layout class="QFormLayout" name="formLayout_12">
+                         <item row="0" column="0">
+                          <widget class="QLabel" name="label_15">
+                           <property name="styleSheet">
+                            <string notr="true">color: gray;</string>
+                           </property>
+                           <property name="text">
+                            <string>Порог</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="0" column="1">
+                          <widget class="QLCDNumber" name="lcdNumber_11">
+                           <property name="frameShape">
+                            <enum>QFrame::NoFrame</enum>
+                           </property>
+                           <property name="numDigits">
+                            <number>3</number>
+                           </property>
+                           <property name="segmentStyle">
+                            <enum>QLCDNumber::Filled</enum>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <widget class="QDial" name="twoDClenerDeal">
+                         <property name="maximum">
+                          <number>255</number>
+                         </property>
+                         <property name="notchTarget">
+                          <double>5.000000000000000</double>
+                         </property>
+                         <property name="notchesVisible">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="twoDCleanerButton">
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+font-weight:75;
+min-width:60px;
+min-height:15px;
+color: white;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.511, x2:0, y2:1, stop:0 rgba(191, 0, 0, 255), stop:1 rgba(230, 230, 230, 255));
+border-width: 1px;
+border-color: lightgray;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+font-size: 10px;
+padding-left: 5px;
+padding-right: 5px;
+	font: bold 10pt &quot;Arial&quot;;
+}
+QPushButton:hover {
+background-color:  qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(75, 75, 75, 255), stop:1 rgba(25, 25, 25, 255));
+border-color:white;
+}
+QPushButton:pressed {
+margin:2px;
+color:grey;
+background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.506, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.454545 rgba(62, 62, 62, 255), stop:1 rgba(200, 200, 200, 255));
+}
+</string>
+                         </property>
+                         <property name="text">
+                          <string>2D cleaner</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="verticalSpacer_7">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
                       <widget class="QListWidget" name="collectionsList">
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #444;
-font-weight: bold;
-border-radius: 5px;</string>
+                        <string notr="true">font-weight: bold;</string>
                        </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
@@ -299,21 +388,7 @@ border-radius: 5px;</string>
                        </item>
                        <item>
                         <property name="text">
-                         <string>Гаус</string>
-                        </property>
-                        <property name="background">
-                         <brush brushstyle="SolidPattern">
-                          <color alpha="40">
-                           <red>174</red>
-                           <green>200</green>
-                           <blue>255</blue>
-                          </color>
-                         </brush>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Jim Casaburi</string>
+                         <string>Лапласиан 2</string>
                         </property>
                         <property name="font">
                          <font>
@@ -331,6 +406,34 @@ border-radius: 5px;</string>
                         </property>
                         <property name="flags">
                          <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Инвертирование</string>
+                        </property>
+                        <property name="background">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="100">
+                           <red>255</red>
+                           <green>244</green>
+                           <blue>115</blue>
+                          </color>
+                         </brush>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Гаус</string>
+                        </property>
+                        <property name="background">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="40">
+                           <red>174</red>
+                           <green>200</green>
+                           <blue>255</blue>
+                          </color>
+                         </brush>
                         </property>
                        </item>
                       </widget>
@@ -1893,12 +1996,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>111</x>
-     <y>271</y>
+     <x>126</x>
+     <y>315</y>
     </hint>
     <hint type="destinationlabel">
-     <x>111</x>
-     <y>271</y>
+     <x>256</x>
+     <y>275</y>
     </hint>
    </hints>
   </connection>
@@ -1909,12 +2012,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>111</x>
-     <y>271</y>
+     <x>121</x>
+     <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>111</x>
-     <y>271</y>
+     <x>231</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -1925,12 +2028,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>111</x>
-     <y>271</y>
+     <x>121</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>111</x>
-     <y>271</y>
+     <x>231</x>
+     <y>266</y>
     </hint>
    </hints>
   </connection>
@@ -1941,12 +2044,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>83</x>
-     <y>271</y>
+     <x>93</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>83</x>
-     <y>271</y>
+     <x>93</x>
+     <y>378</y>
     </hint>
    </hints>
   </connection>
@@ -1957,12 +2060,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>111</x>
-     <y>271</y>
+     <x>121</x>
+     <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>111</x>
-     <y>271</y>
+     <x>121</x>
+     <y>307</y>
     </hint>
    </hints>
   </connection>
@@ -2139,6 +2242,22 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
     <hint type="destinationlabel">
      <x>-1</x>
      <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>twoDClenerDeal</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_11</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>774</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>818</x>
+     <y>427</y>
     </hint>
    </hints>
   </connection>

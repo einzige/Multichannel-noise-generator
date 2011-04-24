@@ -14,6 +14,7 @@
 #include "filters/averageconvolution.h"
 #include "filters/geometricconvolution.h"
 #include "filters/medianconvolution.h"
+#include "filters/twodclean.h"
 
 #include <QDebug>
 
@@ -21,6 +22,7 @@ void NoiseModel::reset()
 {
     currentChannel = Channel::UNDEFINED;
     rate  = 1;
+    filter_offset = 0;
 }
 
 NoiseModel::NoiseModel() : Model()
@@ -139,8 +141,19 @@ void NoiseModel::applyGeometricConvolution(const QString &s)
 void NoiseModel::applyMedianConvolution(const QString &s)
 {
     qDebug() << "NoiseMode::applying median convolution";
-    MedianConvolution f = MedianConvolution ::fromStr(s);
+    MedianConvolution f = MedianConvolution::fromStr(s);
     f.setOffset(this->filter_offset);
+    qDebug() << "Before apply_filter";
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::apply2DCleaner(const QString &mask, int threshold){
+    TwoDClean f = TwoDClean::fromStr(mask);
+    f.setOffset(this->filter_offset);
+    f.setThreshold(threshold);
+
+    qDebug() << threshold << " = THRESHOLD";
+
     applyFilter(&f, this->currentChannel);
 }
 

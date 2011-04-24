@@ -4,8 +4,10 @@
 
 using namespace std;
 
-MedianConvolution::MedianConvolution(IMaskFilter f) : IMaskFilter(mask = f.getMask())
-{}
+MedianConvolution::MedianConvolution(IMaskFilter f) : IMaskFilter(f.getMask(), f.getOffset())
+{//mask = f.getMask(), offset = f.getOffset()
+    qDebug() << "At median::constructor";
+}
 
 QImage MedianConvolution::apply(QImage img) const
 {

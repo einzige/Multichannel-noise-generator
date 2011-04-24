@@ -1,10 +1,20 @@
 #ifndef TWODCLEAN_H
 #define TWODCLEAN_H
 
-class TwoDClean
+#include "../ifilter.h"
+
+class TwoDClean : public IMaskFilter
 {
+protected:
+    int threshold;
+
 public:
-    TwoDClean();
+           TwoDClean(IMaskFilter f);
+
+    QImage apply(QImage) const;
+
+    void   setThreshold(int threshold);
+    int    getThreshold();
 };
 
 #endif // TWODCLEAN_H

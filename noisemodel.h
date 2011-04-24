@@ -34,6 +34,7 @@ public:
     void applyAverageConvolution(const QString &);
     void applyGeometricConvolution(const QString &);
     void applyMedianConvolution(const QString &);
+    void apply2DCleaner(const QString& mask, int threshold);
 
     QImage hist();
 

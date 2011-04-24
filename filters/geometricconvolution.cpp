@@ -4,8 +4,10 @@
 
 using namespace std;
 
-GeometricConvolution::GeometricConvolution(IMaskFilter f) : IMaskFilter(mask = f.getMask())
-{}
+GeometricConvolution::GeometricConvolution(IMaskFilter f) : IMaskFilter(f.getMask(), f.getOffset())
+{
+    qDebug() << "At GeometricConvolution::constructor";
+}
 
 QImage GeometricConvolution::apply(QImage img) const
 {

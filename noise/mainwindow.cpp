@@ -70,6 +70,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->collectionsTab->setLayout(ui->collectionsLayout);
     ui->collectionsLayout->setMargin(5);
+
+    this->resize(1000, 600);
+    this->move(50, 50);
+    this->raise();
 }
 
 MainWindow::~MainWindow()
@@ -195,3 +199,8 @@ void MainWindow::on_collectionsList_currentTextChanged(QString currentText)
     }
 }
 
+
+void MainWindow::on_twoDCleanerButton_clicked()
+{
+   emit this->apply2DCleaner(ui->filterTextEdit->toPlainText(), ui->twoDClenerDeal->value());
+}

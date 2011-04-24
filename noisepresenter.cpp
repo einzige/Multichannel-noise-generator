@@ -110,6 +110,15 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyMedianConvolution(QString)),
                      this,       SLOT(applyMedianConvolution(QString)));
+
+    QObject::connect(view_obj, SIGNAL(apply2DCleaner(QString,int)),
+                     this,       SLOT(apply2DCleaner(QString,int)));
+}
+
+void NoisePresenter::apply2DCleaner(QString mask, int threshold)
+{
+    qDebug() << "2D cleaner run";
+    model->apply2DCleaner(mask, threshold);
 }
 
 void NoisePresenter::applyMedianConvolution(QString s)
