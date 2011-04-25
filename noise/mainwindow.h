@@ -37,6 +37,7 @@ signals:
     void applyAverageConvolution(QString mask);
     void applyGeometricConvolution(QString mask);
     void applyMedianConvolution(QString mask);
+    void applyAdditionalConvolution(QString mask);
     void apply2DCleaner(QString mask, int threshold);
 
 public slots:

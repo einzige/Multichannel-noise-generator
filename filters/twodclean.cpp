@@ -17,8 +17,9 @@ int TwoDClean::getThreshold(){
 
 QImage TwoDClean::apply(QImage img) const
 {
-    QImage res(img);
     qDebug() << "At 2dClean::apply";
+
+    QImage res(img.width(), img.height(), QImage::Format_ARGB32);
 
     int xfilter_size = mask[0].count();
     int yfilter_size = mask.count();

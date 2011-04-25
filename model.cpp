@@ -69,7 +69,7 @@ void Model::applyFilter(IFilter* f, Channel::Identifier channel_id)
 
         // restore image by the new channel data
         if(cs->getId() == ColorSpace::HLS)
-            setImage(((HLSCS*)cs)->restore());
+            setImage(((HSLCS*)cs)->restore());
         else
             if(cs->getId() == ColorSpace::RGB)
                 setImage(((RGBCS*)cs)->restore());

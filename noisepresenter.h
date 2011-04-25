@@ -41,6 +41,7 @@ public slots:
     void applyAverageConvolution(QString);
     void applyGeometricConvolution(QString);
     void applyMedianConvolution(QString);
+    void applyAdditionalConvolution(QString);
 
     void apply2DCleaner(QString, int);
 

@@ -214,6 +214,11 @@
                         <string>Медианый</string>
                        </property>
                       </item>
+                      <item>
+                       <property name="text">
+                        <string>Дополняющий изображение</string>
+                       </property>
+                      </item>
                      </widget>
                     </item>
                     <item>
@@ -405,7 +410,7 @@ background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.506, y2:0, st
                        </property>
                        <item>
                         <property name="text">
-                         <string>Лапласиан</string>
+                         <string>Лапласиан №1</string>
                         </property>
                         <property name="background">
                          <brush brushstyle="SolidPattern">
@@ -419,7 +424,7 @@ background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.506, y2:0, st
                        </item>
                        <item>
                         <property name="text">
-                         <string>Лапласиан 2</string>
+                         <string>Лапласиан №2</string>
                         </property>
                         <property name="font">
                          <font>

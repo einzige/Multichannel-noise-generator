@@ -166,27 +166,51 @@ void MainWindow::on_linContrastApplyButton_clicked()
 
 void MainWindow::on_applyFilterButton_clicked()
 {
+    QString mask = ui->filterTextEdit->toPlainText();
+
+    if (mask.trimmed().isEmpty()) return;
+
     if(ui->filterTypeCombo->currentText() == "Среднее арифметическое")
-        emit applyAverageConvolution(ui->filterTextEdit->toPlainText());
+    {
+        emit applyAverageConvolution(mask);
+    }
     else if(ui->filterTypeCombo->currentText() == "Среднее геометрическое")
-        emit applyGeometricConvolution(ui->filterTextEdit->toPlainText());
+    {
+        emit applyGeometricConvolution(mask);
+    }
+    else if(ui->filterTypeCombo->currentText() == "Дополняющий изображение")
+    {
+        emit applyAdditionalConvolution(mask);
+    }
     else
-        emit applyMedianConvolution(ui->filterTextEdit->toPlainText());
+    {
+        emit applyMedianConvolution(mask);
+    }
 }
 
 void MainWindow::on_collectionsList_currentTextChanged(QString currentText)
 {
-    if(currentText == "Лапласиан")
+    if(currentText == "Лапласиан №2")
     {
-        // http://www.rsdn.ru/forum/alg/4213930.flat.aspx
-        // Фильтрация лапласианом и сложение с исходным эквивалентно фильтрации фильтром:
-
-        /*emit applyAverageConvolution("0.1111 -0.8889 0.1111\n \
-                                     -0.8889 4.1111 -0.8889\n \
-                                      0.1111 -0.8889 0.1111");*/
-
-        ui->filterTextEdit->setPlainText(".1\t-.9\t.1\n-.9\t4.1\t-.9\n.1\t-.9\t.1");
+        ui->filterTextEdit->setPlainText("1\t-2\t1");
+        ui->filterTypeCombo->setCurrentIndex(3);
+        ui->filterOffsetBox->setValue(0);
+    }
+    else if (currentText == "Лапласиан №1")
+    {
+        ui->filterTextEdit->setPlainText(QString("0\t1\t0\n") +
+                                         QString("1\t-4\t1\n") +
+                                         QString("0\t1\t0"));
+        ui->filterTypeCombo->setCurrentIndex(3);
+        ui->filterOffsetBox->setValue(0);
+    }
+    else if (currentText == "Инвертирование")
+    {
+        ui->filterTextEdit->setPlainText(QString("0\t0\t0\n") +
+                                         QString("0\t-1\t0\n") +
+                                         QString("0\t0\t0"));
         ui->filterTypeCombo->setCurrentIndex(0);
+        ui->filterOffsetBox->setValue(255);
     }
     else if (currentText == "Гаус")
     {
@@ -196,6 +220,7 @@ void MainWindow::on_collectionsList_currentTextChanged(QString currentText)
                                          QString("2\t3\t4\t3\t2\n") +
                                          QString("1\t2\t3\t2\t1"));
         ui->filterTypeCombo->setCurrentIndex(0);
+        ui->filterOffsetBox->setValue(0);
     }
 }
 

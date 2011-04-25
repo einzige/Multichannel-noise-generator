@@ -7,10 +7,10 @@
 
 #include "../colorspace.h"
 
-class HLSCS : public ColorSpace
+class HSLCS : public ColorSpace
 {
 public:
-    HLSCS(ColorSpace::Identifier = ColorSpace::HLS);
+    HSLCS(ColorSpace::Identifier = ColorSpace::HLS);
     QImage restore();
 };
 

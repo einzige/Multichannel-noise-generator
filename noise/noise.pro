@@ -37,7 +37,8 @@ SOURCES += main.cpp \
     ../filters/averageconvolution.cpp \
     ../filters/geometricconvolution.cpp \
     ../filters/medianconvolution.cpp \
-    ../filters/twodclean.cpp
+    ../filters/twodclean.cpp \
+    ../filters/additionalconvolution.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -72,5 +73,6 @@ HEADERS += mainwindow.h \
     ../filters/averageconvolution.h \
     ../filters/geometricconvolution.h \
     ../filters/medianconvolution.h \
-    ../filters/twodclean.h
+    ../filters/twodclean.h \
+    ../filters/additionalconvolution.h
 FORMS += mainwindow.ui

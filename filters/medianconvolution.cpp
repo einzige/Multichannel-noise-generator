@@ -5,9 +5,7 @@
 using namespace std;
 
 MedianConvolution::MedianConvolution(IMaskFilter f) : IMaskFilter(f.getMask(), f.getOffset())
-{//mask = f.getMask(), offset = f.getOffset()
-    qDebug() << "At median::constructor";
-}
+{}
 
 QImage MedianConvolution::apply(QImage img) const
 {
@@ -20,7 +18,8 @@ QImage MedianConvolution::convolve(QImage img,
                                    QHash<int, QList<float> > mask,
                                    int filter_offset, float filter_div)
 {
-    QImage res(img);
+    QImage res(img.width(), img.height(), QImage::Format_ARGB32);
+
     int xfilter_size = mask[0].count();
     int yfilter_size = mask.count();
 

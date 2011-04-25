@@ -1,4 +1,5 @@
 #include "noisemodel.h"
+
 #include "filters/impulsenoise.h"
 #include "filters/additivenoise.h"
 #include "filters/multinoise.h"
@@ -15,6 +16,7 @@
 #include "filters/geometricconvolution.h"
 #include "filters/medianconvolution.h"
 #include "filters/twodclean.h"
+#include "filters/additionalconvolution.h"
 
 #include <QDebug>
 
@@ -29,7 +31,7 @@ NoiseModel::NoiseModel() : Model()
 {
     reset();
     addColorSpace(RGBCS());
-    addColorSpace(HLSCS());
+    addColorSpace(HSLCS());
 }
 
 // FIXME to call parent class Model
@@ -38,7 +40,7 @@ NoiseModel::NoiseModel(const QImage &img)
 {
     reset();
     addColorSpace(RGBCS());
-    addColorSpace(HLSCS());
+    addColorSpace(HSLCS());
 
     setImage(img);
 }
@@ -144,6 +146,14 @@ void NoiseModel::applyMedianConvolution(const QString &s)
     MedianConvolution f = MedianConvolution::fromStr(s);
     f.setOffset(this->filter_offset);
     qDebug() << "Before apply_filter";
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::applyAdditionalConvolution(const QString &s)
+{
+    qDebug() << "NoiseModel::applying additional convolution";
+    AdditionalConvolution f = AdditionalConvolution::fromStr(s);
+    f.setOffset(this->filter_offset);;
     applyFilter(&f, this->currentChannel);
 }
 
