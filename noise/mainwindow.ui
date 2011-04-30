@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>711</width>
-    <height>533</height>
+    <width>1147</width>
+    <height>778</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Лабораторная #1</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::ForceTabbedDocks</set>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -25,16 +34,16 @@
     </property>
     <layout class="QHBoxLayout" name="mainLayout">
      <property name="leftMargin">
-      <number>5</number>
-     </property>
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="rightMargin">
       <number>10</number>
      </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>15</number>
+     </property>
      <property name="bottomMargin">
-      <number>5</number>
+      <number>10</number>
      </property>
      <item>
       <layout class="QVBoxLayout" name="contentLayout">
@@ -48,8 +57,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>682</width>
-            <height>554</height>
+            <width>668</width>
+            <height>294</height>
            </rect>
           </property>
           <property name="sizePolicy">
@@ -58,6 +67,434 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDockWidget" name="filtersDock">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>79</width>
+           <height>240</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>524287</width>
+           <height>240</height>
+          </size>
+         </property>
+         <property name="floating">
+          <bool>false</bool>
+         </property>
+         <property name="features">
+          <set>QDockWidget::DockWidgetClosable</set>
+         </property>
+         <property name="allowedAreas">
+          <set>Qt::NoDockWidgetArea</set>
+         </property>
+         <property name="windowTitle">
+          <string>Фильтры</string>
+         </property>
+         <widget class="QWidget" name="dockWidgetContents_4">
+          <widget class="QScrollArea" name="filtersScrollArea">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>661</width>
+             <height>211</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents_2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>655</width>
+              <height>205</height>
+             </rect>
+            </property>
+            <widget class="QWidget" name="verticalLayoutWidget_7">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>680</width>
+               <height>201</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="filtersLayout">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout">
+                  <item>
+                   <widget class="QPlainTextEdit" name="filterTextEdit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>450</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Monospace</family>
+                      <pointsize>18</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                      <stylestrategy>PreferAntialias</stylestrategy>
+                     </font>
+                    </property>
+                    <property name="layoutDirection">
+                     <enum>Qt::LeftToRight</enum>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Sunken</enum>
+                    </property>
+                    <property name="documentTitle">
+                     <string comment="Сюда матрицу пишем" extracomment="Сюда маску"/>
+                    </property>
+                    <property name="lineWrapMode">
+                     <enum>QPlainTextEdit::NoWrap</enum>
+                    </property>
+                    <property name="plainText">
+                     <string>1 1 1
+1 1 1
+1 1 1</string>
+                    </property>
+                    <property name="textInteractionFlags">
+                     <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+                    </property>
+                    <property name="backgroundVisible">
+                     <bool>false</bool>
+                    </property>
+                    <property name="centerOnScroll">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <item>
+                     <widget class="QComboBox" name="filterTypeCombo">
+                      <item>
+                       <property name="text">
+                        <string>Среднее арифметическое</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Среднее геометрическое</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Медианый</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Дополняющий изображение</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_14">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>10</width>
+                        <height>10</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>10</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">font-weight: bold;
+color: gray;</string>
+                      </property>
+                      <property name="text">
+                       <string>+</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QSpinBox" name="filterOffsetBox">
+                      <property name="minimum">
+                       <number>-255</number>
+                      </property>
+                      <property name="maximum">
+                       <number>255</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="applyFilterButton">
+                      <property name="text">
+                       <string>Применить</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QTabWidget" name="tabWidget">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="tabPosition">
+                   <enum>QTabWidget::North</enum>
+                  </property>
+                  <property name="currentIndex">
+                   <number>0</number>
+                  </property>
+                  <widget class="QWidget" name="collectionsTab">
+                   <attribute name="title">
+                    <string>Наборы фильтров</string>
+                   </attribute>
+                   <widget class="QWidget" name="horizontalLayoutWidget_5">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>191</width>
+                      <height>161</height>
+                     </rect>
+                    </property>
+                    <layout class="QHBoxLayout" name="collectionsLayout">
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_3">
+                       <item>
+                        <layout class="QFormLayout" name="formLayout_12">
+                         <item row="0" column="0">
+                          <widget class="QLabel" name="label_15">
+                           <property name="styleSheet">
+                            <string notr="true">color: gray;</string>
+                           </property>
+                           <property name="text">
+                            <string>Порог</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="0" column="1">
+                          <widget class="QLCDNumber" name="lcdNumber_11">
+                           <property name="frameShape">
+                            <enum>QFrame::NoFrame</enum>
+                           </property>
+                           <property name="numDigits">
+                            <number>3</number>
+                           </property>
+                           <property name="segmentStyle">
+                            <enum>QLCDNumber::Filled</enum>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <widget class="QDial" name="twoDClenerDeal">
+                         <property name="maximum">
+                          <number>255</number>
+                         </property>
+                         <property name="notchTarget">
+                          <double>5.000000000000000</double>
+                         </property>
+                         <property name="notchesVisible">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="twoDCleanerButton">
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+font-weight:75;
+min-width:60px;
+min-height:15px;
+color: white;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.511, x2:0, y2:1, stop:0 rgba(191, 0, 0, 255), stop:1 rgba(230, 230, 230, 255));
+border-width: 1px;
+border-color: lightgray;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+font-size: 10px;
+padding-left: 5px;
+padding-right: 5px;
+	font: bold 10pt &quot;Arial&quot;;
+}
+QPushButton:hover {
+background-color:  qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(75, 75, 75, 255), stop:1 rgba(25, 25, 25, 255));
+border-color:white;
+}
+QPushButton:pressed {
+margin:2px;
+color:grey;
+background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.506, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.454545 rgba(62, 62, 62, 255), stop:1 rgba(200, 200, 200, 255));
+}
+</string>
+                         </property>
+                         <property name="text">
+                          <string>2D cleaner</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="verticalSpacer_7">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QListWidget" name="collectionsList">
+                       <property name="styleSheet">
+                        <string notr="true">font-weight: bold;</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Sunken</enum>
+                       </property>
+                       <property name="lineWidth">
+                        <number>2</number>
+                       </property>
+                       <property name="spacing">
+                        <number>3</number>
+                       </property>
+                       <property name="selectionRectVisible">
+                        <bool>true</bool>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>Лапласиан №1</string>
+                        </property>
+                        <property name="background">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="20">
+                           <red>0</red>
+                           <green>0</green>
+                           <blue>0</blue>
+                          </color>
+                         </brush>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Лапласиан №2</string>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <underline>true</underline>
+                         </font>
+                        </property>
+                        <property name="background">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="20">
+                           <red>90</red>
+                           <green>186</green>
+                           <blue>191</blue>
+                          </color>
+                         </brush>
+                        </property>
+                        <property name="flags">
+                         <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Инвертирование</string>
+                        </property>
+                        <property name="background">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="100">
+                           <red>255</red>
+                           <green>244</green>
+                           <blue>115</blue>
+                          </color>
+                         </brush>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Гаус</string>
+                        </property>
+                        <property name="background">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="40">
+                           <red>174</red>
+                           <green>200</green>
+                           <blue>255</blue>
+                          </color>
+                         </brush>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                  <widget class="QWidget" name="tab_3">
+                   <attribute name="title">
+                    <string>Адаптивные</string>
+                   </attribute>
+                  </widget>
+                  <widget class="QWidget" name="tab_2">
+                   <attribute name="title">
+                    <string>Анализ</string>
+                   </attribute>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </widget>
          </widget>
         </widget>
        </item>
@@ -71,7 +508,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>711</width>
+     <width>1147</width>
      <height>27</height>
     </rect>
    </property>
@@ -87,18 +524,40 @@
     <property name="title">
      <string>Отчет</string>
     </property>
+    <addaction name="histAction"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
      <string>Помощь</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>Доп. фильтры</string>
+    </property>
+    <addaction name="actionGrayscale"/>
+    <addaction name="invertseAction"/>
+    <addaction name="equalizeAction"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="title">
+     <string>Окна</string>
+    </property>
+    <addaction name="showToolsAction"/>
+    <addaction name="showBrightnessAction"/>
+    <addaction name="showConvolutionAction"/>
+   </widget>
    <addaction name="menu"/>
+   <addaction name="menu_4"/>
    <addaction name="menu_2"/>
+   <addaction name="menu_5"/>
    <addaction name="menu_3"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QDockWidget" name="toolsDock">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="sizePolicy">
     <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
      <horstretch>0</horstretch>
@@ -154,7 +613,7 @@
        <x>0</x>
        <y>0</y>
        <width>251</width>
-       <height>411</height>
+       <height>641</height>
       </rect>
      </property>
      <property name="sizePolicy">
@@ -187,7 +646,7 @@
         <x>0</x>
         <y>0</y>
         <width>251</width>
-        <height>411</height>
+        <height>641</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -208,7 +667,7 @@
          <x>0</x>
          <y>0</y>
          <width>231</width>
-         <height>401</height>
+         <height>641</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -222,8 +681,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>241</width>
-          <height>558</height>
+          <width>275</width>
+          <height>658</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="toolsLayout">
@@ -294,6 +753,9 @@ font-size:12pt;
                <property name="numDigits">
                 <number>3</number>
                </property>
+               <property name="intValue" stdset="0">
+                <number>1</number>
+               </property>
               </widget>
              </item>
              <item>
@@ -319,8 +781,14 @@ font-size:12pt;
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
+               <property name="minimum">
+                <number>1</number>
+               </property>
                <property name="maximum">
                 <number>100</number>
+               </property>
+               <property name="sliderPosition">
+                <number>1</number>
                </property>
                <property name="tracking">
                 <bool>true</bool>
@@ -373,7 +841,7 @@ font-size:12pt;
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>0</height>
+             <height>200</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -410,14 +878,14 @@ font-size:12pt;
                 <property name="sizeConstraint">
                  <enum>QLayout::SetMaximumSize</enum>
                 </property>
-                <item row="0" column="0">
+                <item row="1" column="0">
                  <widget class="QLabel" name="label_6">
                   <property name="text">
                    <string>Белый</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="1">
                  <widget class="QSlider" name="impulseBlackWhiteSlider">
                   <property name="maximum">
                    <number>100</number>
@@ -436,10 +904,29 @@ font-size:12pt;
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="2">
+                <item row="1" column="2">
                  <widget class="QLabel" name="label_7">
                   <property name="text">
                    <string>Черный</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLCDNumber" name="lcdNumber_8">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(218, 218, 218);</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                  <property name="numDigits">
+                   <number>3</number>
+                  </property>
+                  <property name="intValue" stdset="0">
+                   <number>50</number>
                   </property>
                  </widget>
                 </item>
@@ -760,6 +1247,21 @@ font-size:12pt;
                <string>Насыщенность</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string>Y</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>U</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>V</string>
+              </property>
+             </item>
             </widget>
            </item>
           </layout>
@@ -828,28 +1330,584 @@ font-size:12pt;
           </spacer>
          </item>
          <item>
-          <layout class="QFormLayout" name="ticksLayout">
-           <property name="fieldGrowthPolicy">
-            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-           </property>
-           <item row="3" column="0">
+          <layout class="QFormLayout" name="formLayout_9">
+           <item row="0" column="0">
             <widget class="QLabel" name="label">
              <property name="text">
-              <string>Такты на операцию</string>
+              <string>Такты:</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
+           <item row="0" column="1">
             <widget class="QLCDNumber" name="ticks">
+             <property name="styleSheet">
+              <string notr="true">color: white;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(71, 0, 0, 255), stop:1 rgba(180, 0, 0, 255));
+border-radius: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(75, 75, 75, 255), stop:1 rgba(25, 25, 25, 255));
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(75, 75, 75, 255), stop:1 rgba(25, 25, 25, 255));</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
              <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="lineWidth">
+              <number>4</number>
+             </property>
+             <property name="smallDecimalPoint">
+              <bool>false</bool>
+             </property>
+             <property name="numDigits">
+              <number>10</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
              </property>
             </widget>
            </item>
           </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="brightnessDock">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>800</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Коррекция цвета</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <widget class="QScrollArea" name="brightnessScrollArea">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>231</width>
+       <height>631</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="brightnessScrollAreaContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>231</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <widget class="QFrame" name="brightnessFrame">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>221</width>
+         <height>631</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QWidget" name="verticalLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>10</y>
+          <width>232</width>
+          <height>660</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="brightnessLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <layout class="QFormLayout" name="formLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Яркость:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLCDNumber" name="lcdNumber_5">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="smallDecimalPoint">
+              <bool>true</bool>
+             </property>
+             <property name="numDigits">
+              <number>4</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QSlider" name="brightnessSlider">
+           <property name="minimum">
+            <number>-127</number>
+           </property>
+           <property name="maximum">
+            <number>127</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksAbove</enum>
+           </property>
+           <property name="tickInterval">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="formLayout_6">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Контраст:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLCDNumber" name="lcdNumber_6">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="numDigits">
+              <number>4</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QSlider" name="contrastSlider">
+           <property name="minimum">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>200</number>
+           </property>
+           <property name="sliderPosition">
+            <number>100</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="invertedControls">
+            <bool>false</bool>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksAbove</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="formLayout_5">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Степен. корр.:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLCDNumber" name="lcdNumber_7">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="numDigits">
+              <number>3</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QSlider" name="expSlider">
+           <property name="maximum">
+            <number>200</number>
+           </property>
+           <property name="value">
+            <number>100</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksAbove</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="applyBrightnessButton">
+           <property name="text">
+            <string>Применить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="linContrastGroupBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>200</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="title">
+            <string>Линейное контрастирование</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <widget class="QWidget" name="verticalLayoutWidget_6">
+            <property name="geometry">
+             <rect>
+              <x>-1</x>
+              <y>30</y>
+              <width>181</width>
+              <height>165</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="linContrastLayout">
+             <item>
+              <layout class="QFormLayout" name="formLayout_10">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>Минимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdnumber_2">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="linContrastMinSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_11">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_13">
+                 <property name="text">
+                  <string>Максимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdNumber_10">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                 <property name="intValue" stdset="0">
+                  <number>255</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="linContrastMaxSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="value">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="linContrastApplyButton">
+               <property name="text">
+                <string>Применить</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="autolevelsGroupBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>200</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="title">
+            <string>Autolevels</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <widget class="QWidget" name="verticalLayoutWidget_5">
+            <property name="geometry">
+             <rect>
+              <x>-1</x>
+              <y>30</y>
+              <width>181</width>
+              <height>165</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="autolevelsLayout">
+             <item>
+              <layout class="QFormLayout" name="formLayout_7">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_10">
+                 <property name="text">
+                  <string>Минимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdnumber">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="autolevelsMinimumSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_8">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>Максимум:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLCDNumber" name="lcdNumber_9">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="segmentStyle">
+                  <enum>QLCDNumber::Flat</enum>
+                 </property>
+                 <property name="intValue" stdset="0">
+                  <number>255</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="autolevelsMaximumSlider">
+               <property name="maximum">
+                <number>255</number>
+               </property>
+               <property name="value">
+                <number>255</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="autolevelsApplyButton">
+               <property name="text">
+                <string>Применить</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -868,6 +1926,68 @@ font-size:12pt;
     <string>Выход</string>
    </property>
   </action>
+  <action name="actionGrayscale">
+   <property name="text">
+    <string>Grayscale</string>
+   </property>
+  </action>
+  <action name="histAction">
+   <property name="text">
+    <string>Гистограмма канала</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="showToolsAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Панель инструментов</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="showBrightnessAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Коррекция цвета</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="invertseAction">
+   <property name="text">
+    <string>Инверсия цвета</string>
+   </property>
+  </action>
+  <action name="equalizeAction">
+   <property name="text">
+    <string>Эквилизация</string>
+   </property>
+  </action>
+  <action name="showConvolutionAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Фильтрация</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
@@ -879,12 +1999,12 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>286</x>
-     <y>126</y>
+     <x>199</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
-     <x>180</x>
-     <y>121</y>
+     <x>93</x>
+     <y>150</y>
     </hint>
    </hints>
   </connection>
@@ -899,8 +2019,8 @@ font-size:12pt;
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>359</x>
-     <y>324</y>
+     <x>230</x>
+     <y>458</y>
     </hint>
    </hints>
   </connection>
@@ -927,12 +2047,12 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>265</y>
+     <x>126</x>
+     <y>315</y>
     </hint>
     <hint type="destinationlabel">
-     <x>292</x>
-     <y>233</y>
+     <x>256</x>
+     <y>275</y>
     </hint>
    </hints>
   </connection>
@@ -943,12 +2063,12 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>211</x>
-     <y>328</y>
+     <x>121</x>
+     <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>301</x>
-     <y>286</y>
+     <x>231</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -959,12 +2079,236 @@ font-size:12pt;
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>252</y>
+     <x>121</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>223</y>
+     <x>231</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>additMaxMinusSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>additMaxPlusSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>93</x>
+     <y>378</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>additMaxPlusSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>additMaxMinusSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>121</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>brightnessSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_5</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1196</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1195</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>contrastSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_6</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1196</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1195</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>expSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_7</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1196</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1195</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>autolevelsMinimumSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdnumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1145</x>
+     <y>614</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1144</x>
+     <y>579</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>autolevelsMaximumSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_9</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1145</x>
+     <y>679</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1144</x>
+     <y>644</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>impulseBlackWhiteSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_8</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linContrastMinSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdnumber_2</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1145</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1144</x>
+     <y>364</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linContrastMaxSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_10</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1145</x>
+     <y>464</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1144</x>
+     <y>429</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolsDock</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>showToolsAction</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>391</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>brightnessDock</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>showBrightnessAction</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1046</x>
+     <y>391</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filtersDock</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>showConvolutionAction</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>598</x>
+     <y>463</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>twoDClenerDeal</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_11</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>774</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>818</x>
+     <y>427</y>
     </hint>
    </hints>
   </connection>

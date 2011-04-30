@@ -6,7 +6,7 @@
 class HueFilter : public IFilter
 {
 public:
-    QImage Apply(QImage) const;
+    QImage apply(QImage) const;
 };
 
 #endif // HUEFILTER_H

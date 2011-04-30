@@ -3,6 +3,7 @@
 
 #include <QImage>
 #include <QList>
+#include <QTime>
 
 #include "ifilter.h"
 #include "colorspace.h"
@@ -13,25 +14,29 @@ public:
     Model();
     Model(const QImage&);
 
-    QImage GetSourceImage();
-    QImage GetImage();
-    QImage GetChannelImage(Channel::Identifier);
+    QImage getSourceImage();
+    QImage getImage();
+    QImage getChannelImage(Channel::Identifier);
 
-    void   ApplyFilter(IFilter*);
-    void   ApplyFilter(IFilter*, Channel::Identifier);
+    void   applyFilter(IFilter*);
+    void   applyFilter(IFilter*, Channel::Identifier);
 
-    void   SetImage(const QImage&);
-    void   ResetImage();
+    void   setImage(const QImage&, bool replaceSource = false);
+    void   resetImage();
 
-    void   AddColorSpace(ColorSpace cs);
+    void   addColorSpace(ColorSpace cs);
+
+    int getTicks();
 
 protected:
-    ColorSpace*  GetCSByChannel(Channel::Identifier);
+    ColorSpace*  getCSByChannel(Channel::Identifier);
 
-    QHash<ColorSpace::Identifier, ColorSpace> mColorSpaces;
+    QHash<ColorSpace::Identifier, ColorSpace> colorSpaces;
 
-    QImage mSourceImage;
-    QImage mImage;
+    QImage sourceImage;
+    QImage image;
+
+    int ticks;
 };
 
 #endif // MODEL_H

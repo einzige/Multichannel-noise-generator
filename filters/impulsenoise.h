@@ -7,10 +7,10 @@ class ImpulseNoise : public INoise
 {
 public:
     ImpulseNoise(unsigned int rate = 2, unsigned int blackRate = 50);
-    QImage Apply(QImage) const;
+    QImage apply(QImage) const;
 
 private:
-    unsigned int mBlackRate;
+    unsigned int blackRate;
 };
 
 #endif // IMPULSENOISE_H

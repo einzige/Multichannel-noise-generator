@@ -8,28 +8,29 @@
 class ColorSpace
 {
 public:
-    enum Identifier { RGB, HLS };
+    enum Identifier { RGB, HLS, YUV, SMYK, HSV };
 
     ColorSpace();
     ColorSpace(ColorSpace::Identifier);
     ColorSpace(ColorSpace::Identifier, QList<Channel>);
 
-            void   AddChannel(const Channel&);
-            bool   ContainsChannel(Channel::Identifier);
-            QImage GetChannelImage(Channel::Identifier);
-    virtual QImage Restore();
+            void   addChannel(const Channel&);
+            bool   containsChannel(Channel::Identifier);
+            QImage getChannelImage(Channel::Identifier);
+    //virtual
+            QImage restore();
 
-            void   SetInactual();
-            void   SetActual();
-            void   ApplyFilter(IFilter*, Channel::Identifier);
+            void   setInactual();
+            void   setActual();
+            void   applyFilter(IFilter*, Channel::Identifier);
 
-            void   SetImage(const QImage& img);
+            void   setImage(const QImage& img);
 
-            ColorSpace::Identifier GetId();
+            ColorSpace::Identifier getId();
 
 protected:
     QHash<Channel::Identifier, Channel> channels;
-    ColorSpace::Identifier              _id;
+    ColorSpace::Identifier              id;
     bool                                actual;
 };
 

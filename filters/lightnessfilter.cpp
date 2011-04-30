@@ -1,6 +1,6 @@
 #include "lightnessfilter.h"
 
-QImage LightnessFilter::Apply(QImage img) const
+QImage LightnessFilter::apply(QImage img) const
 {
     for (int x = 0; x < img.width(); x++)
         for(int y = 0; y < img.height(); y++)

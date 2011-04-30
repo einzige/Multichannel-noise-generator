@@ -24,7 +24,25 @@ SOURCES += main.cpp \
     ../colorspace.cpp \
     ../colorspaces/rgbcs.cpp \
     ../colorspaces/hlscs.cpp \
-    ../noisepresenter.cpp
+    ../noisepresenter.cpp \
+    ../filters/grayscalefilter.cpp \
+    ../filters/hist.cpp \
+    ../filters/brightnessfilter.cpp \
+    ../filters/contrastfilter.cpp \
+    ../filters/invertfilter.cpp \
+    ../filters/equalize.cpp \
+    ../filters/exp.cpp \
+    ../filters/autolevels.cpp \
+    ../filters/autocontrast.cpp \
+    ../filters/averageconvolution.cpp \
+    ../filters/geometricconvolution.cpp \
+    ../filters/medianconvolution.cpp \
+    ../filters/twodclean.cpp \
+    ../filters/additionalconvolution.cpp \
+    ../colorspaces/yuvcs.cpp \
+    ../filters/yfilter.cpp \
+    ../filters/ufilter.cpp \
+    ../filters/vfilter.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -46,5 +64,23 @@ HEADERS += mainwindow.h \
     ../colorspace.h \
     ../colorspaces/rgbcs.h \
     ../colorspaces/hlscs.h \
-    ../noisepresenter.h
+    ../noisepresenter.h \
+    ../filters/grayscalefilter.h \
+    ../filters/hist.h \
+    ../filters/brightnessfilter.h \
+    ../filters/contrastfilter.h \
+    ../filters/invertfilter.h \
+    ../filters/equalize.h \
+    ../filters/exp.h \
+    ../filters/autolevels.h \
+    ../filters/autocontrast.h \
+    ../filters/averageconvolution.h \
+    ../filters/geometricconvolution.h \
+    ../filters/medianconvolution.h \
+    ../filters/twodclean.h \
+    ../filters/additionalconvolution.h \
+    ../colorspaces/yuvcs.h \
+    ../filters/yfilter.h \
+    ../filters/ufilter.h \
+    ../filters/vfilter.h
 FORMS += mainwindow.ui

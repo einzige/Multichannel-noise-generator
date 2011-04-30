@@ -4,6 +4,7 @@
 #include "model.h"
 #include "colorspaces/rgbcs.h"
 #include "colorspaces/hlscs.h"
+#include "colorspaces/yuvcs.h"
 
 #include "filters/huefilter.h"
 #include "filters/saturationfilter.h"
@@ -16,17 +17,40 @@
 
 class NoiseModel : public Model
 {
+    void init();
 public:
     NoiseModel();
     NoiseModel(const QImage&);
 
     void applyImpulseNoise(int blackRate);
+    void applyAdditionalNoise(int maxDiff);
+    void applyMultiNoise(int coef);
+    void applyGrayscaleFilter();
+    void applyBrightnessFilter(int diff);
+    void applyContrastFilter(int diff);
+    void applyGammaFilter(int diff);
+    void applyInverseFilter();
+    void applyEqualizeFilter();
+    void applyAutoLevelsFilter(int min, int max);
+    void applyAutoContrastFilter(int min, int max);
+    void applyAverageConvolution(const QString &);
+    void applyGeometricConvolution(const QString &);
+    void applyMedianConvolution(const QString &);
+    void applyAdditionalConvolution(const QString &);
+    void apply2DCleaner(const QString& mask, int threshold);
+
+    QImage hist();
+
+    void setRate(int rate);
+    void setFilterOffset(int offset);
+    void setCurrentChannel(Channel::Identifier channel);
 
 protected:
     void reset();
 
-    int                 mRate;
-    Channel::Identifier mCurrentChannel;
+    int rate;
+    int filter_offset;
+    Channel::Identifier currentChannel;
 };
 
 #endif // NOISEMODEL_H

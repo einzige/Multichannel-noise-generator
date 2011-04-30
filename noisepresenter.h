@@ -14,20 +14,41 @@ class NoisePresenter : public QObject
 
 public:
     explicit NoisePresenter(QObject *parent = 0);
-
     void appendView(IView *v);
 
 private:
     void refreshView() const;
     void refreshView(IView* v) const;
 
-    NoiseModel* mModel;
-    QList<IView*> mViewList;
+    NoiseModel* model;
+    QList<IView*> viewList;
 
 public slots:
+    void grayscale();
+    void inverse();
+    void equalize();
+    void setRate(int);
+    void setFilterOffset(int);
     void restoreImage();
-    void applyImpulseFilter(Channel::Identifier, int);
+    void applyImpulseNoise(int);
+    void applyAdditionalNoise(int);
+    void applyBrightnessFilter(int);
+    void applyContrastFilter(int);
+    void applyGamma(int);
+    void applyAutoLevels(int, int);
+    void applyAutoContrast(int, int);
+
+    void applyAverageConvolution(QString);
+    void applyGeometricConvolution(QString);
+    void applyMedianConvolution(QString);
+    void applyAdditionalConvolution(QString);
+
+    void apply2DCleaner(QString, int);
+
+    void applyMultiNoise(int);
     void loadImage(const QImage&);
+    void setChannel(QString channelName);
+    void showHist();
 };
 
 #endif // NOISEPRESENTER_H
