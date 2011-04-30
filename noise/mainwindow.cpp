@@ -33,6 +33,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->brightnessLayout->setMargin(10);
     ui->brightnessScrollAreaContents->setLayout(ui->brightnessLayout);
 
+    ui->filtersDock->setWidget(ui->filtersScrollArea);
+    ui->filtersLayout->setMargin(5);
+    ui->filtersScrollArea->setLayout(ui->filtersLayout);
+
     ui->multiTab->setLayout(ui->multiLayout);
     ui->multiLayout->setMargin(10);
 
@@ -55,10 +59,21 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->showProcessedButton,  SIGNAL(clicked()),         this, SIGNAL(restoreImage()));
     connect(ui->noiseDial,            SIGNAL(valueChanged(int)), this, SIGNAL(rateChanged(int)));
+    connect(ui->filterOffsetBox,      SIGNAL(valueChanged(int)), this, SIGNAL(offsetChanged(int)));
     connect(ui->actionGrayscale,      SIGNAL(triggered()),       this, SIGNAL(grayscale()));
     connect(ui->histAction,           SIGNAL(triggered()),       this, SIGNAL(showHist()));
     connect(ui->invertseAction,       SIGNAL(triggered()),       this, SIGNAL(inverse()));
     connect(ui->equalizeAction,       SIGNAL(triggered()),       this, SIGNAL(equalize()));
+
+    // test
+    connect(ui->showConvolutionAction, SIGNAL(toggled(bool)), ui->filtersDock, SLOT(setShown(bool)));
+
+    ui->collectionsTab->setLayout(ui->collectionsLayout);
+    ui->collectionsLayout->setMargin(5);
+
+    this->resize(1000, 600);
+    this->move(50, 50);
+    this->raise();
 }
 
 MainWindow::~MainWindow()
@@ -80,7 +95,7 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::loadImage()
 {
-    QString file_name = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath());
+    QString file_name = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath(), "Images(*.png *.jpg *.bmp)");
 
     if ( ! file_name.isEmpty())
     {
@@ -147,4 +162,70 @@ void MainWindow::setTicks(int ticks) {
 void MainWindow::on_linContrastApplyButton_clicked()
 {
     emit applyAutoContrast(ui->linContrastMinSlider->value(), ui->linContrastMaxSlider->value());
+}
+
+void MainWindow::on_applyFilterButton_clicked()
+{
+    QString mask = ui->filterTextEdit->toPlainText();
+
+    if (mask.trimmed().isEmpty()) return;
+
+    if(ui->filterTypeCombo->currentText() == "Среднее арифметическое")
+    {
+        emit applyAverageConvolution(mask);
+    }
+    else if(ui->filterTypeCombo->currentText() == "Среднее геометрическое")
+    {
+        emit applyGeometricConvolution(mask);
+    }
+    else if(ui->filterTypeCombo->currentText() == "Дополняющий изображение")
+    {
+        emit applyAdditionalConvolution(mask);
+    }
+    else
+    {
+        emit applyMedianConvolution(mask);
+    }
+}
+
+void MainWindow::on_collectionsList_currentTextChanged(QString currentText)
+{
+    if(currentText == "Лапласиан №2")
+    {
+        ui->filterTextEdit->setPlainText("1\t-2\t1");
+        ui->filterTypeCombo->setCurrentIndex(3);
+        ui->filterOffsetBox->setValue(0);
+    }
+    else if (currentText == "Лапласиан №1")
+    {
+        ui->filterTextEdit->setPlainText(QString("0\t1\t0\n") +
+                                         QString("1\t-4\t1\n") +
+                                         QString("0\t1\t0"));
+        ui->filterTypeCombo->setCurrentIndex(3);
+        ui->filterOffsetBox->setValue(0);
+    }
+    else if (currentText == "Инвертирование")
+    {
+        ui->filterTextEdit->setPlainText(QString("0\t0\t0\n") +
+                                         QString("0\t-1\t0\n") +
+                                         QString("0\t0\t0"));
+        ui->filterTypeCombo->setCurrentIndex(0);
+        ui->filterOffsetBox->setValue(255);
+    }
+    else if (currentText == "Гаус")
+    {
+        ui->filterTextEdit->setPlainText(QString("1\t2\t3\t2\t1\n") +
+                                         QString("2\t3\t4\t3\t2\n") +
+                                         QString("3\t4\t5\t4\t3\n") +
+                                         QString("2\t3\t4\t3\t2\n") +
+                                         QString("1\t2\t3\t2\t1"));
+        ui->filterTypeCombo->setCurrentIndex(0);
+        ui->filterOffsetBox->setValue(0);
+    }
+}
+
+
+void MainWindow::on_twoDCleanerButton_clicked()
+{
+   emit this->apply2DCleaner(ui->filterTextEdit->toPlainText(), ui->twoDClenerDeal->value());
 }
