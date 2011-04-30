@@ -8,7 +8,7 @@
 class ColorSpace
 {
 public:
-    enum Identifier { RGB, HLS };
+    enum Identifier { RGB, HLS, YUV, SMYK, HSV };
 
     ColorSpace();
     ColorSpace(ColorSpace::Identifier);

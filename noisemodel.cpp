@@ -1,4 +1,5 @@
 #include "noisemodel.h"
+
 #include "filters/impulsenoise.h"
 #include "filters/additivenoise.h"
 #include "filters/multinoise.h"
@@ -11,6 +12,11 @@
 #include "filters/exp.h"
 #include "filters/autolevels.h"
 #include "filters/autocontrast.h"
+#include "filters/averageconvolution.h"
+#include "filters/geometricconvolution.h"
+#include "filters/medianconvolution.h"
+#include "filters/twodclean.h"
+#include "filters/additionalconvolution.h"
 
 #include <QDebug>
 
@@ -18,23 +24,27 @@ void NoiseModel::reset()
 {
     currentChannel = Channel::UNDEFINED;
     rate  = 1;
+    filter_offset = 0;
+}
+
+void NoiseModel::init()
+{
+    reset();
+    addColorSpace(RGBCS());
+    addColorSpace(HSLCS());
+    //addColorSpace(YUVCS());
 }
 
 NoiseModel::NoiseModel() : Model()
 {
-    reset();
-    addColorSpace(RGBCS());
-    addColorSpace(HLSCS());
+    init();
 }
 
 // FIXME to call parent class Model
 //
 NoiseModel::NoiseModel(const QImage &img)
 {
-    reset();
-    addColorSpace(RGBCS());
-    addColorSpace(HLSCS());
-
+    init();
     setImage(img);
 }
 
@@ -59,6 +69,10 @@ void NoiseModel::applyMultiNoise(int coef)
 
 void NoiseModel::setRate(int rate) {
     this->rate = rate;
+}
+
+void NoiseModel::setFilterOffset(int offset){
+    this->filter_offset = offset;
 }
 
 void NoiseModel::setCurrentChannel(Channel::Identifier channel) {
@@ -112,6 +126,48 @@ void NoiseModel::applyAutoContrastFilter(int min, int max)
 {
     AutoContrast *f = new AutoContrast(min, max);
     applyFilter(f, this->currentChannel);
+}
+
+void NoiseModel::applyAverageConvolution(const QString &s)
+{
+    AverageConvolution f = AverageConvolution::fromStr(s);
+    f.setOffset(this->filter_offset);
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::applyGeometricConvolution(const QString &s)
+{
+    qDebug() << "NoiseMode::applying geo convolution";
+    GeometricConvolution f = GeometricConvolution::fromStr(s);
+    f.setOffset(this->filter_offset);
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::applyMedianConvolution(const QString &s)
+{
+    qDebug() << "NoiseMode::applying median convolution";
+    MedianConvolution f = MedianConvolution::fromStr(s);
+    f.setOffset(this->filter_offset);
+    qDebug() << "Before apply_filter";
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::applyAdditionalConvolution(const QString &s)
+{
+    qDebug() << "NoiseModel::applying additional convolution";
+    AdditionalConvolution f = AdditionalConvolution::fromStr(s);
+    f.setOffset(this->filter_offset);;
+    applyFilter(&f, this->currentChannel);
+}
+
+void NoiseModel::apply2DCleaner(const QString &mask, int threshold){
+    TwoDClean f = TwoDClean::fromStr(mask);
+    f.setOffset(this->filter_offset);
+    f.setThreshold(threshold);
+
+    qDebug() << threshold << " = THRESHOLD";
+
+    applyFilter(&f, this->currentChannel);
 }
 
 QImage NoiseModel::hist()

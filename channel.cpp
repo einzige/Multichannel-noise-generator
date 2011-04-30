@@ -43,12 +43,18 @@ void Channel::applyFilter(IFilter *f)
 }
 
 Channel::Identifier Channel::getChannelByName(const QString &name) {
-    if(name == "Красный")      return Channel::R;
-    if(name == "Зеленый")      return Channel::G;
-    if(name == "Синий")        return Channel::B;
-    if(name == "Оттенок")      return Channel::H;
-    if(name == "Насыщенность") return Channel::S;
-    if(name == "Светлость")    return Channel::L;
+    if(name == "Красный")      return Channel::RGB_R;
+    if(name == "Зеленый")      return Channel::RGB_G;
+    if(name == "Синий")        return Channel::RGB_B;
+    if(name == "Оттенок")      return Channel::HSL_H;
+    if(name == "Насыщенность") return Channel::HSL_S;
+    if(name == "Светлость")    return Channel::HSL_L;
+    /*if(name == "Y")            return Channel::YUV_Y;
+    if(name == "U")            return Channel::YUV_U;
+    if(name == "V")            return Channel::YUV_V;
+    if(name == "M")            return Channel::CMYK_M;
+    if(name == "K")            return Channel::SMYK_K;
+    if(name == "C")            return Channel::CMYK_C;*/
 
     return Channel::UNDEFINED;
 }

@@ -2,16 +2,16 @@
 
 RGBCS::RGBCS(ColorSpace::Identifier id) : ColorSpace(id)
 {
-    addChannel(Channel(Channel::R, new RedFilter()));
-    addChannel(Channel(Channel::G, new GreenFilter()));
-    addChannel(Channel(Channel::B, new BlueFilter()));
+    addChannel(Channel(Channel::RGB_R, new RedFilter()));
+    addChannel(Channel(Channel::RGB_G, new GreenFilter()));
+    addChannel(Channel(Channel::RGB_B, new BlueFilter()));
 }
 
 QImage RGBCS::restore()
 {
-    QImage r(channels[Channel::R].getImage());
-    QImage g(channels[Channel::G].getImage());
-    QImage b(channels[Channel::B].getImage());
+    QImage r(channels[Channel::RGB_R].getImage());
+    QImage g(channels[Channel::RGB_G].getImage());
+    QImage b(channels[Channel::RGB_B].getImage());
 
     int w    = r.width();
     int h    = r.height();

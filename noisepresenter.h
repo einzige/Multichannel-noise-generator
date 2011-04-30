@@ -28,6 +28,7 @@ public slots:
     void inverse();
     void equalize();
     void setRate(int);
+    void setFilterOffset(int);
     void restoreImage();
     void applyImpulseNoise(int);
     void applyAdditionalNoise(int);
@@ -36,6 +37,13 @@ public slots:
     void applyGamma(int);
     void applyAutoLevels(int, int);
     void applyAutoContrast(int, int);
+
+    void applyAverageConvolution(QString);
+    void applyGeometricConvolution(QString);
+    void applyMedianConvolution(QString);
+    void applyAdditionalConvolution(QString);
+
+    void apply2DCleaner(QString, int);
 
     void applyMultiNoise(int);
     void loadImage(const QImage&);

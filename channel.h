@@ -7,8 +7,11 @@
 class Channel
 {
 public:
-    enum Identifier { R=0, G, B,
-                      H,   S, L,
+    enum Identifier { RGB_R=0, RGB_G,  RGB_B,
+                      HSL_H,   HSL_S,  HSL_L,
+                      HSV_H,   HSV_S,  HSV_V,
+                      YUV_Y,   YUV_U,  YUV_V,
+                      CMYK_C,  CMYK_M, SMYK_Y, SMYK_K,
                       UNDEFINED };
 
     Channel();

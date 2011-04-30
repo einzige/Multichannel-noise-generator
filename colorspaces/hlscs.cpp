@@ -1,17 +1,17 @@
 #include "hlscs.h"
 
-HLSCS::HLSCS(ColorSpace::Identifier id) : ColorSpace(id)
+HSLCS::HSLCS(ColorSpace::Identifier id) : ColorSpace(id)
 {
-    addChannel(Channel(Channel::H, new HueFilter()));
-    addChannel(Channel(Channel::L, new LightnessFilter()));
-    addChannel(Channel(Channel::S, new SaturationFilter()));
+    addChannel(Channel(Channel::HSL_H, new HueFilter()));
+    addChannel(Channel(Channel::HSL_L, new LightnessFilter()));
+    addChannel(Channel(Channel::HSL_S, new SaturationFilter()));
 }
 
-QImage HLSCS::restore()
+QImage HSLCS::restore()
 {
-    QImage h(channels[Channel::H].getImage());
-    QImage l(channels[Channel::L].getImage());
-    QImage s(channels[Channel::S].getImage());
+    QImage h(channels[Channel::HSL_H].getImage());
+    QImage l(channels[Channel::HSL_L].getImage());
+    QImage s(channels[Channel::HSL_S].getImage());
 
     int w    = h.width();
     int hh   = h.height();

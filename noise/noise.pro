@@ -33,7 +33,16 @@ SOURCES += main.cpp \
     ../filters/equalize.cpp \
     ../filters/exp.cpp \
     ../filters/autolevels.cpp \
-    ../filters/autocontrast.cpp
+    ../filters/autocontrast.cpp \
+    ../filters/averageconvolution.cpp \
+    ../filters/geometricconvolution.cpp \
+    ../filters/medianconvolution.cpp \
+    ../filters/twodclean.cpp \
+    ../filters/additionalconvolution.cpp \
+    ../colorspaces/yuvcs.cpp \
+    ../filters/yfilter.cpp \
+    ../filters/ufilter.cpp \
+    ../filters/vfilter.cpp
 HEADERS += mainwindow.h \
     ../IView.h \
     ../model.h \
@@ -64,5 +73,14 @@ HEADERS += mainwindow.h \
     ../filters/equalize.h \
     ../filters/exp.h \
     ../filters/autolevels.h \
-    ../filters/autocontrast.h
+    ../filters/autocontrast.h \
+    ../filters/averageconvolution.h \
+    ../filters/geometricconvolution.h \
+    ../filters/medianconvolution.h \
+    ../filters/twodclean.h \
+    ../filters/additionalconvolution.h \
+    ../colorspaces/yuvcs.h \
+    ../filters/yfilter.h \
+    ../filters/ufilter.h \
+    ../filters/vfilter.h
 FORMS += mainwindow.ui

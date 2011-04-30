@@ -74,6 +74,9 @@ void NoisePresenter::appendView(IView *v)
     QObject::connect(view_obj, SIGNAL(rateChanged(int)),
                      this,       SLOT(setRate(int)));
 
+    QObject::connect(view_obj, SIGNAL(offsetChanged(int)),
+                     this,       SLOT(setFilterOffset(int)));
+
     QObject::connect(view_obj, SIGNAL(applyImpulseNoise(int)),
                      this,       SLOT(applyImpulseNoise(int)));
 
@@ -97,6 +100,62 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(applyAutoContrast(int, int)),
                      this,       SLOT(applyAutoContrast(int, int)));
+
+    // lab #3
+    QObject::connect(view_obj, SIGNAL(applyAverageConvolution(QString)),
+                     this,       SLOT(applyAverageConvolution(QString)));
+
+    QObject::connect(view_obj, SIGNAL(applyGeometricConvolution(QString)),
+                     this,       SLOT(applyGeometricConvolution(QString)));
+
+    QObject::connect(view_obj, SIGNAL(applyMedianConvolution(QString)),
+                     this,       SLOT(applyMedianConvolution(QString)));
+
+    QObject::connect(view_obj, SIGNAL(applyAdditionalConvolution(QString)),
+                     this,       SLOT(applyAdditionalConvolution(QString)));
+
+    QObject::connect(view_obj, SIGNAL(apply2DCleaner(QString,int)),
+                     this,       SLOT(apply2DCleaner(QString,int)));
+}
+
+void NoisePresenter::apply2DCleaner(QString mask, int threshold)
+{
+    qDebug() << "2D cleaner run";
+    model->apply2DCleaner(mask, threshold);
+    refreshView();
+}
+
+void NoisePresenter::applyMedianConvolution(QString s)
+{
+    qDebug() << "median";
+    model->applyMedianConvolution(s);
+    refreshView();
+}
+
+void NoisePresenter::setFilterOffset(int o)
+{
+    model->setFilterOffset(o);
+}
+
+void NoisePresenter::applyAdditionalConvolution(QString s)
+{
+    qDebug() << "additional convolution requested";
+    model->applyAdditionalConvolution(s);
+    refreshView();
+}
+
+void NoisePresenter::applyAverageConvolution(QString s)
+{
+    qDebug() << "average";
+    model->applyAverageConvolution(s);
+    refreshView();
+}
+
+void NoisePresenter::applyGeometricConvolution(QString s)
+{
+    qDebug() << "geometric";
+    model->applyGeometricConvolution(s);
+    refreshView();
 }
 
 void NoisePresenter::applyAutoLevels(int min, int max) {
