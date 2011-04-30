@@ -1247,6 +1247,21 @@ font-size:12pt;
                <string>Насыщенность</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string>Y</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>U</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>V</string>
+              </property>
+             </item>
             </widget>
            </item>
           </layout>

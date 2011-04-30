@@ -27,21 +27,24 @@ void NoiseModel::reset()
     filter_offset = 0;
 }
 
-NoiseModel::NoiseModel() : Model()
+void NoiseModel::init()
 {
     reset();
     addColorSpace(RGBCS());
     addColorSpace(HSLCS());
+    //addColorSpace(YUVCS());
+}
+
+NoiseModel::NoiseModel() : Model()
+{
+    init();
 }
 
 // FIXME to call parent class Model
 //
 NoiseModel::NoiseModel(const QImage &img)
 {
-    reset();
-    addColorSpace(RGBCS());
-    addColorSpace(HSLCS());
-
+    init();
     setImage(img);
 }
 

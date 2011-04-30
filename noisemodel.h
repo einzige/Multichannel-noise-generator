@@ -4,6 +4,7 @@
 #include "model.h"
 #include "colorspaces/rgbcs.h"
 #include "colorspaces/hlscs.h"
+#include "colorspaces/yuvcs.h"
 
 #include "filters/huefilter.h"
 #include "filters/saturationfilter.h"
@@ -16,6 +17,7 @@
 
 class NoiseModel : public Model
 {
+    void init();
 public:
     NoiseModel();
     NoiseModel(const QImage&);
