@@ -116,6 +116,24 @@ void NoisePresenter::appendView(IView *v)
 
     QObject::connect(view_obj, SIGNAL(apply2DCleaner(QString,int)),
                      this,       SLOT(apply2DCleaner(QString,int)));
+
+    QObject::connect(view_obj, SIGNAL(calcMSAD()),
+                     this,       SLOT(calcMSAD()));
+
+    QObject::connect(view_obj, SIGNAL(calcDelta()),
+                     this,       SLOT(calcDelta()));
+}
+
+void NoisePresenter::calcDelta() {
+    qDebug() << "Calc Delta";
+    model->recalcDelta();
+    refreshView();
+}
+
+void NoisePresenter::calcMSAD() {
+    qDebug() << "Calc MSAD";
+    model->recalcMSAD();
+    refreshView();
 }
 
 void NoisePresenter::apply2DCleaner(QString mask, int threshold)
@@ -225,6 +243,8 @@ void NoisePresenter::loadImage(const QImage &img)
 void NoisePresenter::refreshView(IView *v) const {
     v->displayImage(model->getImage());
     v->setTicks(model->getTicks());
+    v->setMSAD(model->getMSAD());
+    v->setDELTA(model->getDelta());
 }
 
 void NoisePresenter::refreshView() const

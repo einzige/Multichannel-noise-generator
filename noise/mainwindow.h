@@ -39,11 +39,15 @@ signals:
     void applyMedianConvolution(QString mask);
     void applyAdditionalConvolution(QString mask);
     void apply2DCleaner(QString mask, int threshold);
+    void calcMSAD();
+    void calcDelta();
 
 public slots:
     void loadImage();
     void displayImage(const QImage &img);
     void setTicks(int ticks);
+    void setDELTA(float delta);
+    void setMSAD(float msad);
 
 protected:
     void changeEvent(QEvent *e);
@@ -64,6 +68,8 @@ private slots:
     void on_applyFilterButton_clicked();
     void on_collectionsList_currentTextChanged(QString currentText);
     void on_twoDCleanerButton_clicked();
+    void on_msadButton_clicked();
+    void on_deltaButton_clicked();
 };
 
 #endif // MAINWINDOW_H

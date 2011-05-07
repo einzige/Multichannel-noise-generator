@@ -44,10 +44,20 @@ public:
     void setRate(int rate);
     void setFilterOffset(int offset);
     void setCurrentChannel(Channel::Identifier channel);
+    void setDelta(float);
+    void setMSAD(float);
+
+    float getDelta();
+    float getMSAD();
+
+    float recalcDelta();
+    float recalcMSAD();
 
 protected:
     void reset();
 
+    float msad;
+    float delta;
     int rate;
     int filter_offset;
     Channel::Identifier currentChannel;
