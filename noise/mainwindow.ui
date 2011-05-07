@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1147</width>
+    <width>1345</width>
     <height>778</height>
    </rect>
   </property>
@@ -28,7 +28,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>701</width>
+      <width>851</width>
       <height>568</height>
      </rect>
     </property>
@@ -57,7 +57,7 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>668</width>
+            <width>818</width>
             <height>294</height>
            </rect>
           </property>
@@ -108,7 +108,7 @@
             <rect>
              <x>10</x>
              <y>0</y>
-             <width>661</width>
+             <width>791</width>
              <height>211</height>
             </rect>
            </property>
@@ -123,7 +123,7 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>655</width>
+              <width>785</width>
               <height>205</height>
              </rect>
             </property>
@@ -132,7 +132,7 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>680</width>
+               <width>781</width>
                <height>201</height>
               </rect>
              </property>
@@ -280,7 +280,7 @@ color: gray;</string>
                    <enum>QTabWidget::North</enum>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="collectionsTab">
                    <attribute name="title">
@@ -291,7 +291,7 @@ color: gray;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>191</width>
+                      <width>311</width>
                       <height>161</height>
                      </rect>
                     </property>
@@ -477,15 +477,78 @@ background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.506, y2:0, st
                     </layout>
                    </widget>
                   </widget>
-                  <widget class="QWidget" name="tab_3">
-                   <attribute name="title">
-                    <string>Адаптивные</string>
-                   </attribute>
-                  </widget>
-                  <widget class="QWidget" name="tab_2">
+                  <widget class="QWidget" name="analysisTab">
                    <attribute name="title">
                     <string>Анализ</string>
                    </attribute>
+                   <widget class="QWidget" name="formLayoutWidget">
+                    <property name="geometry">
+                     <rect>
+                      <x>10</x>
+                      <y>10</y>
+                      <width>291</width>
+                      <height>141</height>
+                     </rect>
+                    </property>
+                    <layout class="QFormLayout" name="analysisLayout">
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_16">
+                       <property name="text">
+                        <string>MSAD</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <layout class="QHBoxLayout" name="horizontalLayout_4">
+                       <item>
+                        <widget class="QLCDNumber" name="msadLcd">
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::Panel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Sunken</enum>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="msadButton">
+                         <property name="text">
+                          <string>рассчитать</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_17">
+                       <property name="text">
+                        <string>Delta</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <layout class="QHBoxLayout" name="horizontalLayout_5">
+                       <item>
+                        <widget class="QLCDNumber" name="deltaLcd">
+                         <property name="frameShape">
+                          <enum>QFrame::Panel</enum>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="deltaButton">
+                         <property name="text">
+                          <string>рассчитать</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
                   </widget>
                  </widget>
                 </item>
@@ -508,7 +571,7 @@ background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.506, y2:0, st
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1147</width>
+     <width>1345</width>
      <height>27</height>
     </rect>
    </property>
