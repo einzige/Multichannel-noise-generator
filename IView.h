@@ -16,6 +16,9 @@ public: // signals
     //virtual void ChangeChannel() = 0;
     virtual void imageLoaded(const QImage& img) = 0;
 
+    virtual void setMSAD(float msad) = 0;
+    virtual void setDELTA(float delta) = 0;
+
 public: // slots
     //virtual void SetLastOperationTicks(int ticks) = 0;
     virtual void displayImage(const QImage& img) = 0;

@@ -49,6 +49,9 @@ public slots:
     void loadImage(const QImage&);
     void setChannel(QString channelName);
     void showHist();
+
+    void calcMSAD();
+    void calcDelta();
 };
 
 #endif // NOISEPRESENTER_H
