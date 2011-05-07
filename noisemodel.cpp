@@ -20,11 +20,60 @@
 
 #include <QDebug>
 
+#include "math.h"
+using namespace std;
+
+
 void NoiseModel::reset()
 {
     currentChannel = Channel::UNDEFINED;
     rate  = 1;
     filter_offset = 0;
+    msad = 0;
+    delta = 0;
+}
+
+void NoiseModel::setMSAD(float m) {
+    msad = m;
+}
+
+void NoiseModel::setDelta(float d) {
+    delta = d;
+}
+
+float NoiseModel::getDelta() {
+    return delta;
+}
+
+float NoiseModel::getMSAD() {
+    return msad;
+}
+
+float NoiseModel::recalcDelta() {
+    float w = this->sourceImage.width();
+    float h = this->sourceImage.height();
+
+    float sum = 0;
+    for(int x = 0; x < w; x++)
+        for(int y = 0; y < h; y++)
+            sum += QColor(image.pixel(x,y)).lightness() - QColor(sourceImage.pixel(x,y)).lightness();
+
+    delta = sum / (w * h);
+
+    return delta;
+}
+
+float NoiseModel::recalcMSAD() {
+    float w = this->sourceImage.width();
+    float h = this->sourceImage.height();
+
+    float sum = 0;
+    for(int x = 0; x < w; x++)
+        for(int y = 0; y < h; y++)
+            sum += fabs(QColor(image.pixel(x,y)).lightness() - QColor(sourceImage.pixel(x,y)).lightness());
+
+    msad = sum / (w * h);
+    return msad;
 }
 
 void NoiseModel::init()

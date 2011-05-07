@@ -46,6 +46,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->impulseTab->setLayout(ui->impulseLayout);
     ui->impulseLayout->setMargin(10);
 
+    ui->analysisTab->setLayout(ui->analysisLayout);
+    ui->analysisLayout->setMargin(10);
+
     ui->autolevelsGroupBox->setLayout(ui->autolevelsLayout);
     ui->linContrastGroupBox->setLayout(ui->linContrastLayout);
     //ui->autolevelsLayout->setMargin(5);
@@ -159,6 +162,14 @@ void MainWindow::setTicks(int ticks) {
     ui->ticks->display(ticks);
 }
 
+void MainWindow::setDELTA(float delta) {
+    ui->deltaLcd->display(delta);
+}
+
+void MainWindow::setMSAD(float msad) {
+    ui->msadLcd->display(msad);
+}
+
 void MainWindow::on_linContrastApplyButton_clicked()
 {
     emit applyAutoContrast(ui->linContrastMinSlider->value(), ui->linContrastMaxSlider->value());
@@ -228,4 +239,14 @@ void MainWindow::on_collectionsList_currentTextChanged(QString currentText)
 void MainWindow::on_twoDCleanerButton_clicked()
 {
    emit this->apply2DCleaner(ui->filterTextEdit->toPlainText(), ui->twoDClenerDeal->value());
+}
+
+void MainWindow::on_msadButton_clicked()
+{
+   emit this->calcMSAD();
+}
+
+void MainWindow::on_deltaButton_clicked()
+{
+   emit this->calcDelta();
 }
